@@ -35,12 +35,17 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             splitContainer1 = new SplitContainer();
+            panel3 = new Panel();
+            listBox2 = new ListBox();
+            label14 = new Label();
+            textBox1 = new TextBox();
+            label15 = new Label();
             button3 = new Button();
             button2 = new Button();
-            panel3 = new Panel();
             panel2 = new Panel();
             label3 = new Label();
             panel4 = new Panel();
+            button5 = new Button();
             panel5 = new Panel();
             radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
@@ -64,7 +69,6 @@
             label4 = new Label();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
-            button5 = new Button();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -72,6 +76,7 @@
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            panel3.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
@@ -152,9 +157,9 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = Color.DarkGray;
+            splitContainer1.Panel1.Controls.Add(panel3);
             splitContainer1.Panel1.Controls.Add(button3);
             splitContainer1.Panel1.Controls.Add(button2);
-            splitContainer1.Panel1.Controls.Add(panel3);
             splitContainer1.Panel1.Controls.Add(panel2);
             // 
             // splitContainer1.Panel2
@@ -166,9 +171,61 @@
             splitContainer1.SplitterDistance = 228;
             splitContainer1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Silver;
+            panel3.Controls.Add(listBox2);
+            panel3.Controls.Add(label14);
+            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(label15);
+            panel3.Location = new Point(14, 37);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(200, 275);
+            panel3.TabIndex = 4;
+            // 
+            // listBox2
+            // 
+            listBox2.Font = new Font("Segoe UI", 11F);
+            listBox2.FormattingEnabled = true;
+            listBox2.Items.AddRange(new object[] { "Паста с грибами", "Луковый суп", "Творожная запеканка" });
+            listBox2.Location = new Point(11, 9);
+            listBox2.Name = "listBox2";
+            listBox2.ScrollAlwaysVisible = true;
+            listBox2.Size = new Size(176, 204);
+            listBox2.TabIndex = 2;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(11, 223);
+            label14.Name = "label14";
+            label14.Size = new Size(91, 15);
+            label14.TabIndex = 1;
+            label14.Text = "всего рецептов";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 12F);
+            textBox1.Location = new Point(11, 239);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(176, 29);
+            textBox1.TabIndex = 0;
+            textBox1.Text = "57";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 13F);
+            label15.Location = new Point(24, 197);
+            label15.Name = "label15";
+            label15.Size = new Size(152, 25);
+            label15.TabIndex = 9;
+            label15.Text = "____________________";
+            // 
             // button3
             // 
-            button3.Location = new Point(25, 343);
+            button3.Location = new Point(25, 349);
             button3.Name = "button3";
             button3.Size = new Size(176, 24);
             button3.TabIndex = 3;
@@ -177,20 +234,12 @@
             // 
             // button2
             // 
-            button2.Location = new Point(25, 310);
+            button2.Location = new Point(25, 318);
             button2.Name = "button2";
             button2.Size = new Size(176, 27);
             button2.TabIndex = 2;
             button2.Text = "новый рецепт";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Gray;
-            panel3.Location = new Point(14, 37);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(200, 267);
-            panel3.TabIndex = 1;
             // 
             // panel2
             // 
@@ -228,6 +277,15 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(505, 361);
             panel4.TabIndex = 3;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(281, 333);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 8;
+            button5.Text = "сохранить";
+            button5.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -461,15 +519,6 @@
             tabPage3.Text = "Управление ингредиентами";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button5
-            // 
-            button5.Location = new Point(281, 331);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 8;
-            button5.Text = "сохранить";
-            button5.UseVisualStyleBackColor = true;
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -488,6 +537,8 @@
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel4.ResumeLayout(false);
@@ -516,7 +567,6 @@
         private Label label3;
         private Button button3;
         private Button button2;
-        private Panel panel3;
         private Label label4;
         private Panel panel4;
         private Panel panel5;
@@ -540,5 +590,10 @@
         private Label label13;
         private Button button4;
         private Button button5;
+        private Panel panel3;
+        private Label label14;
+        private TextBox textBox1;
+        private ListBox listBox2;
+        private Label label15;
     }
 }

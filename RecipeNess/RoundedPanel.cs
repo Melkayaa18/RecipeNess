@@ -85,31 +85,65 @@ namespace RecipeNess.Components
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            // Включаем сглаживание для плавных краёв
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (var path = GetRoundedRectanglePath(ClientRectangle, cornerRadius))
+
+            Rectangle rect = ClientRectangle;
+
+            // Путь для фона (на всю панель)
+            using (var backgroundPath = GetRoundedRectanglePath(rect, cornerRadius))
             {
-                // Заливка цветом BackColor
+                // Заливка фона
                 using (var brush = new SolidBrush(BackColor))
                 {
-                    e.Graphics.FillPath(brush, path);
+                    e.Graphics.FillPath(brush, backgroundPath);
                 }
 
-                // Рисуем границу, если она не прозрачная
+                // Рисуем границу, если она задана
                 if (borderColor != Color.Transparent && borderWidth > 0)
                 {
-                    using (var pen = new Pen(borderColor, borderWidth))
+                    // Вычисляем смещение внутрь на половину толщины пера
+                    float offset = borderWidth / 2f;
+                    RectangleF innerRect = RectangleF.Inflate(rect, -offset, -offset);
+
+                    // Проверяем, что внутренний прямоугольник не вырожден
+                    if (innerRect.Width > 0 && innerRect.Height > 0)
                     {
-                        e.Graphics.DrawPath(pen, path);
+                        // Для границы используем путь, уменьшенный на offset
+                        // Радиус тоже уменьшаем, чтобы скругление соответствовало
+                        int innerRadius = Math.Max(0, cornerRadius - (int)offset);
+                        using (var borderPath = GetRoundedRectanglePath(innerRect, innerRadius))
+                        {
+                            // Сохраняем текущий режим сглаживания
+                            var smoothing = e.Graphics.SmoothingMode;
+                            e.Graphics.SmoothingMode = SmoothingMode.None; // Отключаем для чёткой линии
+
+                            using (var pen = new Pen(borderColor, borderWidth))
+                            {
+                                pen.LineJoin = LineJoin.Round;
+                                e.Graphics.DrawPath(pen, borderPath);
+                            }
+
+                            e.Graphics.SmoothingMode = smoothing; // Восстанавливаем
+                        }
                     }
                 }
             }
+
             base.OnPaint(e); // Отрисовка дочерних элементов
         }
 
+        // Перегрузка для Rectangle (целочисленные координаты) — используется для региона
         private GraphicsPath GetRoundedRectanglePath(Rectangle rect, int radius)
         {
+            return GetRoundedRectanglePath(new RectangleF(rect.X, rect.Y, rect.Width, rect.Height), radius);
+        }
+
+        // Основной метод для RectangleF (точные координаты)
+        private GraphicsPath GetRoundedRectanglePath(RectangleF rect, int radius)
+        {
             GraphicsPath path = new GraphicsPath();
-            int r = Math.Min(radius, Math.Min(rect.Width, rect.Height) / 2);
+            float r = Math.Min(radius, Math.Min(rect.Width, rect.Height) / 2);
             if (r <= 0)
             {
                 path.AddRectangle(rect);
