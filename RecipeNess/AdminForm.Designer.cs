@@ -68,7 +68,38 @@
             button4 = new Button();
             label4 = new Label();
             tabPage2 = new TabPage();
+            splitContainer2 = new SplitContainer();
+            listBox3 = new ListBox();
+            panel7 = new Panel();
+            textBox2 = new TextBox();
+            button7 = new Button();
+            button6 = new Button();
+            label23 = new Label();
+            label22 = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            pictureBox2 = new PictureBox();
+            textBox8 = new TextBox();
+            textBox7 = new TextBox();
+            textBox6 = new TextBox();
+            listBox4 = new ListBox();
+            label17 = new Label();
+            label16 = new Label();
+            textBox5 = new TextBox();
+            textBox4 = new TextBox();
+            label20 = new Label();
+            label21 = new Label();
             tabPage3 = new TabPage();
+            panel8 = new Panel();
+            button9 = new Button();
+            textBox9 = new TextBox();
+            textBox10 = new TextBox();
+            label24 = new Label();
+            label25 = new Label();
+            label26 = new Label();
+            listBox5 = new ListBox();
+            comboBox2 = new ComboBox();
+            label27 = new Label();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -83,6 +114,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             panel6.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+            splitContainer2.Panel1.SuspendLayout();
+            splitContainer2.Panel2.SuspendLayout();
+            splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            tabPage3.SuspendLayout();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -273,14 +312,14 @@
             panel4.Controls.Add(listBox1);
             panel4.Controls.Add(panel6);
             panel4.Controls.Add(button4);
-            panel4.Location = new Point(18, 24);
+            panel4.Location = new Point(12, 24);
             panel4.Name = "panel4";
-            panel4.Size = new Size(505, 361);
+            panel4.Size = new Size(531, 361);
             panel4.TabIndex = 3;
             // 
             // button5
             // 
-            button5.Location = new Point(281, 333);
+            button5.Location = new Point(301, 334);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
             button5.TabIndex = 8;
@@ -293,9 +332,9 @@
             panel5.Controls.Add(radioButton3);
             panel5.Controls.Add(radioButton2);
             panel5.Controls.Add(radioButton1);
-            panel5.Location = new Point(145, 160);
+            panel5.Location = new Point(154, 162);
             panel5.Name = "panel5";
-            panel5.Size = new Size(185, 91);
+            panel5.Size = new Size(153, 91);
             panel5.TabIndex = 6;
             // 
             // radioButton3
@@ -346,7 +385,7 @@
             // 
             pictureBox1.Location = new Point(336, 137);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(152, 116);
+            pictureBox1.Size = new Size(183, 116);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
@@ -356,7 +395,7 @@
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.ScrollBars = ScrollBars.Vertical;
-            textBox3.Size = new Size(334, 74);
+            textBox3.Size = new Size(365, 74);
             textBox3.TabIndex = 3;
             // 
             // numericUpDown1
@@ -372,7 +411,7 @@
             listBox1.HorizontalScrollbar = true;
             listBox1.Location = new Point(154, 37);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(334, 79);
+            listBox1.Size = new Size(365, 79);
             listBox1.TabIndex = 1;
             // 
             // panel6
@@ -484,7 +523,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(300, 108);
+            button4.Location = new Point(326, 107);
             button4.Name = "button4";
             button4.Size = new Size(30, 25);
             button4.TabIndex = 7;
@@ -502,6 +541,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(splitContainer2);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -510,14 +550,325 @@
             tabPage2.Text = "Модерация";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // splitContainer2
+            // 
+            splitContainer2.Dock = DockStyle.Fill;
+            splitContainer2.Location = new Point(3, 3);
+            splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            splitContainer2.Panel1.BackColor = Color.Silver;
+            splitContainer2.Panel1.Controls.Add(listBox3);
+            splitContainer2.Panel1.Controls.Add(panel7);
+            splitContainer2.Panel1.Controls.Add(textBox2);
+            splitContainer2.Panel1.Controls.Add(button7);
+            splitContainer2.Panel1.Controls.Add(button6);
+            splitContainer2.Panel1.Controls.Add(label23);
+            // 
+            // splitContainer2.Panel2
+            // 
+            splitContainer2.Panel2.BackColor = Color.Gainsboro;
+            splitContainer2.Panel2.Controls.Add(label22);
+            splitContainer2.Panel2.Controls.Add(label19);
+            splitContainer2.Panel2.Controls.Add(label18);
+            splitContainer2.Panel2.Controls.Add(pictureBox2);
+            splitContainer2.Panel2.Controls.Add(textBox8);
+            splitContainer2.Panel2.Controls.Add(textBox7);
+            splitContainer2.Panel2.Controls.Add(textBox6);
+            splitContainer2.Panel2.Controls.Add(listBox4);
+            splitContainer2.Panel2.Controls.Add(label17);
+            splitContainer2.Panel2.Controls.Add(label16);
+            splitContainer2.Panel2.Controls.Add(textBox5);
+            splitContainer2.Panel2.Controls.Add(textBox4);
+            splitContainer2.Panel2.Controls.Add(label20);
+            splitContainer2.Panel2.Controls.Add(label21);
+            splitContainer2.Size = new Size(786, 378);
+            splitContainer2.SplitterDistance = 262;
+            splitContainer2.TabIndex = 0;
+            // 
+            // listBox3
+            // 
+            listBox3.Font = new Font("Segoe UI", 12F);
+            listBox3.FormattingEnabled = true;
+            listBox3.Location = new Point(30, 13);
+            listBox3.Name = "listBox3";
+            listBox3.Size = new Size(218, 172);
+            listBox3.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.DarkGray;
+            panel7.Location = new Point(15, 13);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(17, 172);
+            panel7.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(15, 200);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(233, 102);
+            textBox2.TabIndex = 2;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(30, 340);
+            button7.Name = "button7";
+            button7.Size = new Size(193, 32);
+            button7.TabIndex = 1;
+            button7.Text = "Отклонить";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(30, 306);
+            button6.Name = "button6";
+            button6.Size = new Size(193, 32);
+            button6.TabIndex = 0;
+            button6.Text = "Одобрить и выложить";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(15, 185);
+            label23.Name = "label23";
+            label23.Size = new Size(158, 15);
+            label23.TabIndex = 14;
+            label23.Text = "Комментарий к модерации";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(16, 273);
+            label22.Name = "label22";
+            label22.Size = new Size(156, 15);
+            label22.TabIndex = 13;
+            label22.Text = "Сложность приготовления";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(16, 168);
+            label19.Name = "label19";
+            label19.Size = new Size(129, 15);
+            label19.TabIndex = 10;
+            label19.Text = "Время приготовления";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(16, 54);
+            label18.Name = "label18";
+            label18.Size = new Size(81, 15);
+            label18.TabIndex = 9;
+            label18.Text = "Ингредиенты";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(258, 70);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(253, 200);
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
+            // 
+            // textBox8
+            // 
+            textBox8.Font = new Font("Segoe UI", 11F);
+            textBox8.Location = new Point(16, 288);
+            textBox8.Multiline = true;
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(495, 90);
+            textBox8.TabIndex = 7;
+            textBox8.TextChanged += textBox8_TextChanged;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(16, 235);
+            textBox7.Multiline = true;
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(236, 35);
+            textBox7.TabIndex = 6;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(16, 185);
+            textBox6.Multiline = true;
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(236, 35);
+            textBox6.TabIndex = 5;
+            // 
+            // listBox4
+            // 
+            listBox4.FormattingEnabled = true;
+            listBox4.Location = new Point(16, 70);
+            listBox4.Name = "listBox4";
+            listBox4.Size = new Size(236, 94);
+            listBox4.TabIndex = 4;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(200, 7);
+            label17.Name = "label17";
+            label17.Size = new Size(115, 15);
+            label17.TabIndex = 3;
+            label17.Text = "Короткое описание";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(16, 7);
+            label16.Name = "label16";
+            label16.Size = new Size(106, 15);
+            label16.TabIndex = 2;
+            label16.Text = "Название рецепта";
+            // 
+            // textBox5
+            // 
+            textBox5.Font = new Font("Segoe UI", 11F);
+            textBox5.Location = new Point(200, 25);
+            textBox5.Multiline = true;
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(311, 29);
+            textBox5.TabIndex = 1;
+            // 
+            // textBox4
+            // 
+            textBox4.Font = new Font("Segoe UI", 11F);
+            textBox4.Location = new Point(16, 25);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(161, 29);
+            textBox4.TabIndex = 0;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(258, 55);
+            label20.Name = "label20";
+            label20.Size = new Size(35, 15);
+            label20.TabIndex = 11;
+            label20.Text = "Фото";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(16, 219);
+            label21.Name = "label21";
+            label21.Size = new Size(156, 15);
+            label21.TabIndex = 12;
+            label21.Text = "Сложность приготовления";
+            // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(label27);
+            tabPage3.Controls.Add(comboBox2);
+            tabPage3.Controls.Add(listBox5);
+            tabPage3.Controls.Add(label26);
+            tabPage3.Controls.Add(panel8);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(792, 384);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Управление ингредиентами";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.DarkGray;
+            panel8.Controls.Add(label25);
+            panel8.Controls.Add(label24);
+            panel8.Controls.Add(textBox10);
+            panel8.Controls.Add(textBox9);
+            panel8.Controls.Add(button9);
+            panel8.Dock = DockStyle.Bottom;
+            panel8.Location = new Point(0, 322);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(792, 62);
+            panel8.TabIndex = 0;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(653, 13);
+            button9.Name = "button9";
+            button9.Size = new Size(131, 38);
+            button9.TabIndex = 1;
+            button9.Text = "Добавить/изменить";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // textBox9
+            // 
+            textBox9.Font = new Font("Segoe UI", 12F);
+            textBox9.Location = new Point(8, 7);
+            textBox9.Multiline = true;
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(315, 35);
+            textBox9.TabIndex = 2;
+            // 
+            // textBox10
+            // 
+            textBox10.Font = new Font("Segoe UI", 12F);
+            textBox10.Location = new Point(338, 7);
+            textBox10.Multiline = true;
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(177, 35);
+            textBox10.TabIndex = 3;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(8, 42);
+            label24.Name = "label24";
+            label24.Size = new Size(112, 15);
+            label24.TabIndex = 4;
+            label24.Text = "Название продукта";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(338, 42);
+            label25.Name = "label25";
+            label25.Size = new Size(86, 15);
+            label25.TabIndex = 5;
+            label25.Text = "Калорийность";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(19, 25);
+            label26.Name = "label26";
+            label26.Size = new Size(101, 15);
+            label26.TabIndex = 1;
+            label26.Text = "Все ингредиенты";
+            // 
+            // listBox5
+            // 
+            listBox5.Font = new Font("Segoe UI", 14F);
+            listBox5.FormattingEnabled = true;
+            listBox5.Location = new Point(19, 45);
+            listBox5.Name = "listBox5";
+            listBox5.Size = new Size(748, 254);
+            listBox5.TabIndex = 2;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(646, 16);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(121, 23);
+            comboBox2.TabIndex = 3;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(544, 19);
+            label27.Name = "label27";
+            label27.Size = new Size(98, 15);
+            label27.TabIndex = 4;
+            label27.Text = "Сортировать по:";
             // 
             // AdminForm
             // 
@@ -549,6 +900,18 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            splitContainer2.Panel1.ResumeLayout(false);
+            splitContainer2.Panel1.PerformLayout();
+            splitContainer2.Panel2.ResumeLayout(false);
+            splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
+            splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -595,5 +958,36 @@
         private TextBox textBox1;
         private ListBox listBox2;
         private Label label15;
+        private SplitContainer splitContainer2;
+        private ListBox listBox3;
+        private Panel panel7;
+        private TextBox textBox2;
+        private Button button7;
+        private Button button6;
+        private TextBox textBox5;
+        private TextBox textBox4;
+        private Label label17;
+        private Label label16;
+        private TextBox textBox8;
+        private TextBox textBox7;
+        private TextBox textBox6;
+        private ListBox listBox4;
+        private Label label20;
+        private Label label19;
+        private Label label18;
+        private PictureBox pictureBox2;
+        private Label label22;
+        private Label label21;
+        private Label label23;
+        private Panel panel8;
+        private TextBox textBox10;
+        private TextBox textBox9;
+        private Button button9;
+        private Label label26;
+        private Label label25;
+        private Label label24;
+        private Label label27;
+        private ComboBox comboBox2;
+        private ListBox listBox5;
     }
 }
