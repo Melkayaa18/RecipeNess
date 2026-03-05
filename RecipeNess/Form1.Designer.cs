@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label6 = new Label();
+            label7 = new Label();
             label5 = new Label();
             button2 = new Button();
             button1 = new Button();
@@ -47,7 +49,7 @@
             numericUpDown1 = new NumericUpDown();
             textBox1 = new TextBox();
             label1 = new Label();
-            label6 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -60,6 +62,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label7);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
@@ -68,6 +72,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(784, 47);
             panel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 15F);
+            label6.Location = new Point(166, 8);
+            label6.Name = "label6";
+            label6.Size = new Size(153, 28);
+            label6.TabIndex = 0;
+            label6.Text = "filtering window";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label7.Location = new Point(38, 8);
+            label7.Name = "label7";
+            label7.Size = new Size(122, 30);
+            label7.TabIndex = 2;
+            label7.Text = "RecipeNest";
             // 
             // label5
             // 
@@ -115,11 +139,10 @@
             // 
             splitContainer1.Panel2.AutoScroll = true;
             splitContainer1.Panel2.BackColor = SystemColors.ButtonFace;
-            splitContainer1.Panel2.Controls.Add(label6);
+            splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
             splitContainer1.Size = new Size(784, 514);
             splitContainer1.SplitterDistance = 261;
             splitContainer1.TabIndex = 1;
-            splitContainer1.SplitterMoved += splitContainer1_SplitterMoved;
             // 
             // panel2
             // 
@@ -150,7 +173,6 @@
             label4.Size = new Size(152, 19);
             label4.TabIndex = 10;
             label4.Text = "the difficulty of cooking";
-            label4.Click += label4_Click;
             // 
             // label3
             // 
@@ -266,15 +288,14 @@
             label1.TabIndex = 0;
             label1.Text = "search by ingredients";
             // 
-            // label6
+            // flowLayoutPanel1
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15F);
-            label6.Location = new Point(1, 3);
-            label6.Name = "label6";
-            label6.Size = new Size(153, 28);
-            label6.TabIndex = 0;
-            label6.Text = "filtering window";
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(519, 514);
+            flowLayoutPanel1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -290,7 +311,6 @@
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
-            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -321,5 +341,7 @@
         private Label label2;
         private Label label5;
         private Label label6;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label7;
     }
 }

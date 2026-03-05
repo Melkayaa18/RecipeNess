@@ -184,7 +184,7 @@
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(792, 384);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "Дашборд";
+            tabPage1.Text = "Главная";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // splitContainer1

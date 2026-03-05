@@ -10,7 +10,7 @@ namespace RecipeNess
 {
     public partial class RecipeViewForm : Form
     {
-        public RecipeViewForm()
+        public RecipeViewForm(int recipeId)
         {
             InitializeComponent();
         }
