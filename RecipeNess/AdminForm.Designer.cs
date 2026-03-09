@@ -90,16 +90,16 @@
             label20 = new Label();
             label21 = new Label();
             tabPage3 = new TabPage();
-            panel8 = new Panel();
-            button9 = new Button();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
-            label24 = new Label();
-            label25 = new Label();
-            label26 = new Label();
-            listBox5 = new ListBox();
-            comboBox2 = new ComboBox();
             label27 = new Label();
+            comboBox2 = new ComboBox();
+            listBox5 = new ListBox();
+            label26 = new Label();
+            panel8 = new Panel();
+            label25 = new Label();
+            label24 = new Label();
+            textBox10 = new TextBox();
+            textBox9 = new TextBox();
+            button9 = new Button();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -158,7 +158,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(46, 5);
+            label1.Location = new Point(46, 3);
             label1.Name = "label1";
             label1.Size = new Size(122, 30);
             label1.TabIndex = 1;
@@ -776,6 +776,41 @@
             tabPage3.Text = "Управление ингредиентами";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(544, 19);
+            label27.Name = "label27";
+            label27.Size = new Size(98, 15);
+            label27.TabIndex = 4;
+            label27.Text = "Сортировать по:";
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(646, 16);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(121, 23);
+            comboBox2.TabIndex = 3;
+            // 
+            // listBox5
+            // 
+            listBox5.Font = new Font("Segoe UI", 14F);
+            listBox5.FormattingEnabled = true;
+            listBox5.Location = new Point(19, 45);
+            listBox5.Name = "listBox5";
+            listBox5.Size = new Size(748, 254);
+            listBox5.TabIndex = 2;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(19, 25);
+            label26.Name = "label26";
+            label26.Size = new Size(101, 15);
+            label26.TabIndex = 1;
+            label26.Text = "Все ингредиенты";
+            // 
             // panel8
             // 
             panel8.BackColor = Color.DarkGray;
@@ -790,32 +825,14 @@
             panel8.Size = new Size(792, 62);
             panel8.TabIndex = 0;
             // 
-            // button9
+            // label25
             // 
-            button9.Location = new Point(653, 13);
-            button9.Name = "button9";
-            button9.Size = new Size(131, 38);
-            button9.TabIndex = 1;
-            button9.Text = "Добавить/изменить";
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // textBox9
-            // 
-            textBox9.Font = new Font("Segoe UI", 12F);
-            textBox9.Location = new Point(8, 7);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(315, 35);
-            textBox9.TabIndex = 2;
-            // 
-            // textBox10
-            // 
-            textBox10.Font = new Font("Segoe UI", 12F);
-            textBox10.Location = new Point(338, 7);
-            textBox10.Multiline = true;
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(177, 35);
-            textBox10.TabIndex = 3;
+            label25.AutoSize = true;
+            label25.Location = new Point(338, 42);
+            label25.Name = "label25";
+            label25.Size = new Size(86, 15);
+            label25.TabIndex = 5;
+            label25.Text = "Калорийность";
             // 
             // label24
             // 
@@ -826,49 +843,32 @@
             label24.TabIndex = 4;
             label24.Text = "Название продукта";
             // 
-            // label25
+            // textBox10
             // 
-            label25.AutoSize = true;
-            label25.Location = new Point(338, 42);
-            label25.Name = "label25";
-            label25.Size = new Size(86, 15);
-            label25.TabIndex = 5;
-            label25.Text = "Калорийность";
+            textBox10.Font = new Font("Segoe UI", 12F);
+            textBox10.Location = new Point(338, 7);
+            textBox10.Multiline = true;
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(177, 35);
+            textBox10.TabIndex = 3;
             // 
-            // label26
+            // textBox9
             // 
-            label26.AutoSize = true;
-            label26.Location = new Point(19, 25);
-            label26.Name = "label26";
-            label26.Size = new Size(101, 15);
-            label26.TabIndex = 1;
-            label26.Text = "Все ингредиенты";
+            textBox9.Font = new Font("Segoe UI", 12F);
+            textBox9.Location = new Point(8, 7);
+            textBox9.Multiline = true;
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(315, 35);
+            textBox9.TabIndex = 2;
             // 
-            // listBox5
+            // button9
             // 
-            listBox5.Font = new Font("Segoe UI", 14F);
-            listBox5.FormattingEnabled = true;
-            listBox5.Location = new Point(19, 45);
-            listBox5.Name = "listBox5";
-            listBox5.Size = new Size(748, 254);
-            listBox5.TabIndex = 2;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(646, 16);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 3;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Location = new Point(544, 19);
-            label27.Name = "label27";
-            label27.Size = new Size(98, 15);
-            label27.TabIndex = 4;
-            label27.Text = "Сортировать по:";
+            button9.Location = new Point(653, 13);
+            button9.Name = "button9";
+            button9.Size = new Size(131, 38);
+            button9.TabIndex = 1;
+            button9.Text = "Добавить/изменить";
+            button9.UseVisualStyleBackColor = true;
             // 
             // AdminForm
             // 

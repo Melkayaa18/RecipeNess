@@ -30,7 +30,6 @@
         {
             splitContainer1 = new SplitContainer();
             button1 = new Button();
-            label3 = new Label();
             textBox1 = new TextBox();
             label4 = new Label();
             label1 = new Label();
@@ -59,6 +58,7 @@
             button3 = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -79,8 +79,8 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.ButtonShadow;
-            splitContainer1.Panel1.Controls.Add(button1);
             splitContainer1.Panel1.Controls.Add(label3);
+            splitContainer1.Panel1.Controls.Add(button1);
             splitContainer1.Panel1.Controls.Add(textBox1);
             splitContainer1.Panel1.Controls.Add(label4);
             splitContainer1.Panel1.Controls.Add(label1);
@@ -105,17 +105,6 @@
             button1.TabIndex = 11;
             button1.Text = "submit for\nmoderation";
             button1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10F);
-            label3.Location = new Point(63, 371);
-            label3.Name = "label3";
-            label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(141, 19);
-            label3.TabIndex = 10;
-            label3.Text = "ready for publication?";
             // 
             // textBox1
             // 
@@ -300,50 +289,50 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 13F);
+            label9.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label9.Location = new Point(15, 311);
             label9.Name = "label9";
-            label9.Size = new Size(110, 50);
+            label9.Size = new Size(103, 46);
             label9.TabIndex = 4;
             label9.Text = "step by step\r\ndescription";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 13F);
-            label8.Location = new Point(13, 225);
+            label8.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label8.Location = new Point(13, 215);
             label8.Name = "label8";
-            label8.Size = new Size(115, 50);
+            label8.Size = new Size(112, 46);
             label8.TabIndex = 3;
             label8.Text = "the difficulty \r\nof cooking";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 13F);
+            label7.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label7.Location = new Point(13, 154);
             label7.Name = "label7";
-            label7.Size = new Size(116, 25);
+            label7.Size = new Size(110, 23);
             label7.TabIndex = 2;
             label7.Text = "cooking time";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 13F);
+            label6.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label6.Location = new Point(19, 80);
             label6.Name = "label6";
-            label6.Size = new Size(100, 25);
+            label6.Size = new Size(95, 23);
             label6.TabIndex = 1;
             label6.Text = "ingredients";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13F);
+            label5.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label5.Location = new Point(28, 8);
             label5.Name = "label5";
-            label5.Size = new Size(81, 25);
+            label5.Size = new Size(78, 23);
             label5.TabIndex = 0;
             label5.Text = "category";
             label5.Click += label5_Click;
@@ -404,6 +393,16 @@
             label2.TabIndex = 0;
             label2.Text = "enter the name";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label3.Location = new Point(54, 369);
+            label3.Name = "label3";
+            label3.Size = new Size(165, 20);
+            label3.TabIndex = 12;
+            label3.Text = "Готовы к публикации?";
+            // 
             // RecipeEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -435,7 +434,6 @@
         private Label label1;
         private Label label4;
         private TextBox textBox1;
-        private Label label3;
         private Button button1;
         private TextBox textBox2;
         private Label label2;
@@ -462,5 +460,6 @@
         private RadioButton radioButton3;
         private RadioButton radioButton2;
         private Button button4;
+        private Label label3;
     }
 }
