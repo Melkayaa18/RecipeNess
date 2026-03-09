@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
-            button1 = new Button();
+            roundedButton1 = new RoundedButton();
+            label3 = new Label();
             textBox1 = new TextBox();
             label4 = new Label();
             label1 = new Label();
-            button4 = new Button();
-            button2 = new Button();
+            roundedButton3 = new RoundedButton();
+            roundedButton2 = new RoundedButton();
             panel1 = new Panel();
             panel3 = new Panel();
             radioButton3 = new RadioButton();
@@ -55,10 +56,9 @@
             label10 = new Label();
             label12 = new Label();
             label13 = new Label();
-            button3 = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
-            label3 = new Label();
+            roundedButton4 = new RoundedButton();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -79,16 +79,16 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.ButtonShadow;
+            splitContainer1.Panel1.Controls.Add(roundedButton1);
             splitContainer1.Panel1.Controls.Add(label3);
-            splitContainer1.Panel1.Controls.Add(button1);
             splitContainer1.Panel1.Controls.Add(textBox1);
             splitContainer1.Panel1.Controls.Add(label4);
             splitContainer1.Panel1.Controls.Add(label1);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(button4);
-            splitContainer1.Panel2.Controls.Add(button2);
+            splitContainer1.Panel2.Controls.Add(roundedButton3);
+            splitContainer1.Panel2.Controls.Add(roundedButton2);
             splitContainer1.Panel2.Controls.Add(panel1);
             splitContainer1.Panel2.Controls.Add(textBox2);
             splitContainer1.Panel2.Controls.Add(label2);
@@ -96,15 +96,27 @@
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 0;
             // 
-            // button1
+            // roundedButton1
             // 
-            button1.Font = new Font("Segoe UI", 11F);
-            button1.Location = new Point(55, 391);
-            button1.Name = "button1";
-            button1.Size = new Size(156, 54);
-            button1.TabIndex = 11;
-            button1.Text = "submit for\nmoderation";
-            button1.UseVisualStyleBackColor = true;
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton1.Location = new Point(54, 392);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Size = new Size(165, 53);
+            roundedButton1.TabIndex = 13;
+            roundedButton1.Text = "Отправить на модерацию";
+            roundedButton1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label3.Location = new Point(54, 369);
+            label3.Name = "label3";
+            label3.Size = new Size(165, 20);
+            label3.TabIndex = 12;
+            label3.Text = "Готовы к публикации?";
             // 
             // textBox1
             // 
@@ -136,23 +148,25 @@
             label1.TabIndex = 1;
             label1.Text = "RecipeNest";
             // 
-            // button4
+            // roundedButton3
             // 
-            button4.Location = new Point(473, 14);
-            button4.Name = "button4";
-            button4.Size = new Size(45, 23);
-            button4.TabIndex = 5;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            roundedButton3.FlatAppearance.BorderSize = 0;
+            roundedButton3.FlatStyle = FlatStyle.Flat;
+            roundedButton3.Location = new Point(477, 14);
+            roundedButton3.Name = "roundedButton3";
+            roundedButton3.Size = new Size(41, 23);
+            roundedButton3.TabIndex = 7;
+            roundedButton3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // roundedButton2
             // 
-            button2.Location = new Point(424, 14);
-            button2.Name = "button2";
-            button2.Size = new Size(45, 23);
-            button2.TabIndex = 3;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            roundedButton2.FlatAppearance.BorderSize = 0;
+            roundedButton2.FlatStyle = FlatStyle.Flat;
+            roundedButton2.Location = new Point(414, 16);
+            roundedButton2.Name = "roundedButton2";
+            roundedButton2.Size = new Size(47, 23);
+            roundedButton2.TabIndex = 6;
+            roundedButton2.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -164,7 +178,7 @@
             panel1.Controls.Add(numericUpDown1);
             panel1.Controls.Add(listBox1);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(button3);
+            panel1.Controls.Add(roundedButton4);
             panel1.Location = new Point(13, 56);
             panel1.Name = "panel1";
             panel1.Size = new Size(505, 382);
@@ -367,15 +381,6 @@
             label13.TabIndex = 8;
             label13.Text = "_________________";
             // 
-            // button3
-            // 
-            button3.Location = new Point(300, 114);
-            button3.Name = "button3";
-            button3.Size = new Size(30, 25);
-            button3.TabIndex = 7;
-            button3.Text = "+";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // textBox2
             // 
             textBox2.Location = new Point(158, 14);
@@ -393,15 +398,17 @@
             label2.TabIndex = 0;
             label2.Text = "enter the name";
             // 
-            // label3
+            // roundedButton4
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label3.Location = new Point(54, 369);
-            label3.Name = "label3";
-            label3.Size = new Size(165, 20);
-            label3.TabIndex = 12;
-            label3.Text = "Готовы к публикации?";
+            roundedButton4.FlatAppearance.BorderSize = 0;
+            roundedButton4.FlatStyle = FlatStyle.Flat;
+            roundedButton4.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            roundedButton4.Location = new Point(310, 110);
+            roundedButton4.Name = "roundedButton4";
+            roundedButton4.Size = new Size(38, 27);
+            roundedButton4.TabIndex = 7;
+            roundedButton4.Text = "+";
+            roundedButton4.UseVisualStyleBackColor = true;
             // 
             // RecipeEditForm
             // 
@@ -434,12 +441,10 @@
         private Label label1;
         private Label label4;
         private TextBox textBox1;
-        private Button button1;
         private TextBox textBox2;
         private Label label2;
         private Panel panel1;
         private Panel panel2;
-        private Button button2;
         private Label label5;
         private Label label6;
         private Label label13;
@@ -456,10 +461,12 @@
         private RadioButton radioButton1;
         private ComboBox comboBox1;
         private PictureBox pictureBox1;
-        private Button button3;
         private RadioButton radioButton3;
         private RadioButton radioButton2;
-        private Button button4;
         private Label label3;
+        private RoundedButton roundedButton1;
+        private RoundedButton roundedButton3;
+        private RoundedButton roundedButton2;
+        private RoundedButton roundedButton4;
     }
 }

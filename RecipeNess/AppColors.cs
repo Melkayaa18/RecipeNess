@@ -20,13 +20,16 @@ namespace RecipeNess
 
         // Главный акцент (кнопки, важные ссылки)
         public static Color AccentOrange = Color.FromArgb(200, 100, 50);
+        public static Color AccentOran = Color.FromArgb(229, 135, 67);
+        public static Color AccentOran1 = Color.FromArgb(207, 134, 85);
+        public static Color Shapka = Color.FromArgb(224, 145, 92);
 
         // Светлая версия главного акцента (для состояний наведения, рамок)
         public static Color AccentOrangeLight = Color.FromArgb(255, 200, 150);
 
         // Дополнительный акцент (например, для тегов, второстепенных кнопок)
         public static Color AccentGreen = Color.FromArgb(80, 140, 80);
-
+        public static Color AccentGreen2 = Color.FromArgb(116, 146, 116);
         // Светлая версия зелёного (фон для выделенных элементов)
         public static Color AccentGreenLight = Color.FromArgb(200, 230, 200);
 

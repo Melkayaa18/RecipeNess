@@ -34,7 +34,7 @@
             tabPage1 = new TabPage();
             flowLayoutPanel1 = new FlowLayoutPanel();
             tabPage2 = new TabPage();
-            button1 = new Button();
+            roundedButton1 = new RoundedButton();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -43,7 +43,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(label7);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -101,14 +101,16 @@
             tabPage2.Text = "Мои рецепты";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // roundedButton1
             // 
-            button1.Location = new Point(728, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(65, 23);
-            button1.TabIndex = 4;
-            button1.Text = "ВЫЙТИ";
-            button1.UseVisualStyleBackColor = true;
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Location = new Point(718, 12);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Size = new Size(75, 23);
+            roundedButton1.TabIndex = 4;
+            roundedButton1.Text = "ВЫХОД";
+            roundedButton1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -134,6 +136,6 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
+        private RoundedButton roundedButton1;
     }
 }

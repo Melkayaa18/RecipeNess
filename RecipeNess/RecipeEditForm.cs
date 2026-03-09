@@ -15,9 +15,9 @@ namespace RecipeNess
             InitializeComponent();
             this.BackColor = AppColors.MainBackground;
 
-            button2.BackColor = AppColors.PanelBackground;
+            
             splitContainer1.Panel2.BackColor = AppColors.MainBackground;
-            splitContainer1.Panel1.BackColor = AppColors.AccentOrange;
+            splitContainer1.Panel1.BackColor = AppColors.AccentOran1;
             panel1.BackColor = AppColors.PanelBackground;
             panel3.BackColor = AppColors.PanelBackground;
             panel2.BackColor = AppColors.AccentGreen;
@@ -35,6 +35,10 @@ namespace RecipeNess
             label1.ForeColor = AppColors.MainText;
             label4.ForeColor = AppColors.MainBackground;
             label3.ForeColor = AppColors.MainBackground;
+            roundedButton1.BackColor = AppColors.AccentOrangeLight;
+            roundedButton2.BackColor = AppColors.AccentOrangeLight;
+            roundedButton3.BackColor = AppColors.AccentOrangeLight;
+            roundedButton4.BackColor = AppColors.AccentGreenLight;
         }
 
         private void label5_Click(object sender, EventArgs e)
