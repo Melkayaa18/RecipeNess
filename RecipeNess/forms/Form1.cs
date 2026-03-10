@@ -1,3 +1,5 @@
+using RecipeNess.classes;
+
 namespace RecipeNess
 {
     public partial class Form1 : Form
@@ -6,6 +8,15 @@ namespace RecipeNess
         {
             InitializeComponent();
             LoadSampleRecipes();
+
+            panel1.BackColor = AppColors.Shapka;
+            flowLayoutPanel1.BackColor = AppColors.AccentGreenLight;
+            label7.ForeColor = AppColors.MainText;
+            label1.ForeColor = AppColors.MainText;
+            splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;
+            roundedButton1.BackColor = AppColors.Shapka;
+            roundedButton2.BackColor = AppColors.AccentOran1;
+            roundedButton3.BackColor = AppColors.AccentOran1;
         }
         // Метод для загрузки тестовых данных
         private void LoadSampleRecipes()
