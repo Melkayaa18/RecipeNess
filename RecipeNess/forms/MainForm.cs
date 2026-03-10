@@ -14,11 +14,13 @@ namespace RecipeNess
         public MainForm()
         {
             InitializeComponent();
-            panel1.BackColor = AppColors.AccentOran1;
-            roundedButton1.BackColor = AppColors.AccentOrange;
-            tabPage1.BackColor = AppColors.MainBackground;
-            tabPage2.BackColor = AppColors.MainBackground;
+            panel1.BackColor = AppColors.Shapka;
+            roundedButton1.BackColor = AppColors.AccentOran1;
+            roundedButton2.BackColor = AppColors.AccentOran1;
+            tabPage1.BackColor = AppColors.AccentGreenLight;
+            tabPage2.BackColor = AppColors.AccentGreenLight;
             label7.ForeColor = AppColors.MainText;
+
         }
     }
 }

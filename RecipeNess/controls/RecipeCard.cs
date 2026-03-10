@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeNess.classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,10 @@ namespace RecipeNess
         public RecipeCard()
         {
             InitializeComponent();
+
+            roundedButton1.BackColor = AppColors.AccentGreen2;
+            roundedButton1.ForeColor = AppColors.MainBackground;
+            panel1.BackColor = AppColors.PanelBackground;
         }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Title

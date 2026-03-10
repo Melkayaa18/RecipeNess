@@ -31,12 +31,13 @@ namespace RecipeNess
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            roundedButton1 = new RoundedButton();
             label7 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             flowLayoutPanel1 = new FlowLayoutPanel();
             tabPage2 = new TabPage();
-            roundedButton1 = new RoundedButton();
+            roundedButton2 = new RoundedButton();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -45,6 +46,7 @@ namespace RecipeNess
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(roundedButton2);
             panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(label7);
             panel1.Dock = DockStyle.Top;
@@ -52,6 +54,17 @@ namespace RecipeNess
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 45);
             panel1.TabIndex = 0;
+            // 
+            // roundedButton1
+            // 
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Location = new Point(718, 12);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Size = new Size(75, 23);
+            roundedButton1.TabIndex = 4;
+            roundedButton1.Text = "ВЫХОД";
+            roundedButton1.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -77,6 +90,7 @@ namespace RecipeNess
             // tabPage1
             // 
             tabPage1.Controls.Add(flowLayoutPanel1);
+            tabPage1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -103,16 +117,17 @@ namespace RecipeNess
             tabPage2.Text = "Мои рецепты";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // roundedButton1
+            // roundedButton2
             // 
-            roundedButton1.FlatAppearance.BorderSize = 0;
-            roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Location = new Point(718, 12);
-            roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(75, 23);
-            roundedButton1.TabIndex = 4;
-            roundedButton1.Text = "ВЫХОД";
-            roundedButton1.UseVisualStyleBackColor = true;
+            roundedButton2.FlatAppearance.BorderSize = 0;
+            roundedButton2.FlatStyle = FlatStyle.Flat;
+            roundedButton2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton2.Location = new Point(637, 12);
+            roundedButton2.Name = "roundedButton2";
+            roundedButton2.Size = new Size(75, 23);
+            roundedButton2.TabIndex = 5;
+            roundedButton2.Text = "Назад";
+            roundedButton2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -139,5 +154,6 @@ namespace RecipeNess
         private TabPage tabPage2;
         private FlowLayoutPanel flowLayoutPanel1;
         private RoundedButton roundedButton1;
+        private RoundedButton roundedButton2;
     }
 }
