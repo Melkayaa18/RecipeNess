@@ -38,6 +38,20 @@ namespace RecipeNess
             label15.ForeColor = AppColors.MainBackground;
             roundedButton4.BackColor = AppColors.AccentGreenLight;
             roundedButton5.BackColor = AppColors.AccentGreenLight;
+
+
+            splitContainer2.Panel2.BackColor = AppColors.AccentGreenLight;
+            splitContainer2.Panel1.BackColor = AppColors.AccentOrangeLight;
+            roundedButton6.BackColor = AppColors.Shapka;
+            roundedButton7.BackColor = AppColors.Shapka;
+            panel7.BackColor = AppColors.Shapka;
+            label23.ForeColor = AppColors.MainText;
+            pictureBox2.BackColor = AppColors.AccentGreen2;
+
+            panel8.BackColor = AppColors.AccentOrangeLight;
+            tabPage3.BackColor = AppColors.AccentGreenLight;
+            roundedButton8.BackColor = AppColors.Shapka;
+            label26.ForeColor = AppColors.MainText;
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)

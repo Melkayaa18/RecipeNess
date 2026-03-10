@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            roundedButton1 = new RoundedButton();
             label2 = new Label();
             label1 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             splitContainer1 = new SplitContainer();
+            roundedButton3 = new RoundedButton();
+            roundedButton2 = new RoundedButton();
             panel3 = new Panel();
             listBox2 = new ListBox();
             label14 = new Label();
@@ -61,14 +64,16 @@
             label10 = new Label();
             label12 = new Label();
             label13 = new Label();
+            roundedButton4 = new RoundedButton();
+            roundedButton5 = new RoundedButton();
             label4 = new Label();
             tabPage2 = new TabPage();
             splitContainer2 = new SplitContainer();
+            roundedButton7 = new RoundedButton();
+            roundedButton6 = new RoundedButton();
             listBox3 = new ListBox();
             panel7 = new Panel();
             textBox2 = new TextBox();
-            button7 = new Button();
-            button6 = new Button();
             label23 = new Label();
             label22 = new Label();
             label19 = new Label();
@@ -94,12 +99,7 @@
             label24 = new Label();
             textBox10 = new TextBox();
             textBox9 = new TextBox();
-            button9 = new Button();
-            roundedButton1 = new RoundedButton();
-            roundedButton2 = new RoundedButton();
-            roundedButton3 = new RoundedButton();
-            roundedButton4 = new RoundedButton();
-            roundedButton5 = new RoundedButton();
+            roundedButton8 = new RoundedButton();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -135,6 +135,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 40);
             panel1.TabIndex = 0;
+            // 
+            // roundedButton1
+            // 
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Location = new Point(718, 9);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Size = new Size(75, 23);
+            roundedButton1.TabIndex = 4;
+            roundedButton1.Text = "ВЫХОД";
+            roundedButton1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -200,6 +211,28 @@
             splitContainer1.Size = new Size(786, 378);
             splitContainer1.SplitterDistance = 228;
             splitContainer1.TabIndex = 0;
+            // 
+            // roundedButton3
+            // 
+            roundedButton3.FlatAppearance.BorderSize = 0;
+            roundedButton3.FlatStyle = FlatStyle.Flat;
+            roundedButton3.Location = new Point(16, 349);
+            roundedButton3.Name = "roundedButton3";
+            roundedButton3.Size = new Size(193, 23);
+            roundedButton3.TabIndex = 6;
+            roundedButton3.Text = "Управление ингредиентами";
+            roundedButton3.UseVisualStyleBackColor = true;
+            // 
+            // roundedButton2
+            // 
+            roundedButton2.FlatAppearance.BorderSize = 0;
+            roundedButton2.FlatStyle = FlatStyle.Flat;
+            roundedButton2.Location = new Point(50, 320);
+            roundedButton2.Name = "roundedButton2";
+            roundedButton2.Size = new Size(120, 23);
+            roundedButton2.TabIndex = 5;
+            roundedButton2.Text = "Новый рецепт";
+            roundedButton2.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -485,12 +518,37 @@
             label13.TabIndex = 8;
             label13.Text = "_________________";
             // 
+            // roundedButton4
+            // 
+            roundedButton4.FlatAppearance.BorderSize = 0;
+            roundedButton4.FlatStyle = FlatStyle.Flat;
+            roundedButton4.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton4.Location = new Point(313, 105);
+            roundedButton4.Name = "roundedButton4";
+            roundedButton4.Size = new Size(26, 25);
+            roundedButton4.TabIndex = 9;
+            roundedButton4.Text = "+";
+            roundedButton4.UseVisualStyleBackColor = true;
+            // 
+            // roundedButton5
+            // 
+            roundedButton5.FlatAppearance.BorderSize = 0;
+            roundedButton5.FlatStyle = FlatStyle.Flat;
+            roundedButton5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            roundedButton5.Location = new Point(289, 330);
+            roundedButton5.Name = "roundedButton5";
+            roundedButton5.Size = new Size(75, 23);
+            roundedButton5.TabIndex = 10;
+            roundedButton5.Text = "Сохранить";
+            roundedButton5.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label4.Location = new Point(23, 6);
             label4.Name = "label4";
-            label4.Size = new Size(104, 15);
+            label4.Size = new Size(114, 15);
             label4.TabIndex = 0;
             label4.Text = "название рецепта";
             // 
@@ -514,11 +572,11 @@
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.Silver;
+            splitContainer2.Panel1.Controls.Add(roundedButton7);
+            splitContainer2.Panel1.Controls.Add(roundedButton6);
             splitContainer2.Panel1.Controls.Add(listBox3);
             splitContainer2.Panel1.Controls.Add(panel7);
             splitContainer2.Panel1.Controls.Add(textBox2);
-            splitContainer2.Panel1.Controls.Add(button7);
-            splitContainer2.Panel1.Controls.Add(button6);
             splitContainer2.Panel1.Controls.Add(label23);
             // 
             // splitContainer2.Panel2
@@ -541,6 +599,28 @@
             splitContainer2.Size = new Size(786, 378);
             splitContainer2.SplitterDistance = 262;
             splitContainer2.TabIndex = 0;
+            // 
+            // roundedButton7
+            // 
+            roundedButton7.FlatAppearance.BorderSize = 0;
+            roundedButton7.FlatStyle = FlatStyle.Flat;
+            roundedButton7.Location = new Point(70, 340);
+            roundedButton7.Name = "roundedButton7";
+            roundedButton7.Size = new Size(115, 26);
+            roundedButton7.TabIndex = 15;
+            roundedButton7.Text = "Отклонить";
+            roundedButton7.UseVisualStyleBackColor = true;
+            // 
+            // roundedButton6
+            // 
+            roundedButton6.FlatAppearance.BorderSize = 0;
+            roundedButton6.FlatStyle = FlatStyle.Flat;
+            roundedButton6.Location = new Point(30, 306);
+            roundedButton6.Name = "roundedButton6";
+            roundedButton6.Size = new Size(193, 28);
+            roundedButton6.TabIndex = 14;
+            roundedButton6.Text = "Одобрить и выложить";
+            roundedButton6.UseVisualStyleBackColor = true;
             // 
             // listBox3
             // 
@@ -567,57 +647,43 @@
             textBox2.Size = new Size(233, 102);
             textBox2.TabIndex = 2;
             // 
-            // button7
-            // 
-            button7.Location = new Point(30, 340);
-            button7.Name = "button7";
-            button7.Size = new Size(193, 32);
-            button7.TabIndex = 1;
-            button7.Text = "Отклонить";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(30, 306);
-            button6.Name = "button6";
-            button6.Size = new Size(193, 32);
-            button6.TabIndex = 0;
-            button6.Text = "Одобрить и выложить";
-            button6.UseVisualStyleBackColor = true;
-            // 
             // label23
             // 
             label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label23.Location = new Point(15, 185);
             label23.Name = "label23";
-            label23.Size = new Size(158, 15);
+            label23.Size = new Size(168, 15);
             label23.TabIndex = 14;
             label23.Text = "Комментарий к модерации";
             // 
             // label22
             // 
             label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label22.Location = new Point(16, 273);
             label22.Name = "label22";
-            label22.Size = new Size(156, 15);
+            label22.Size = new Size(167, 15);
             label22.TabIndex = 13;
             label22.Text = "Сложность приготовления";
             // 
             // label19
             // 
             label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label19.Location = new Point(16, 168);
             label19.Name = "label19";
-            label19.Size = new Size(129, 15);
+            label19.Size = new Size(135, 15);
             label19.TabIndex = 10;
             label19.Text = "Время приготовления";
             // 
             // label18
             // 
             label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label18.Location = new Point(16, 54);
             label18.Name = "label18";
-            label18.Size = new Size(81, 15);
+            label18.Size = new Size(88, 15);
             label18.TabIndex = 9;
             label18.Text = "Ингредиенты";
             // 
@@ -666,18 +732,20 @@
             // label17
             // 
             label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label17.Location = new Point(200, 7);
             label17.Name = "label17";
-            label17.Size = new Size(115, 15);
+            label17.Size = new Size(122, 15);
             label17.TabIndex = 3;
             label17.Text = "Короткое описание";
             // 
             // label16
             // 
             label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label16.Location = new Point(16, 7);
             label16.Name = "label16";
-            label16.Size = new Size(106, 15);
+            label16.Size = new Size(116, 15);
             label16.TabIndex = 2;
             label16.Text = "Название рецепта";
             // 
@@ -702,18 +770,20 @@
             // label20
             // 
             label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label20.Location = new Point(258, 55);
             label20.Name = "label20";
-            label20.Size = new Size(35, 15);
+            label20.Size = new Size(42, 15);
             label20.TabIndex = 11;
             label20.Text = "Фото";
             // 
             // label21
             // 
             label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label21.Location = new Point(16, 219);
             label21.Name = "label21";
-            label21.Size = new Size(156, 15);
+            label21.Size = new Size(167, 15);
             label21.TabIndex = 12;
             label21.Text = "Сложность приготовления";
             // 
@@ -734,9 +804,10 @@
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(544, 19);
+            label27.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label27.Location = new Point(526, 19);
             label27.Name = "label27";
-            label27.Size = new Size(98, 15);
+            label27.Size = new Size(117, 17);
             label27.TabIndex = 4;
             label27.Text = "Сортировать по:";
             // 
@@ -760,20 +831,21 @@
             // label26
             // 
             label26.AutoSize = true;
-            label26.Location = new Point(19, 25);
+            label26.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label26.Location = new Point(19, 21);
             label26.Name = "label26";
-            label26.Size = new Size(101, 15);
+            label26.Size = new Size(165, 20);
             label26.TabIndex = 1;
-            label26.Text = "Все ингредиенты";
+            label26.Text = "Список ингредиентов";
             // 
             // panel8
             // 
             panel8.BackColor = Color.DarkGray;
+            panel8.Controls.Add(roundedButton8);
             panel8.Controls.Add(label25);
             panel8.Controls.Add(label24);
             panel8.Controls.Add(textBox10);
             panel8.Controls.Add(textBox9);
-            panel8.Controls.Add(button9);
             panel8.Dock = DockStyle.Bottom;
             panel8.Location = new Point(0, 322);
             panel8.Name = "panel8";
@@ -783,18 +855,20 @@
             // label25
             // 
             label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label25.Location = new Point(338, 42);
             label25.Name = "label25";
-            label25.Size = new Size(86, 15);
+            label25.Size = new Size(93, 15);
             label25.TabIndex = 5;
             label25.Text = "Калорийность";
             // 
             // label24
             // 
             label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label24.Location = new Point(8, 42);
             label24.Name = "label24";
-            label24.Size = new Size(112, 15);
+            label24.Size = new Size(123, 15);
             label24.TabIndex = 4;
             label24.Text = "Название продукта";
             // 
@@ -816,71 +890,17 @@
             textBox9.Size = new Size(315, 35);
             textBox9.TabIndex = 2;
             // 
-            // button9
+            // roundedButton8
             // 
-            button9.Location = new Point(653, 13);
-            button9.Name = "button9";
-            button9.Size = new Size(131, 38);
-            button9.TabIndex = 1;
-            button9.Text = "Добавить/изменить";
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // roundedButton1
-            // 
-            roundedButton1.FlatAppearance.BorderSize = 0;
-            roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Location = new Point(718, 9);
-            roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(75, 23);
-            roundedButton1.TabIndex = 4;
-            roundedButton1.Text = "ВЫХОД";
-            roundedButton1.UseVisualStyleBackColor = true;
-            // 
-            // roundedButton2
-            // 
-            roundedButton2.FlatAppearance.BorderSize = 0;
-            roundedButton2.FlatStyle = FlatStyle.Flat;
-            roundedButton2.Location = new Point(50, 320);
-            roundedButton2.Name = "roundedButton2";
-            roundedButton2.Size = new Size(120, 23);
-            roundedButton2.TabIndex = 5;
-            roundedButton2.Text = "Новый рецепт";
-            roundedButton2.UseVisualStyleBackColor = true;
-            // 
-            // roundedButton3
-            // 
-            roundedButton3.FlatAppearance.BorderSize = 0;
-            roundedButton3.FlatStyle = FlatStyle.Flat;
-            roundedButton3.Location = new Point(16, 349);
-            roundedButton3.Name = "roundedButton3";
-            roundedButton3.Size = new Size(193, 23);
-            roundedButton3.TabIndex = 6;
-            roundedButton3.Text = "Управление ингредиентами";
-            roundedButton3.UseVisualStyleBackColor = true;
-            // 
-            // roundedButton4
-            // 
-            roundedButton4.FlatAppearance.BorderSize = 0;
-            roundedButton4.FlatStyle = FlatStyle.Flat;
-            roundedButton4.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            roundedButton4.Location = new Point(313, 105);
-            roundedButton4.Name = "roundedButton4";
-            roundedButton4.Size = new Size(26, 25);
-            roundedButton4.TabIndex = 9;
-            roundedButton4.Text = "+";
-            roundedButton4.UseVisualStyleBackColor = true;
-            // 
-            // roundedButton5
-            // 
-            roundedButton5.FlatAppearance.BorderSize = 0;
-            roundedButton5.FlatStyle = FlatStyle.Flat;
-            roundedButton5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            roundedButton5.Location = new Point(289, 330);
-            roundedButton5.Name = "roundedButton5";
-            roundedButton5.Size = new Size(75, 23);
-            roundedButton5.TabIndex = 10;
-            roundedButton5.Text = "Сохранить";
-            roundedButton5.UseVisualStyleBackColor = true;
+            roundedButton8.FlatAppearance.BorderSize = 0;
+            roundedButton8.FlatStyle = FlatStyle.Flat;
+            roundedButton8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            roundedButton8.Location = new Point(629, 8);
+            roundedButton8.Name = "roundedButton8";
+            roundedButton8.Size = new Size(155, 46);
+            roundedButton8.TabIndex = 6;
+            roundedButton8.Text = "Добавить/изменить";
+            roundedButton8.UseVisualStyleBackColor = true;
             // 
             // AdminForm
             // 
@@ -969,8 +989,6 @@
         private ListBox listBox3;
         private Panel panel7;
         private TextBox textBox2;
-        private Button button7;
-        private Button button6;
         private TextBox textBox5;
         private TextBox textBox4;
         private Label label17;
@@ -989,7 +1007,6 @@
         private Panel panel8;
         private TextBox textBox10;
         private TextBox textBox9;
-        private Button button9;
         private Label label26;
         private Label label25;
         private Label label24;
@@ -1001,5 +1018,8 @@
         private RoundedButton roundedButton2;
         private RoundedButton roundedButton4;
         private RoundedButton roundedButton5;
+        private RoundedButton roundedButton7;
+        private RoundedButton roundedButton6;
+        private RoundedButton roundedButton8;
     }
 }
