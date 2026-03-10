@@ -51,6 +51,11 @@ namespace RecipeNess
             var viewForm = new RecipeViewForm(recipeId);
             viewForm.ShowDialog(); // или Show(), если не хотите блокировать
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Простой класс для хранения данных рецепта

@@ -1,4 +1,6 @@
-﻿namespace RecipeNess
+﻿using RecipeNess.controls;
+
+namespace RecipeNess
 {
     partial class Form1
     {
@@ -29,13 +31,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            roundedButton3 = new RoundedButton();
+            roundedButton2 = new RoundedButton();
             label6 = new Label();
             label7 = new Label();
             label5 = new Label();
-            button2 = new Button();
-            button1 = new Button();
             splitContainer1 = new SplitContainer();
             panel2 = new Panel();
+            roundedButton1 = new RoundedButton();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -43,7 +46,6 @@
             button6 = new Button();
             button5 = new Button();
             button4 = new Button();
-            button3 = new Button();
             checkedListBox1 = new CheckedListBox();
             comboBox1 = new ComboBox();
             numericUpDown1 = new NumericUpDown();
@@ -62,26 +64,51 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(roundedButton3);
+            panel1.Controls.Add(roundedButton2);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(784, 47);
             panel1.TabIndex = 0;
             // 
+            // roundedButton3
+            // 
+            roundedButton3.FlatAppearance.BorderSize = 0;
+            roundedButton3.FlatStyle = FlatStyle.Flat;
+            roundedButton3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            roundedButton3.Location = new Point(733, 8);
+            roundedButton3.Name = "roundedButton3";
+            roundedButton3.Size = new Size(39, 32);
+            roundedButton3.TabIndex = 4;
+            roundedButton3.Text = "👤";
+            roundedButton3.UseVisualStyleBackColor = true;
+            // 
+            // roundedButton2
+            // 
+            roundedButton2.FlatAppearance.BorderSize = 0;
+            roundedButton2.FlatStyle = FlatStyle.Flat;
+            roundedButton2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton2.Location = new Point(589, 8);
+            roundedButton2.Name = "roundedButton2";
+            roundedButton2.Size = new Size(138, 30);
+            roundedButton2.TabIndex = 3;
+            roundedButton2.Text = "Добавить рецепт";
+            roundedButton2.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15F);
+            label6.Font = new Font("Segoe UI", 15F, FontStyle.Italic, GraphicsUnit.Point, 204);
             label6.Location = new Point(166, 8);
             label6.Name = "label6";
-            label6.Size = new Size(153, 28);
+            label6.Size = new Size(185, 28);
             label6.TabIndex = 0;
-            label6.Text = "filtering window";
+            label6.Text = "Окно фильтрации";
+            label6.Click += label6_Click;
             // 
             // label7
             // 
@@ -102,25 +129,6 @@
             label5.Size = new Size(21, 32);
             label5.TabIndex = 2;
             label5.Text = " ";
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 11F);
-            button2.Location = new Point(734, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(44, 23);
-            button2.TabIndex = 1;
-            button2.Text = "👤";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(609, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(119, 23);
-            button1.TabIndex = 1;
-            button1.Text = "add a recipe";
-            button1.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -146,6 +154,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(roundedButton1);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
@@ -153,7 +162,6 @@
             panel2.Controls.Add(button6);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
             panel2.Controls.Add(checkedListBox1);
             panel2.Controls.Add(comboBox1);
             panel2.Controls.Add(numericUpDown1);
@@ -163,38 +171,50 @@
             panel2.Size = new Size(242, 480);
             panel2.TabIndex = 6;
             // 
+            // roundedButton1
+            // 
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            roundedButton1.Location = new Point(26, 423);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Size = new Size(169, 38);
+            roundedButton1.TabIndex = 11;
+            roundedButton1.Text = "Найти рецепт";
+            roundedButton1.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10F);
+            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
             label4.Location = new Point(6, 368);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(152, 19);
+            label4.Size = new Size(199, 20);
             label4.TabIndex = 10;
-            label4.Text = "the difficulty of cooking";
+            label4.Text = "Сложность приготовления";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10F);
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
             label3.Location = new Point(6, 317);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(88, 19);
+            label3.Size = new Size(159, 20);
             label3.TabIndex = 9;
-            label3.Text = "cooking time";
+            label3.Text = "Время приготовления";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10F);
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
             label2.Location = new Point(6, 229);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(111, 19);
+            label2.Size = new Size(83, 20);
             label2.TabIndex = 7;
-            label2.Text = "select a category";
+            label2.Text = "Категория";
             // 
             // button7
             // 
@@ -236,16 +256,6 @@
             button4.Text = "☀︎";
             button4.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 13F);
-            button3.Location = new Point(35, 434);
-            button3.Name = "button3";
-            button3.Size = new Size(156, 32);
-            button3.TabIndex = 5;
-            button3.Text = "find a recipe";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // checkedListBox1
             // 
             checkedListBox1.FormattingEnabled = true;
@@ -280,13 +290,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13F);
-            label1.Location = new Point(38, 3);
+            label1.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(27, 7);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(180, 25);
+            label1.Size = new Size(211, 23);
             label1.TabIndex = 0;
-            label1.Text = "search by ingredients";
+            label1.Text = "Поиск по ингредиентам";
             // 
             // flowLayoutPanel1
             // 
@@ -322,15 +332,12 @@
         #endregion
 
         private Panel panel1;
-        private Button button2;
-        private Button button1;
         private SplitContainer splitContainer1;
         private TextBox textBox1;
         private Label label1;
         private ComboBox comboBox1;
         private NumericUpDown numericUpDown1;
         private Panel panel2;
-        private Button button3;
         private CheckedListBox checkedListBox1;
         private Button button7;
         private Button button6;
@@ -343,5 +350,8 @@
         private Label label6;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label7;
+        private RoundedButton roundedButton3;
+        private RoundedButton roundedButton2;
+        private RoundedButton roundedButton1;
     }
 }

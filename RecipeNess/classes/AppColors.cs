@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RecipeNess
+namespace RecipeNess.classes
 {
     public static class AppColors
     {

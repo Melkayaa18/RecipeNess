@@ -1,4 +1,6 @@
-﻿namespace RecipeNess
+﻿using RecipeNess.controls;
+
+namespace RecipeNess
 {
     partial class MainForm
     {

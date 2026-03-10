@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Text;
 using System.ComponentModel;
 
-namespace RecipeNess
+namespace RecipeNess.controls
 {
     public class RoundedButton : Button
     {
