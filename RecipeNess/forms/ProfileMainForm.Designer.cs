@@ -2,7 +2,7 @@
 
 namespace RecipeNess
 {
-    partial class MainForm
+    partial class ProfileMainForm
     {
         /// <summary>
         /// Required designer variable.

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace RecipeNess
 {
-    public partial class MainForm : Form
+    public partial class ProfileMainForm : Form
     {
-        public MainForm()
+        public ProfileMainForm()
         {
             InitializeComponent();
             panel1.BackColor = AppColors.Shapka;

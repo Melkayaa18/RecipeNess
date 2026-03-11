@@ -1,6 +1,6 @@
 ﻿namespace RecipeNess
 {
-    partial class ProfileForm
+    partial class NotificationForm
     {
         /// <summary>
         /// Required designer variable.

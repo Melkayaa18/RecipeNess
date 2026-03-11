@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="resources\notif.ico" />
+    <None Remove="resources\Profile.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\notif.ico" />
+    <Resource Include="resources\Profile.ico" />
     <Resource Include="resources\SUN.png" />
   </ItemGroup>
 

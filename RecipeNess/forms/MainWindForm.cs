@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RecipeNess
+namespace RecipeNess.forms
 {
-    public partial class ProfileForm : Form
+    public partial class MainWindForm : Form
     {
-        public ProfileForm()
+        public MainWindForm()
         {
             InitializeComponent();
         }

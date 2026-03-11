@@ -34,8 +34,9 @@ namespace RecipeNess
             roundedButton1 = new RoundedButton();
             label3 = new Label();
             textBox1 = new TextBox();
-            label4 = new Label();
+            panel4 = new Panel();
             label1 = new Label();
+            label4 = new Label();
             roundedButton3 = new RoundedButton();
             roundedButton2 = new RoundedButton();
             panel1 = new Panel();
@@ -61,17 +62,16 @@ namespace RecipeNess
             roundedButton4 = new RoundedButton();
             textBox2 = new TextBox();
             label2 = new Label();
-            panel4 = new Panel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            panel4.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             panel2.SuspendLayout();
-            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -84,10 +84,10 @@ namespace RecipeNess
             // 
             splitContainer1.Panel1.BackColor = SystemColors.ButtonShadow;
             splitContainer1.Panel1.Controls.Add(roundedButton1);
-            splitContainer1.Panel1.Controls.Add(label3);
             splitContainer1.Panel1.Controls.Add(textBox1);
             splitContainer1.Panel1.Controls.Add(panel4);
             splitContainer1.Panel1.Controls.Add(label4);
+            splitContainer1.Panel1.Controls.Add(label3);
             // 
             // splitContainer1.Panel2
             // 
@@ -104,7 +104,8 @@ namespace RecipeNess
             // 
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton1.ForeColor = SystemColors.ControlLightLight;
             roundedButton1.Location = new Point(54, 392);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(165, 54);
@@ -116,7 +117,7 @@ namespace RecipeNess
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label3.Location = new Point(54, 371);
+            label3.Location = new Point(54, 369);
             label3.Name = "label3";
             label3.Size = new Size(165, 20);
             label3.TabIndex = 12;
@@ -131,6 +132,26 @@ namespace RecipeNess
             textBox1.Size = new Size(238, 312);
             textBox1.TabIndex = 3;
             // 
+            // panel4
+            // 
+            panel4.BackColor = SystemColors.ButtonHighlight;
+            panel4.Controls.Add(label1);
+            panel4.Dock = DockStyle.Top;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(266, 37);
+            panel4.TabIndex = 14;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(68, 5);
+            label1.Name = "label1";
+            label1.Size = new Size(122, 30);
+            label1.TabIndex = 1;
+            label1.Text = "RecipeNest";
+            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -142,33 +163,31 @@ namespace RecipeNess
             label4.TabIndex = 2;
             label4.Text = "Введи короткое описание";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(77, 3);
-            label1.Name = "label1";
-            label1.Size = new Size(122, 30);
-            label1.TabIndex = 1;
-            label1.Text = "RecipeNest";
-            // 
             // roundedButton3
             // 
+            roundedButton3.BackgroundImage = Properties.Resources.Frame_30;
+            roundedButton3.BackgroundImageLayout = ImageLayout.Stretch;
             roundedButton3.FlatAppearance.BorderSize = 0;
             roundedButton3.FlatStyle = FlatStyle.Flat;
-            roundedButton3.Location = new Point(477, 14);
+            roundedButton3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            roundedButton3.ForeColor = SystemColors.ControlText;
+            roundedButton3.Location = new Point(474, 9);
             roundedButton3.Name = "roundedButton3";
-            roundedButton3.Size = new Size(41, 23);
+            roundedButton3.Size = new Size(44, 34);
             roundedButton3.TabIndex = 7;
             roundedButton3.UseVisualStyleBackColor = true;
             // 
             // roundedButton2
             // 
+            roundedButton2.BackgroundImage = Properties.Resources.notif;
+            roundedButton2.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton2.FlatAppearance.BorderSize = 0;
             roundedButton2.FlatStyle = FlatStyle.Flat;
-            roundedButton2.Location = new Point(414, 16);
+            roundedButton2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            roundedButton2.ForeColor = SystemColors.ControlText;
+            roundedButton2.Location = new Point(419, 9);
             roundedButton2.Name = "roundedButton2";
-            roundedButton2.Size = new Size(47, 23);
+            roundedButton2.Size = new Size(44, 34);
             roundedButton2.TabIndex = 6;
             roundedButton2.UseVisualStyleBackColor = true;
             // 
@@ -414,16 +433,6 @@ namespace RecipeNess
             label2.TabIndex = 0;
             label2.Text = "enter the name";
             // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.ButtonHighlight;
-            panel4.Controls.Add(label1);
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(0, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(266, 37);
-            panel4.TabIndex = 14;
-            // 
             // RecipeEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -438,6 +447,8 @@ namespace RecipeNess
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
@@ -446,8 +457,6 @@ namespace RecipeNess
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -481,9 +490,9 @@ namespace RecipeNess
         private RadioButton radioButton2;
         private Label label3;
         private RoundedButton roundedButton1;
-        private RoundedButton roundedButton3;
         private RoundedButton roundedButton2;
         private RoundedButton roundedButton4;
         private Panel panel4;
+        private RoundedButton roundedButton3;
     }
 }

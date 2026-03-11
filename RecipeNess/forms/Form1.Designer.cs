@@ -74,7 +74,7 @@ namespace RecipeNess
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(784, 47);
+            panel1.Size = new Size(800, 47);
             panel1.TabIndex = 0;
             // 
             // roundedButton3
@@ -86,7 +86,6 @@ namespace RecipeNess
             roundedButton3.Name = "roundedButton3";
             roundedButton3.Size = new Size(39, 32);
             roundedButton3.TabIndex = 4;
-            roundedButton3.Text = "👤";
             roundedButton3.UseVisualStyleBackColor = true;
             // 
             // roundedButton2
@@ -150,8 +149,8 @@ namespace RecipeNess
             splitContainer1.Panel2.AutoScroll = true;
             splitContainer1.Panel2.BackColor = SystemColors.ButtonFace;
             splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
-            splitContainer1.Size = new Size(784, 514);
-            splitContainer1.SplitterDistance = 261;
+            splitContainer1.Size = new Size(800, 403);
+            splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 1;
             // 
             // panel2
@@ -305,7 +304,7 @@ namespace RecipeNess
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(27, 7);
+            label1.Location = new Point(28, 5);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
             label1.Size = new Size(211, 23);
@@ -318,14 +317,14 @@ namespace RecipeNess
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(519, 514);
+            flowLayoutPanel1.Size = new Size(530, 403);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(800, 450);
             Controls.Add(splitContainer1);
             Controls.Add(panel1);
             Name = "Form1";

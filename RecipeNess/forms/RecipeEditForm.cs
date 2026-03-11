@@ -35,11 +35,13 @@ namespace RecipeNess
             label2.ForeColor = AppColors.MainText;
             label1.ForeColor = AppColors.MainText;
             label4.ForeColor = AppColors.MainBackground;
-            label3.ForeColor = AppColors.MainBackground;
+            label3.ForeColor = AppColors.MainText;
             roundedButton1.BackColor = AppColors.Shapka;
             roundedButton2.BackColor = AppColors.AccentOrangeLight;
             roundedButton3.BackColor = AppColors.AccentOrangeLight;
             roundedButton4.BackColor = AppColors.AccentGreenLight;
+            pictureBox1.BackColor = AppColors.AccentGreenLight;
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
