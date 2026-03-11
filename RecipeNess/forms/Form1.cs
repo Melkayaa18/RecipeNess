@@ -16,7 +16,11 @@ namespace RecipeNess
             splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;
             roundedButton1.BackColor = AppColors.Shapka;
             roundedButton2.BackColor = AppColors.AccentOran1;
-            roundedButton3.BackColor = AppColors.AccentOran1;
+            roundedButton3.BackColor = AppColors.Shapka;
+            roundedButton4.BackColor = AppColors.Shapka;
+            roundedButton5.BackColor = AppColors.Shapka;
+            roundedButton6.BackColor = AppColors.Shapka;
+            roundedButton7.BackColor = AppColors.Shapka;
         }
         // Метод для загрузки тестовых данных
         private void LoadSampleRecipes()
@@ -64,6 +68,11 @@ namespace RecipeNess
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

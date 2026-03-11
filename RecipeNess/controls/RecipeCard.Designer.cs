@@ -33,6 +33,7 @@
             roundedButton1 = new RecipeNess.controls.RoundedButton();
             panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pbImage).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pbImage
@@ -40,7 +41,7 @@
             pbImage.BackColor = SystemColors.GradientInactiveCaption;
             pbImage.Location = new Point(3, 3);
             pbImage.Name = "pbImage";
-            pbImage.Size = new Size(194, 180);
+            pbImage.Size = new Size(217, 180);
             pbImage.SizeMode = PictureBoxSizeMode.Zoom;
             pbImage.TabIndex = 0;
             pbImage.TabStop = false;
@@ -49,7 +50,7 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(38, 186);
+            lblTitle.Location = new Point(70, 186);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(116, 15);
             lblTitle.TabIndex = 1;
@@ -61,7 +62,7 @@
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton1.Location = new Point(49, 204);
+            roundedButton1.Location = new Point(60, 204);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(97, 43);
             roundedButton1.TabIndex = 2;
@@ -70,10 +71,12 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(roundedButton1);
+            panel1.Controls.Add(lblTitle);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 250);
+            panel1.Size = new Size(223, 250);
             panel1.TabIndex = 3;
             // 
             // RecipeCard
@@ -81,15 +84,15 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            Controls.Add(roundedButton1);
-            Controls.Add(lblTitle);
             Controls.Add(pbImage);
             Controls.Add(panel1);
+            Margin = new Padding(15, 5, 15, 5);
             Name = "RecipeCard";
-            Size = new Size(200, 250);
+            Size = new Size(223, 250);
             ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

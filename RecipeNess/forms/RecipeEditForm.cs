@@ -37,8 +37,8 @@ namespace RecipeNess
             label4.ForeColor = AppColors.MainBackground;
             label3.ForeColor = AppColors.MainText;
             roundedButton1.BackColor = AppColors.Shapka;
-            roundedButton2.BackColor = AppColors.AccentOrangeLight;
-            roundedButton3.BackColor = AppColors.AccentOrangeLight;
+            roundedButton2.BackColor = AppColors.AccentGreenLight;
+            roundedButton3.BackColor = AppColors.AccentGreenLight;
             roundedButton4.BackColor = AppColors.AccentGreenLight;
             pictureBox1.BackColor = AppColors.AccentGreenLight;
             

@@ -30,7 +30,9 @@ namespace RecipeNess
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             panel1 = new Panel();
+            pictureBox3 = new PictureBox();
             roundedButton1 = new RoundedButton();
             label2 = new Label();
             label1 = new Label();
@@ -97,12 +99,13 @@ namespace RecipeNess
             listBox5 = new ListBox();
             label26 = new Label();
             panel8 = new Panel();
+            roundedButton8 = new RoundedButton();
             label25 = new Label();
             label24 = new Label();
             textBox10 = new TextBox();
             textBox9 = new TextBox();
-            roundedButton8 = new RoundedButton();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -129,6 +132,7 @@ namespace RecipeNess
             // panel1
             // 
             panel1.BackColor = SystemColors.AppWorkspace;
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -137,6 +141,16 @@ namespace RecipeNess
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 40);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox3.Location = new Point(18, 1);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(35, 36);
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
             // 
             // roundedButton1
             // 
@@ -162,7 +176,7 @@ namespace RecipeNess
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(46, 3);
+            label1.Location = new Point(46, 5);
             label1.Name = "label1";
             label1.Size = new Size(122, 30);
             label1.TabIndex = 1;
@@ -854,6 +868,18 @@ namespace RecipeNess
             panel8.Size = new Size(792, 62);
             panel8.TabIndex = 0;
             // 
+            // roundedButton8
+            // 
+            roundedButton8.FlatAppearance.BorderSize = 0;
+            roundedButton8.FlatStyle = FlatStyle.Flat;
+            roundedButton8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            roundedButton8.Location = new Point(629, 8);
+            roundedButton8.Name = "roundedButton8";
+            roundedButton8.Size = new Size(155, 46);
+            roundedButton8.TabIndex = 6;
+            roundedButton8.Text = "Добавить/изменить";
+            roundedButton8.UseVisualStyleBackColor = true;
+            // 
             // label25
             // 
             label25.AutoSize = true;
@@ -892,18 +918,6 @@ namespace RecipeNess
             textBox9.Size = new Size(315, 35);
             textBox9.TabIndex = 2;
             // 
-            // roundedButton8
-            // 
-            roundedButton8.FlatAppearance.BorderSize = 0;
-            roundedButton8.FlatStyle = FlatStyle.Flat;
-            roundedButton8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton8.Location = new Point(629, 8);
-            roundedButton8.Name = "roundedButton8";
-            roundedButton8.Size = new Size(155, 46);
-            roundedButton8.TabIndex = 6;
-            roundedButton8.Text = "Добавить/изменить";
-            roundedButton8.UseVisualStyleBackColor = true;
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -915,6 +929,7 @@ namespace RecipeNess
             Text = "AdminForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             splitContainer1.Panel1.ResumeLayout(false);
@@ -1023,5 +1038,6 @@ namespace RecipeNess
         private RoundedButton roundedButton7;
         private RoundedButton roundedButton6;
         private RoundedButton roundedButton8;
+        private PictureBox pictureBox3;
     }
 }

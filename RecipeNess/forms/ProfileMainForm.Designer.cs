@@ -30,15 +30,18 @@ namespace RecipeNess
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileMainForm));
             panel1 = new Panel();
-            roundedButton1 = new RoundedButton();
+            pictureBox1 = new PictureBox();
             label7 = new Label();
+            roundedButton2 = new RoundedButton();
+            roundedButton1 = new RoundedButton();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             flowLayoutPanel1 = new FlowLayoutPanel();
             tabPage2 = new TabPage();
-            roundedButton2 = new RoundedButton();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             SuspendLayout();
@@ -46,14 +49,49 @@ namespace RecipeNess
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label7);
             panel1.Controls.Add(roundedButton2);
             panel1.Controls.Add(roundedButton1);
-            panel1.Controls.Add(label7);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 45);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(21, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(35, 34);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label7.Location = new Point(50, 6);
+            label7.Name = "label7";
+            label7.Size = new Size(122, 30);
+            label7.TabIndex = 3;
+            label7.Text = "RecipeNest";
+            // 
+            // roundedButton2
+            // 
+            roundedButton2.BackgroundImage = (Image)resources.GetObject("roundedButton2.BackgroundImage");
+            roundedButton2.BackgroundImageLayout = ImageLayout.Zoom;
+            roundedButton2.FlatAppearance.BorderSize = 0;
+            roundedButton2.FlatStyle = FlatStyle.Flat;
+            roundedButton2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton2.Location = new Point(637, 12);
+            roundedButton2.Name = "roundedButton2";
+            roundedButton2.Size = new Size(75, 23);
+            roundedButton2.TabIndex = 5;
+            roundedButton2.UseVisualStyleBackColor = true;
             // 
             // roundedButton1
             // 
@@ -65,16 +103,6 @@ namespace RecipeNess
             roundedButton1.TabIndex = 4;
             roundedButton1.Text = "ВЫХОД";
             roundedButton1.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label7.Location = new Point(50, 6);
-            label7.Name = "label7";
-            label7.Size = new Size(122, 30);
-            label7.TabIndex = 3;
-            label7.Text = "RecipeNest";
             // 
             // tabControl1
             // 
@@ -101,6 +129,8 @@ namespace RecipeNess
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.BackgroundImage = (Image)resources.GetObject("flowLayoutPanel1.BackgroundImage");
+            flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Zoom;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -109,6 +139,8 @@ namespace RecipeNess
             // 
             // tabPage2
             // 
+            tabPage2.BackgroundImage = (Image)resources.GetObject("tabPage2.BackgroundImage");
+            tabPage2.BackgroundImageLayout = ImageLayout.Zoom;
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -117,29 +149,18 @@ namespace RecipeNess
             tabPage2.Text = "Мои рецепты";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // roundedButton2
-            // 
-            roundedButton2.FlatAppearance.BorderSize = 0;
-            roundedButton2.FlatStyle = FlatStyle.Flat;
-            roundedButton2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            roundedButton2.Location = new Point(637, 12);
-            roundedButton2.Name = "roundedButton2";
-            roundedButton2.Size = new Size(75, 23);
-            roundedButton2.TabIndex = 5;
-            roundedButton2.Text = "Назад";
-            roundedButton2.UseVisualStyleBackColor = true;
-            // 
-            // MainForm
+            // ProfileMainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
-            Name = "MainForm";
+            Name = "ProfileMainForm";
             Text = "MainForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ResumeLayout(false);
@@ -155,5 +176,6 @@ namespace RecipeNess
         private FlowLayoutPanel flowLayoutPanel1;
         private RoundedButton roundedButton1;
         private RoundedButton roundedButton2;
+        private PictureBox pictureBox1;
     }
 }

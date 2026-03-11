@@ -30,14 +30,23 @@ namespace RecipeNess
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             roundedButton3 = new RoundedButton();
             roundedButton2 = new RoundedButton();
             label6 = new Label();
             label7 = new Label();
             label5 = new Label();
             splitContainer1 = new SplitContainer();
+            label1 = new Label();
             panel2 = new Panel();
+            label4 = new Label();
+            label3 = new Label();
+            comboBox1 = new ComboBox();
+            numericUpDown1 = new NumericUpDown();
+            checkedListBox1 = new CheckedListBox();
+            textBox1 = new TextBox();
             panel3 = new Panel();
             roundedButton7 = new RoundedButton();
             roundedButton6 = new RoundedButton();
@@ -45,27 +54,22 @@ namespace RecipeNess
             roundedButton4 = new RoundedButton();
             label2 = new Label();
             roundedButton1 = new RoundedButton();
-            label4 = new Label();
-            label3 = new Label();
-            checkedListBox1 = new CheckedListBox();
-            comboBox1 = new ComboBox();
-            numericUpDown1 = new NumericUpDown();
-            textBox1 = new TextBox();
-            label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(roundedButton3);
             panel1.Controls.Add(roundedButton2);
             panel1.Controls.Add(label6);
@@ -77,8 +81,19 @@ namespace RecipeNess
             panel1.Size = new Size(800, 47);
             panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(25, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(35, 34);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
             // roundedButton3
             // 
+            roundedButton3.BackgroundImage = (Image)resources.GetObject("roundedButton3.BackgroundImage");
             roundedButton3.FlatAppearance.BorderSize = 0;
             roundedButton3.FlatStyle = FlatStyle.Flat;
             roundedButton3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -104,7 +119,7 @@ namespace RecipeNess
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 15F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label6.Location = new Point(166, 8);
+            label6.Location = new Point(182, 9);
             label6.Name = "label6";
             label6.Size = new Size(185, 28);
             label6.TabIndex = 0;
@@ -115,7 +130,7 @@ namespace RecipeNess
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label7.Location = new Point(38, 8);
+            label7.Location = new Point(56, 9);
             label7.Name = "label7";
             label7.Size = new Size(122, 30);
             label7.TabIndex = 2;
@@ -139,10 +154,10 @@ namespace RecipeNess
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.AutoScroll = true;
             splitContainer1.Panel1.BackColor = SystemColors.ControlDark;
-            splitContainer1.Panel1.Controls.Add(panel2);
             splitContainer1.Panel1.Controls.Add(label1);
+            splitContainer1.Panel1.Controls.Add(panel2);
+            splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
             // 
             // splitContainer1.Panel2
             // 
@@ -153,20 +168,84 @@ namespace RecipeNess
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(28, -2);
+            label1.Name = "label1";
+            label1.RightToLeft = RightToLeft.Yes;
+            label1.Size = new Size(211, 23);
+            label1.TabIndex = 0;
+            label1.Text = "Поиск по ингредиентам";
+            // 
             // panel2
             // 
-            panel2.Controls.Add(panel3);
-            panel2.Controls.Add(roundedButton1);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(checkedListBox1);
             panel2.Controls.Add(comboBox1);
             panel2.Controls.Add(numericUpDown1);
+            panel2.Controls.Add(checkedListBox1);
             panel2.Controls.Add(textBox1);
-            panel2.Location = new Point(3, 31);
+            panel2.Controls.Add(panel3);
+            panel2.Controls.Add(roundedButton1);
+            panel2.Location = new Point(3, 16);
             panel2.Name = "panel2";
-            panel2.Size = new Size(251, 480);
+            panel2.Size = new Size(251, 389);
             panel2.TabIndex = 6;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label4.Location = new Point(16, 287);
+            label4.Name = "label4";
+            label4.RightToLeft = RightToLeft.Yes;
+            label4.Size = new Size(199, 20);
+            label4.TabIndex = 10;
+            label4.Text = "Сложность приготовления";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label3.Location = new Point(16, 239);
+            label3.Name = "label3";
+            label3.RightToLeft = RightToLeft.Yes;
+            label3.Size = new Size(159, 20);
+            label3.TabIndex = 9;
+            label3.Text = "Время приготовления";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(13, 309);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(232, 23);
+            comboBox1.TabIndex = 2;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(13, 261);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(232, 23);
+            numericUpDown1.TabIndex = 3;
+            // 
+            // checkedListBox1
+            // 
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.Location = new Point(16, 32);
+            checkedListBox1.Name = "checkedListBox1";
+            checkedListBox1.Size = new Size(232, 130);
+            checkedListBox1.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(16, 6);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(232, 23);
+            textBox1.TabIndex = 1;
+            textBox1.Text = "🔍︎";
             // 
             // panel3
             // 
@@ -175,14 +254,16 @@ namespace RecipeNess
             panel3.Controls.Add(roundedButton5);
             panel3.Controls.Add(roundedButton4);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(3, 222);
+            panel3.Location = new Point(3, 156);
             panel3.Name = "panel3";
-            panel3.Size = new Size(252, 91);
+            panel3.Size = new Size(252, 80);
             panel3.TabIndex = 12;
             // 
             // roundedButton7
             // 
             roundedButton7.BackColor = SystemColors.ButtonFace;
+            roundedButton7.BackgroundImage = (Image)resources.GetObject("roundedButton7.BackgroundImage");
+            roundedButton7.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton7.FlatAppearance.BorderSize = 0;
             roundedButton7.FlatStyle = FlatStyle.Flat;
             roundedButton7.Location = new Point(188, 28);
@@ -194,6 +275,8 @@ namespace RecipeNess
             // roundedButton6
             // 
             roundedButton6.BackColor = SystemColors.ButtonFace;
+            roundedButton6.BackgroundImage = (Image)resources.GetObject("roundedButton6.BackgroundImage");
+            roundedButton6.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton6.FlatAppearance.BorderSize = 0;
             roundedButton6.FlatStyle = FlatStyle.Flat;
             roundedButton6.Location = new Point(127, 28);
@@ -205,6 +288,8 @@ namespace RecipeNess
             // roundedButton5
             // 
             roundedButton5.BackColor = SystemColors.ButtonFace;
+            roundedButton5.BackgroundImage = (Image)resources.GetObject("roundedButton5.BackgroundImage");
+            roundedButton5.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton5.FlatAppearance.BorderSize = 0;
             roundedButton5.FlatStyle = FlatStyle.Flat;
             roundedButton5.Location = new Point(66, 28);
@@ -215,7 +300,9 @@ namespace RecipeNess
             // 
             // roundedButton4
             // 
-            roundedButton4.BackColor = SystemColors.ButtonFace;
+            roundedButton4.BackColor = Color.Transparent;
+            roundedButton4.BackgroundImage = (Image)resources.GetObject("roundedButton4.BackgroundImage");
+            roundedButton4.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton4.FlatAppearance.BorderSize = 0;
             roundedButton4.FlatStyle = FlatStyle.Flat;
             roundedButton4.Location = new Point(5, 28);
@@ -240,76 +327,12 @@ namespace RecipeNess
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton1.Location = new Point(36, 422);
+            roundedButton1.Location = new Point(44, 325);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(169, 38);
+            roundedButton1.Size = new Size(169, 37);
             roundedButton1.TabIndex = 11;
             roundedButton1.Text = "Найти рецепт";
             roundedButton1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label4.Location = new Point(16, 367);
-            label4.Name = "label4";
-            label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(199, 20);
-            label4.TabIndex = 10;
-            label4.Text = "Сложность приготовления";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label3.Location = new Point(16, 316);
-            label3.Name = "label3";
-            label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(159, 20);
-            label3.TabIndex = 9;
-            label3.Text = "Время приготовления";
-            // 
-            // checkedListBox1
-            // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(16, 32);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(232, 184);
-            checkedListBox1.TabIndex = 4;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(13, 389);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(232, 23);
-            comboBox1.TabIndex = 2;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(13, 338);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(232, 23);
-            numericUpDown1.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(16, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 23);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "🔍︎";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(28, 5);
-            label1.Name = "label1";
-            label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(211, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Поиск по ингредиентам";
             // 
             // flowLayoutPanel1
             // 
@@ -331,6 +354,7 @@ namespace RecipeNess
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
@@ -338,9 +362,9 @@ namespace RecipeNess
             splitContainer1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -369,5 +393,6 @@ namespace RecipeNess
         private RoundedButton roundedButton5;
         private RoundedButton roundedButton4;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }
