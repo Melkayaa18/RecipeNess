@@ -63,8 +63,8 @@ namespace RecipeNess
         private void OpenRecipeView(int recipeId)
         {
             // Создаём форму просмотра и передаём ID рецепта
-            var viewForm = new RecipeViewForm(recipeId);
-            viewForm.ShowDialog(); // или Show(), если не хотите блокировать
+          // var viewForm = new RecipeViewForm(recipeId);
+          //  viewForm.ShowDialog(); // или Show(), если не хотите блокировать
         }
 
         private void label6_Click(object sender, EventArgs e)

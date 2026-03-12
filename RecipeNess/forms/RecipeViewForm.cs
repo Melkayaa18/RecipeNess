@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeNess.classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,14 @@ namespace RecipeNess
 {
     public partial class RecipeViewForm : Form
     {
-        public RecipeViewForm(int recipeId)
+        public RecipeViewForm()
         {
             InitializeComponent();
+            splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;//акцценторанжлайт
+            panel3.BackColor = AppColors.Shapka;//шапка
+            splitContainer1.Panel2.BackColor = AppColors.AccentGreenLight;
+            roundedButton1.BackColor = AppColors.AccentOrange;
+            panel2.BackColor = AppColors.AccentGreen2;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
