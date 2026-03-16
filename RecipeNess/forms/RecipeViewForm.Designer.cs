@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecipeViewForm));
             splitContainer1 = new SplitContainer();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
@@ -85,11 +84,11 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(55, -2);
+            pictureBox2.BackgroundImage = Properties.Resources.seed;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(55, -1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(35, 34);
+            pictureBox2.Size = new Size(35, 32);
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
@@ -108,7 +107,7 @@
             // roundedButton1
             // 
             roundedButton1.BackColor = SystemColors.ControlDarkDark;
-            roundedButton1.BackgroundImage = (Image)resources.GetObject("roundedButton1.BackgroundImage");
+            roundedButton1.BackgroundImage = Properties.Resources.heartIcon;
             roundedButton1.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
@@ -212,7 +211,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImage = Properties.Resources.photoBAck;
             pictureBox1.Location = new Point(15, 61);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(503, 112);

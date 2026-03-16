@@ -30,7 +30,6 @@ namespace RecipeNess
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             panel1 = new Panel();
             pictureBox3 = new PictureBox();
             roundedButton1 = new RoundedButton();
@@ -49,6 +48,7 @@ namespace RecipeNess
             panel2 = new Panel();
             label3 = new Label();
             panel4 = new Panel();
+            comboBox3 = new ComboBox();
             panel5 = new Panel();
             radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
@@ -79,6 +79,7 @@ namespace RecipeNess
             panel7 = new Panel();
             textBox2 = new TextBox();
             label23 = new Label();
+            listBox6 = new ListBox();
             label22 = new Label();
             label19 = new Label();
             label18 = new Label();
@@ -93,6 +94,7 @@ namespace RecipeNess
             textBox4 = new TextBox();
             label20 = new Label();
             label21 = new Label();
+            label28 = new Label();
             tabPage3 = new TabPage();
             label27 = new Label();
             comboBox2 = new ComboBox();
@@ -144,7 +146,7 @@ namespace RecipeNess
             // 
             // pictureBox3
             // 
-            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImage = Properties.Resources.seed;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Location = new Point(18, 1);
             pictureBox3.Name = "pictureBox3";
@@ -222,6 +224,8 @@ namespace RecipeNess
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.WhiteSmoke;
+            splitContainer1.Panel2.BackgroundImage = Properties.Resources.FrameBackgr;
+            splitContainer1.Panel2.BackgroundImageLayout = ImageLayout.Stretch;
             splitContainer1.Panel2.Controls.Add(panel4);
             splitContainer1.Panel2.Controls.Add(label4);
             splitContainer1.Size = new Size(786, 378);
@@ -325,6 +329,7 @@ namespace RecipeNess
             // panel4
             // 
             panel4.BackColor = SystemColors.ControlLight;
+            panel4.Controls.Add(comboBox3);
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(comboBox1);
             panel4.Controls.Add(pictureBox1);
@@ -338,6 +343,14 @@ namespace RecipeNess
             panel4.Name = "panel4";
             panel4.Size = new Size(531, 361);
             panel4.TabIndex = 3;
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(336, 5);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(153, 23);
+            comboBox3.TabIndex = 11;
             // 
             // panel5
             // 
@@ -598,6 +611,9 @@ namespace RecipeNess
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.BackColor = Color.Gainsboro;
+            splitContainer2.Panel2.BackgroundImage = Properties.Resources.FrameBackgr;
+            splitContainer2.Panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            splitContainer2.Panel2.Controls.Add(listBox6);
             splitContainer2.Panel2.Controls.Add(label22);
             splitContainer2.Panel2.Controls.Add(label19);
             splitContainer2.Panel2.Controls.Add(label18);
@@ -612,6 +628,7 @@ namespace RecipeNess
             splitContainer2.Panel2.Controls.Add(textBox4);
             splitContainer2.Panel2.Controls.Add(label20);
             splitContainer2.Panel2.Controls.Add(label21);
+            splitContainer2.Panel2.Controls.Add(label28);
             splitContainer2.Size = new Size(786, 378);
             splitContainer2.SplitterDistance = 262;
             splitContainer2.TabIndex = 0;
@@ -672,6 +689,14 @@ namespace RecipeNess
             label23.Size = new Size(168, 15);
             label23.TabIndex = 14;
             label23.Text = "Комментарий к модерации";
+            // 
+            // listBox6
+            // 
+            listBox6.FormattingEnabled = true;
+            listBox6.Location = new Point(157, 70);
+            listBox6.Name = "listBox6";
+            listBox6.Size = new Size(95, 94);
+            listBox6.TabIndex = 14;
             // 
             // label22
             // 
@@ -742,7 +767,7 @@ namespace RecipeNess
             listBox4.FormattingEnabled = true;
             listBox4.Location = new Point(16, 70);
             listBox4.Name = "listBox4";
-            listBox4.Size = new Size(236, 94);
+            listBox4.Size = new Size(135, 94);
             listBox4.TabIndex = 4;
             // 
             // label17
@@ -803,8 +828,20 @@ namespace RecipeNess
             label21.TabIndex = 12;
             label21.Text = "Сложность приготовления";
             // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label28.Location = new Point(157, 54);
+            label28.Name = "label28";
+            label28.Size = new Size(25, 15);
+            label28.TabIndex = 15;
+            label28.Text = "Тег";
+            // 
             // tabPage3
             // 
+            tabPage3.BackgroundImage = Properties.Resources.FrameBackgr;
+            tabPage3.BackgroundImageLayout = ImageLayout.Zoom;
             tabPage3.Controls.Add(label27);
             tabPage3.Controls.Add(comboBox2);
             tabPage3.Controls.Add(listBox5);
@@ -1013,7 +1050,6 @@ namespace RecipeNess
         private TextBox textBox8;
         private TextBox textBox7;
         private TextBox textBox6;
-        private ListBox listBox4;
         private Label label20;
         private Label label19;
         private Label label18;
@@ -1039,5 +1075,9 @@ namespace RecipeNess
         private RoundedButton roundedButton6;
         private RoundedButton roundedButton8;
         private PictureBox pictureBox3;
+        private ComboBox comboBox3;
+        private ListBox listBox6;
+        private ListBox listBox4;
+        private Label label28;
     }
 }

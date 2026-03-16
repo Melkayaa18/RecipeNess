@@ -32,6 +32,7 @@
             lblTitle = new Label();
             roundedButton1 = new RecipeNess.controls.RoundedButton();
             panel1 = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbImage).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -62,9 +63,9 @@
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton1.Location = new Point(60, 204);
+            roundedButton1.Location = new Point(37, 220);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(97, 43);
+            roundedButton1.Size = new Size(160, 30);
             roundedButton1.TabIndex = 2;
             roundedButton1.Text = "Посмотреть больше";
             roundedButton1.UseVisualStyleBackColor = true;
@@ -73,11 +74,21 @@
             // 
             panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(lblTitle);
+            panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(223, 250);
             panel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(99, 206);
+            label1.Name = "label1";
+            label1.Size = new Size(32, 15);
+            label1.TabIndex = 3;
+            label1.Text = "#ТЕГ";
             // 
             // RecipeCard
             // 
@@ -101,5 +112,6 @@
         private Label lblTitle;
         private controls.RoundedButton roundedButton1;
         private Panel panel1;
+        private Label label1;
     }
 }

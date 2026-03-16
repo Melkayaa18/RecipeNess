@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotificationForm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox3 = new PictureBox();
@@ -56,11 +55,11 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImage = Properties.Resources.seed;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Location = new Point(12, 3);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(35, 36);
+            pictureBox3.Size = new Size(35, 33);
             pictureBox3.TabIndex = 3;
             pictureBox3.TabStop = false;
             // 

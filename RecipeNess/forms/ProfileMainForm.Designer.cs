@@ -30,7 +30,6 @@ namespace RecipeNess
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileMainForm));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label7 = new Label();
@@ -62,7 +61,7 @@ namespace RecipeNess
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImage = Properties.Resources.seed;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.Location = new Point(21, 3);
             pictureBox1.Name = "pictureBox1";
@@ -82,7 +81,7 @@ namespace RecipeNess
             // 
             // roundedButton2
             // 
-            roundedButton2.BackgroundImage = (Image)resources.GetObject("roundedButton2.BackgroundImage");
+            roundedButton2.BackgroundImage = Properties.Resources.backIcon;
             roundedButton2.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton2.FlatAppearance.BorderSize = 0;
             roundedButton2.FlatStyle = FlatStyle.Flat;
@@ -129,7 +128,7 @@ namespace RecipeNess
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.BackgroundImage = (Image)resources.GetObject("flowLayoutPanel1.BackgroundImage");
+            flowLayoutPanel1.BackgroundImage = Properties.Resources.FrameBackgr;
             flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Zoom;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 3);
@@ -139,7 +138,7 @@ namespace RecipeNess
             // 
             // tabPage2
             // 
-            tabPage2.BackgroundImage = (Image)resources.GetObject("tabPage2.BackgroundImage");
+            tabPage2.BackgroundImage = Properties.Resources.FrameBackgr;
             tabPage2.BackgroundImageLayout = ImageLayout.Zoom;
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";

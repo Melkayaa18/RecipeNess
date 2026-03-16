@@ -30,10 +30,9 @@ namespace RecipeNess
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             roundedButton3 = new RoundedButton();
+            pictureBox1 = new PictureBox();
             roundedButton2 = new RoundedButton();
             label6 = new Label();
             label7 = new Label();
@@ -69,8 +68,8 @@ namespace RecipeNess
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
-            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(roundedButton3);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(roundedButton2);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label7);
@@ -81,27 +80,27 @@ namespace RecipeNess
             panel1.Size = new Size(800, 47);
             panel1.TabIndex = 0;
             // 
+            // roundedButton3
+            // 
+            roundedButton3.BackgroundImage = Properties.Resources.ProfileIcon;
+            roundedButton3.BackgroundImageLayout = ImageLayout.Center;
+            roundedButton3.FlatAppearance.BorderSize = 0;
+            roundedButton3.FlatStyle = FlatStyle.Flat;
+            roundedButton3.Location = new Point(733, 9);
+            roundedButton3.Name = "roundedButton3";
+            roundedButton3.Size = new Size(55, 32);
+            roundedButton3.TabIndex = 4;
+            roundedButton3.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.BackgroundImage = Properties.Resources.seed;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(25, 6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(35, 34);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // roundedButton3
-            // 
-            roundedButton3.BackgroundImage = (Image)resources.GetObject("roundedButton3.BackgroundImage");
-            roundedButton3.FlatAppearance.BorderSize = 0;
-            roundedButton3.FlatStyle = FlatStyle.Flat;
-            roundedButton3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton3.Location = new Point(733, 8);
-            roundedButton3.Name = "roundedButton3";
-            roundedButton3.Size = new Size(39, 32);
-            roundedButton3.TabIndex = 4;
-            roundedButton3.UseVisualStyleBackColor = true;
             // 
             // roundedButton2
             // 
@@ -198,7 +197,7 @@ namespace RecipeNess
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label4.Location = new Point(16, 287);
+            label4.Location = new Point(16, 284);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
             label4.Size = new Size(199, 20);
@@ -209,7 +208,7 @@ namespace RecipeNess
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label3.Location = new Point(16, 239);
+            label3.Location = new Point(16, 236);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
             label3.Size = new Size(159, 20);
@@ -219,14 +218,14 @@ namespace RecipeNess
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(13, 309);
+            comboBox1.Location = new Point(13, 306);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(232, 23);
             comboBox1.TabIndex = 2;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(13, 261);
+            numericUpDown1.Location = new Point(13, 258);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(232, 23);
             numericUpDown1.TabIndex = 3;
@@ -262,7 +261,7 @@ namespace RecipeNess
             // roundedButton7
             // 
             roundedButton7.BackColor = SystemColors.ButtonFace;
-            roundedButton7.BackgroundImage = (Image)resources.GetObject("roundedButton7.BackgroundImage");
+            roundedButton7.BackgroundImage = Properties.Resources.StarIcon;
             roundedButton7.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton7.FlatAppearance.BorderSize = 0;
             roundedButton7.FlatStyle = FlatStyle.Flat;
@@ -275,7 +274,7 @@ namespace RecipeNess
             // roundedButton6
             // 
             roundedButton6.BackColor = SystemColors.ButtonFace;
-            roundedButton6.BackgroundImage = (Image)resources.GetObject("roundedButton6.BackgroundImage");
+            roundedButton6.BackgroundImage = Properties.Resources.moon;
             roundedButton6.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton6.FlatAppearance.BorderSize = 0;
             roundedButton6.FlatStyle = FlatStyle.Flat;
@@ -288,7 +287,7 @@ namespace RecipeNess
             // roundedButton5
             // 
             roundedButton5.BackColor = SystemColors.ButtonFace;
-            roundedButton5.BackgroundImage = (Image)resources.GetObject("roundedButton5.BackgroundImage");
+            roundedButton5.BackgroundImage = Properties.Resources.cloud;
             roundedButton5.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton5.FlatAppearance.BorderSize = 0;
             roundedButton5.FlatStyle = FlatStyle.Flat;
@@ -301,7 +300,7 @@ namespace RecipeNess
             // roundedButton4
             // 
             roundedButton4.BackColor = Color.Transparent;
-            roundedButton4.BackgroundImage = (Image)resources.GetObject("roundedButton4.BackgroundImage");
+            roundedButton4.BackgroundImage = Properties.Resources.sunIcon;
             roundedButton4.BackgroundImageLayout = ImageLayout.Zoom;
             roundedButton4.FlatAppearance.BorderSize = 0;
             roundedButton4.FlatStyle = FlatStyle.Flat;
@@ -327,7 +326,7 @@ namespace RecipeNess
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton1.Location = new Point(44, 325);
+            roundedButton1.Location = new Point(46, 335);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(169, 37);
             roundedButton1.TabIndex = 11;
@@ -337,6 +336,7 @@ namespace RecipeNess
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Zoom;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -384,7 +384,6 @@ namespace RecipeNess
         private Label label6;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label7;
-        private RoundedButton roundedButton3;
         private RoundedButton roundedButton2;
         private RoundedButton roundedButton1;
         private Panel panel3;
@@ -394,5 +393,6 @@ namespace RecipeNess
         private RoundedButton roundedButton4;
         private Label label2;
         private PictureBox pictureBox1;
+        private RoundedButton roundedButton3;
     }
 }

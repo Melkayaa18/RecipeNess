@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             panel1 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             roundedButton1 = new RecipeNess.controls.RoundedButton();
             roundedButton2 = new RecipeNess.controls.RoundedButton();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +49,42 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(282, 133);
             panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label2.Location = new Point(10, 54);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 15);
+            label2.TabIndex = 3;
+            label2.Text = "введите Ваш пароль";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Location = new Point(10, 1);
+            label1.Name = "label1";
+            label1.Size = new Size(126, 15);
+            label1.TabIndex = 2;
+            label1.Text = "введите Вашу почту";
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            textBox2.Location = new Point(10, 72);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(264, 27);
+            textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            textBox1.Location = new Point(10, 19);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(264, 27);
+            textBox1.TabIndex = 0;
             // 
             // roundedButton1
             // 
@@ -74,47 +109,11 @@
             roundedButton2.Text = "СОЗДАТЬ АККАУНТ";
             roundedButton2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(10, 19);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(264, 27);
-            textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(10, 72);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(264, 27);
-            textBox2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label1.Location = new Point(10, 1);
-            label1.Name = "label1";
-            label1.Size = new Size(126, 15);
-            label1.TabIndex = 2;
-            label1.Text = "введите Вашу почту";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label2.Location = new Point(10, 54);
-            label2.Name = "label2";
-            label2.Size = new Size(124, 15);
-            label2.TabIndex = 3;
-            label2.Text = "введите Ваш пароль";
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.LogBack;
             ClientSize = new Size(800, 450);
             Controls.Add(roundedButton2);
             Controls.Add(roundedButton1);

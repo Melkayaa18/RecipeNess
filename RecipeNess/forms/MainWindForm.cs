@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeNess.classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,10 @@ namespace RecipeNess.forms
         public MainWindForm()
         {
             InitializeComponent();
+            roundedButton1.BackColor = AppColors.AccentGreenLight;
+            roundedButton2.BackColor = AppColors.AccentGreenLight;
+            roundedButton3.BackColor = AppColors.AccentGreenLight;
         }
+
     }
 }
