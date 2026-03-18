@@ -38,7 +38,7 @@ namespace RecipeNess
             label13.ForeColor = AppColors.MainBackground;
             label15.ForeColor = AppColors.MainBackground;
             roundedButton4.BackColor = AppColors.AccentGreenLight;
-            roundedButton5.BackColor = AppColors.AccentGreenLight;
+            roundedButton5.BackColor = AppColors.Shapka;
 
 
             splitContainer2.Panel2.BackColor = AppColors.AccentGreenLight;

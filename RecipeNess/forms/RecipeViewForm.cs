@@ -16,7 +16,7 @@ namespace RecipeNess
             InitializeComponent();
             splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;//акцценторанжлайт
             panel3.BackColor = AppColors.Shapka;//шапка
-            splitContainer1.Panel2.BackColor = AppColors.AccentGreenLight;
+            splitContainer1.Panel2.BackColor = AppColors.PanelBackground;
             roundedButton1.BackColor = AppColors.AccentOrange;
             panel2.BackColor = AppColors.AccentGreen2;
         }

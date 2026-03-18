@@ -37,6 +37,7 @@
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            roundedButton2 = new RecipeNess.controls.RoundedButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvNotifications).BeginInit();
@@ -44,6 +45,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(roundedButton2);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
@@ -109,6 +111,19 @@
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             // 
+            // roundedButton2
+            // 
+            roundedButton2.BackgroundImage = Properties.Resources.backIcon;
+            roundedButton2.BackgroundImageLayout = ImageLayout.Zoom;
+            roundedButton2.FlatAppearance.BorderSize = 0;
+            roundedButton2.FlatStyle = FlatStyle.Flat;
+            roundedButton2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton2.Location = new Point(597, 12);
+            roundedButton2.Name = "roundedButton2";
+            roundedButton2.Size = new Size(75, 23);
+            roundedButton2.TabIndex = 6;
+            roundedButton2.UseVisualStyleBackColor = true;
+            // 
             // NotificationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -138,5 +153,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private controls.RoundedButton roundedButton2;
     }
 }
