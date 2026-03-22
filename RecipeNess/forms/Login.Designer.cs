@@ -31,8 +31,8 @@
             panel1 = new Panel();
             label2 = new Label();
             label1 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtPassword = new TextBox();
+            txtEmail = new TextBox();
             roundedButton1 = new RecipeNess.controls.RoundedButton();
             roundedButton2 = new RecipeNess.controls.RoundedButton();
             panel1.SuspendLayout();
@@ -43,8 +43,8 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(txtEmail);
             panel1.Location = new Point(267, 138);
             panel1.Name = "panel1";
             panel1.Size = new Size(282, 133);
@@ -70,21 +70,21 @@
             label1.TabIndex = 2;
             label1.Text = "введите Вашу почту";
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(10, 72);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(264, 27);
-            textBox2.TabIndex = 1;
+            txtPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            txtPassword.Location = new Point(10, 72);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(264, 27);
+            txtPassword.TabIndex = 1;
             // 
-            // textBox1
+            // txtEmail
             // 
-            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(10, 19);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(264, 27);
-            textBox1.TabIndex = 0;
+            txtEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            txtEmail.Location = new Point(10, 19);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(264, 27);
+            txtEmail.TabIndex = 0;
             // 
             // roundedButton1
             // 
@@ -97,6 +97,7 @@
             roundedButton1.TabIndex = 1;
             roundedButton1.Text = "ВОЙТИ";
             roundedButton1.UseVisualStyleBackColor = true;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // roundedButton2
             // 
@@ -108,6 +109,7 @@
             roundedButton2.TabIndex = 2;
             roundedButton2.Text = "СОЗДАТЬ АККАУНТ";
             roundedButton2.UseVisualStyleBackColor = true;
+            roundedButton2.Click += roundedButton2_Click;
             // 
             // Login
             // 
@@ -132,7 +134,7 @@
         private controls.RoundedButton roundedButton2;
         private Label label2;
         private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtPassword;
+        private TextBox txtEmail;
     }
 }

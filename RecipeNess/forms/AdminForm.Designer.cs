@@ -32,7 +32,6 @@ namespace RecipeNess
         {
             panel1 = new Panel();
             pictureBox3 = new PictureBox();
-            roundedButton1 = new RoundedButton();
             label2 = new Label();
             label1 = new Label();
             tabControl1 = new TabControl();
@@ -95,16 +94,16 @@ namespace RecipeNess
             label21 = new Label();
             label28 = new Label();
             tabPage3 = new TabPage();
+            textBox11 = new TextBox();
             label27 = new Label();
             comboBox2 = new ComboBox();
             listBox5 = new ListBox();
             label26 = new Label();
             panel8 = new Panel();
+            roundedButton5 = new RoundedButton();
             roundedButton8 = new RoundedButton();
             label24 = new Label();
             textBox9 = new TextBox();
-            textBox11 = new TextBox();
-            roundedButton5 = new RoundedButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             tabControl1.SuspendLayout();
@@ -134,7 +133,6 @@ namespace RecipeNess
             // 
             panel1.BackColor = SystemColors.AppWorkspace;
             panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -153,21 +151,10 @@ namespace RecipeNess
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
             // 
-            // roundedButton1
-            // 
-            roundedButton1.FlatAppearance.BorderSize = 0;
-            roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Location = new Point(718, 9);
-            roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(75, 23);
-            roundedButton1.TabIndex = 4;
-            roundedButton1.Text = "ВЫХОД";
-            roundedButton1.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(618, 13);
+            label2.Location = new Point(689, 12);
             label2.Name = "label2";
             label2.Size = new Size(99, 15);
             label2.TabIndex = 3;
@@ -241,6 +228,7 @@ namespace RecipeNess
             roundedButton3.TabIndex = 6;
             roundedButton3.Text = "Управление ингредиентами";
             roundedButton3.UseVisualStyleBackColor = true;
+            roundedButton3.Click += roundedButton3_Click;
             // 
             // roundedButton2
             // 
@@ -841,6 +829,15 @@ namespace RecipeNess
             tabPage3.Text = "Управление ингредиентами";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // textBox11
+            // 
+            textBox11.Font = new Font("Segoe UI", 12F);
+            textBox11.Location = new Point(190, 21);
+            textBox11.Multiline = true;
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(325, 20);
+            textBox11.TabIndex = 7;
+            // 
             // label27
             // 
             label27.AutoSize = true;
@@ -891,6 +888,18 @@ namespace RecipeNess
             panel8.Size = new Size(792, 62);
             panel8.TabIndex = 0;
             // 
+            // roundedButton5
+            // 
+            roundedButton5.FlatAppearance.BorderSize = 0;
+            roundedButton5.FlatStyle = FlatStyle.Flat;
+            roundedButton5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            roundedButton5.Location = new Point(526, 7);
+            roundedButton5.Name = "roundedButton5";
+            roundedButton5.Size = new Size(86, 46);
+            roundedButton5.TabIndex = 7;
+            roundedButton5.Text = "УДАЛИТЬ";
+            roundedButton5.UseVisualStyleBackColor = true;
+            // 
             // roundedButton8
             // 
             roundedButton8.FlatAppearance.BorderSize = 0;
@@ -921,27 +930,6 @@ namespace RecipeNess
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(316, 35);
             textBox9.TabIndex = 2;
-            // 
-            // textBox11
-            // 
-            textBox11.Font = new Font("Segoe UI", 12F);
-            textBox11.Location = new Point(190, 21);
-            textBox11.Multiline = true;
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(325, 20);
-            textBox11.TabIndex = 7;
-            // 
-            // roundedButton5
-            // 
-            roundedButton5.FlatAppearance.BorderSize = 0;
-            roundedButton5.FlatStyle = FlatStyle.Flat;
-            roundedButton5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton5.Location = new Point(526, 7);
-            roundedButton5.Name = "roundedButton5";
-            roundedButton5.Size = new Size(86, 46);
-            roundedButton5.TabIndex = 7;
-            roundedButton5.Text = "УДАЛИТЬ";
-            roundedButton5.UseVisualStyleBackColor = true;
             // 
             // AdminForm
             // 
@@ -1052,7 +1040,6 @@ namespace RecipeNess
         private Label label27;
         private ComboBox comboBox2;
         private ListBox listBox5;
-        private RoundedButton roundedButton1;
         private RoundedButton roundedButton3;
         private RoundedButton roundedButton2;
         private RoundedButton roundedButton4;

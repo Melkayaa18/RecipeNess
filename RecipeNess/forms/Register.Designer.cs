@@ -30,11 +30,11 @@
         {
             panel1 = new Panel();
             label3 = new Label();
-            textBox3 = new TextBox();
+            txtPassword = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            txtEmail = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtName = new TextBox();
             roundedButton1 = new RecipeNess.controls.RoundedButton();
             roundedButton2 = new RecipeNess.controls.RoundedButton();
             panel1.SuspendLayout();
@@ -44,11 +44,11 @@
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(txtEmail);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtName);
             panel1.Location = new Point(267, 140);
             panel1.Name = "panel1";
             panel1.Size = new Size(282, 189);
@@ -64,13 +64,13 @@
             label3.TabIndex = 9;
             label3.Text = "пароль";
             // 
-            // textBox3
+            // txtPassword
             // 
-            textBox3.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox3.Location = new Point(3, 139);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(264, 27);
-            textBox3.TabIndex = 8;
+            txtPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            txtPassword.Location = new Point(3, 139);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(264, 27);
+            txtPassword.TabIndex = 8;
             // 
             // label2
             // 
@@ -82,13 +82,13 @@
             label2.TabIndex = 7;
             label2.Text = "почта";
             // 
-            // textBox2
+            // txtEmail
             // 
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(3, 80);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(264, 27);
-            textBox2.TabIndex = 6;
+            txtEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            txtEmail.Location = new Point(3, 80);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(264, 27);
+            txtEmail.TabIndex = 6;
             // 
             // label1
             // 
@@ -100,13 +100,13 @@
             label1.TabIndex = 5;
             label1.Text = "никнейм";
             // 
-            // textBox1
+            // txtName
             // 
-            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(3, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(264, 27);
-            textBox1.TabIndex = 4;
+            txtName.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            txtName.Location = new Point(3, 22);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(264, 27);
+            txtName.TabIndex = 4;
             // 
             // roundedButton1
             // 
@@ -131,6 +131,7 @@
             roundedButton2.TabIndex = 3;
             roundedButton2.Text = "ВОЙТИ";
             roundedButton2.UseVisualStyleBackColor = true;
+            roundedButton2.Click += roundedButton2_Click;
             // 
             // Register
             // 
@@ -154,10 +155,10 @@
         private controls.RoundedButton roundedButton1;
         private controls.RoundedButton roundedButton2;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtPassword;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox txtEmail;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtName;
     }
 }

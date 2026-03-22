@@ -42,9 +42,9 @@ namespace RecipeNess
             panel2 = new Panel();
             label4 = new Label();
             label3 = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxComplexity = new ComboBox();
             numericUpDown1 = new NumericUpDown();
-            checkedListBox1 = new CheckedListBox();
+            checkedListBoxIngredients = new CheckedListBox();
             textBox1 = new TextBox();
             panel3 = new Panel();
             roundedButton7 = new RoundedButton();
@@ -91,6 +91,7 @@ namespace RecipeNess
             roundedButton3.Size = new Size(55, 32);
             roundedButton3.TabIndex = 4;
             roundedButton3.UseVisualStyleBackColor = true;
+            roundedButton3.Click += roundedButton3_Click;
             // 
             // pictureBox1
             // 
@@ -113,6 +114,7 @@ namespace RecipeNess
             roundedButton2.TabIndex = 3;
             roundedButton2.Text = "Добавить рецепт";
             roundedButton2.UseVisualStyleBackColor = true;
+            roundedButton2.Click += roundedButton2_Click;
             // 
             // label6
             // 
@@ -123,7 +125,7 @@ namespace RecipeNess
             label6.Size = new Size(185, 28);
             label6.TabIndex = 0;
             label6.Text = "Окно фильтрации";
-            label6.Click += label6_Click;
+            //label6.Click += label6_Click;
             // 
             // label7
             // 
@@ -156,7 +158,7 @@ namespace RecipeNess
             splitContainer1.Panel1.BackColor = SystemColors.ControlDark;
             splitContainer1.Panel1.Controls.Add(label1);
             splitContainer1.Panel1.Controls.Add(panel2);
-            splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
+            //splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
             // 
             // splitContainer1.Panel2
             // 
@@ -182,9 +184,9 @@ namespace RecipeNess
             // 
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(comboBoxComplexity);
             panel2.Controls.Add(numericUpDown1);
-            panel2.Controls.Add(checkedListBox1);
+            panel2.Controls.Add(checkedListBoxIngredients);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(roundedButton1);
@@ -215,13 +217,13 @@ namespace RecipeNess
             label3.TabIndex = 9;
             label3.Text = "Время приготовления";
             // 
-            // comboBox1
+            // comboBoxComplexity
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(13, 306);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(232, 23);
-            comboBox1.TabIndex = 2;
+            comboBoxComplexity.FormattingEnabled = true;
+            comboBoxComplexity.Location = new Point(13, 306);
+            comboBoxComplexity.Name = "comboBoxComplexity";
+            comboBoxComplexity.Size = new Size(232, 23);
+            comboBoxComplexity.TabIndex = 2;
             // 
             // numericUpDown1
             // 
@@ -230,13 +232,13 @@ namespace RecipeNess
             numericUpDown1.Size = new Size(232, 23);
             numericUpDown1.TabIndex = 3;
             // 
-            // checkedListBox1
+            // checkedListBoxIngredients
             // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(16, 32);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(232, 130);
-            checkedListBox1.TabIndex = 4;
+            checkedListBoxIngredients.FormattingEnabled = true;
+            checkedListBoxIngredients.Location = new Point(16, 32);
+            checkedListBoxIngredients.Name = "checkedListBoxIngredients";
+            checkedListBoxIngredients.Size = new Size(232, 130);
+            checkedListBoxIngredients.TabIndex = 4;
             // 
             // textBox1
             // 
@@ -332,6 +334,7 @@ namespace RecipeNess
             roundedButton1.TabIndex = 11;
             roundedButton1.Text = "Найти рецепт";
             roundedButton1.UseVisualStyleBackColor = true;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -374,10 +377,10 @@ namespace RecipeNess
         private SplitContainer splitContainer1;
         private TextBox textBox1;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxComplexity;
         private NumericUpDown numericUpDown1;
         private Panel panel2;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox checkedListBoxIngredients;
         private Label label4;
         private Label label3;
         private Label label5;

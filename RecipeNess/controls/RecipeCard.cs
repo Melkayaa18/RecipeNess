@@ -32,8 +32,13 @@ namespace RecipeNess
             get => pbImage.Image;
             set => pbImage.Image = value;
         }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string TagText
+        {
+            get { return lblTag.Text; }
+            set { lblTag.Text = value; }
+        }
 
-        
         public event EventHandler ViewClick;
 
         private void btnView_Click(object sender, EventArgs e)

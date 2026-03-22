@@ -17,7 +17,7 @@ namespace RecipeNess
             panel1.BackColor = AppColors.AccentOran1;
             label1.ForeColor = AppColors.MainText;
             label2.ForeColor = AppColors.MainBackground;
-            roundedButton1.BackColor = AppColors.AccentOrange;
+            //roundedButton1.BackColor = AppColors.AccentOrange;
             splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;
             panel3.BackColor = AppColors.AccentOrangeLight;
             splitContainer1.Panel2.BackColor = AppColors.MainBackground;
@@ -58,6 +58,18 @@ namespace RecipeNess
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void roundedButton3_Click(object sender, EventArgs e)
+        {
+            foreach (TabPage page in tabControl1.TabPages)
+            {
+                if (page.Text == "Управление ингредиентами") // заголовок вкладки
+                {
+                    tabControl1.SelectedTab = page;
+                    break;
+                }
+            }
         }
     }
 }

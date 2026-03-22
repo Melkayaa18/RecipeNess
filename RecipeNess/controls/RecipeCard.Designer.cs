@@ -32,7 +32,7 @@
             lblTitle = new Label();
             roundedButton1 = new RecipeNess.controls.RoundedButton();
             panel1 = new Panel();
-            label1 = new Label();
+            lblTag = new Label();
             ((System.ComponentModel.ISupportInitialize)pbImage).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -74,21 +74,21 @@
             // 
             panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(lblTitle);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lblTag);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(223, 250);
             panel1.TabIndex = 3;
             // 
-            // label1
+            // lblTag
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(99, 206);
-            label1.Name = "label1";
-            label1.Size = new Size(32, 15);
-            label1.TabIndex = 3;
-            label1.Text = "#ТЕГ";
+            lblTag.AutoSize = true;
+            lblTag.Location = new Point(99, 206);
+            lblTag.Name = "lblTag";
+            lblTag.Size = new Size(32, 15);
+            lblTag.TabIndex = 3;
+            lblTag.Text = "#ТЕГ";
             // 
             // RecipeCard
             // 
@@ -112,6 +112,6 @@
         private Label lblTitle;
         private controls.RoundedButton roundedButton1;
         private Panel panel1;
-        private Label label1;
+        private Label lblTag;
     }
 }

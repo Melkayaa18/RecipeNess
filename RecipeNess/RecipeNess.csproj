@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="resources\notif.ico" />
     <Resource Include="resources\Profile.ico" />
     <Resource Include="resources\SUN.png" />

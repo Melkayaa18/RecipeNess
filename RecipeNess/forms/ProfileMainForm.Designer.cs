@@ -91,6 +91,7 @@ namespace RecipeNess
             roundedButton2.Size = new Size(75, 23);
             roundedButton2.TabIndex = 5;
             roundedButton2.UseVisualStyleBackColor = true;
+            roundedButton2.Click += roundedButton2_Click;
             // 
             // roundedButton1
             // 

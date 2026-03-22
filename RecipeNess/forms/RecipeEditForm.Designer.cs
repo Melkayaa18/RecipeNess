@@ -38,6 +38,7 @@ namespace RecipeNess
             label1 = new Label();
             label4 = new Label();
             label3 = new Label();
+            roundedButton5 = new RoundedButton();
             roundedButton3 = new RoundedButton();
             roundedButton2 = new RoundedButton();
             panel1 = new Panel();
@@ -64,7 +65,6 @@ namespace RecipeNess
             roundedButton4 = new RoundedButton();
             textBox2 = new TextBox();
             label2 = new Label();
-            roundedButton5 = new RoundedButton();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -181,6 +181,20 @@ namespace RecipeNess
             label3.TabIndex = 12;
             label3.Text = "Готовы к публикации?";
             // 
+            // roundedButton5
+            // 
+            roundedButton5.BackgroundImage = Properties.Resources.backIcon;
+            roundedButton5.BackgroundImageLayout = ImageLayout.Zoom;
+            roundedButton5.FlatAppearance.BorderSize = 0;
+            roundedButton5.FlatStyle = FlatStyle.Flat;
+            roundedButton5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            roundedButton5.Location = new Point(474, 12);
+            roundedButton5.Name = "roundedButton5";
+            roundedButton5.Size = new Size(44, 30);
+            roundedButton5.TabIndex = 7;
+            roundedButton5.UseVisualStyleBackColor = true;
+            roundedButton5.Click += roundedButton5_Click;
+            // 
             // roundedButton3
             // 
             roundedButton3.BackgroundImage = Properties.Resources.ProfileIcon;
@@ -190,6 +204,7 @@ namespace RecipeNess
             roundedButton3.Name = "roundedButton3";
             roundedButton3.Size = new Size(44, 31);
             roundedButton3.TabIndex = 0;
+            roundedButton3.Click += roundedButton3_Click;
             // 
             // roundedButton2
             // 
@@ -204,6 +219,7 @@ namespace RecipeNess
             roundedButton2.Size = new Size(49, 31);
             roundedButton2.TabIndex = 6;
             roundedButton2.UseVisualStyleBackColor = true;
+            roundedButton2.Click += roundedButton2_Click;
             // 
             // panel1
             // 
@@ -455,19 +471,6 @@ namespace RecipeNess
             label2.Size = new Size(149, 28);
             label2.TabIndex = 0;
             label2.Text = "enter the name";
-            // 
-            // roundedButton5
-            // 
-            roundedButton5.BackgroundImage = Properties.Resources.backIcon;
-            roundedButton5.BackgroundImageLayout = ImageLayout.Zoom;
-            roundedButton5.FlatAppearance.BorderSize = 0;
-            roundedButton5.FlatStyle = FlatStyle.Flat;
-            roundedButton5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            roundedButton5.Location = new Point(474, 12);
-            roundedButton5.Name = "roundedButton5";
-            roundedButton5.Size = new Size(44, 30);
-            roundedButton5.TabIndex = 7;
-            roundedButton5.UseVisualStyleBackColor = true;
             // 
             // RecipeEditForm
             // 

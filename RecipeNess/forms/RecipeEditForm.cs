@@ -41,7 +41,7 @@ namespace RecipeNess
             roundedButton3.BackColor = AppColors.AccentGreenLight;
             roundedButton4.BackColor = AppColors.AccentGreenLight;
             pictureBox1.BackColor = AppColors.AccentGreenLight;
-            
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -52,6 +52,54 @@ namespace RecipeNess
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void roundedButton3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (ProfileMainForm profileMainForm = new ProfileMainForm())
+            {
+                if (profileMainForm.ShowDialog() == DialogResult.OK)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    this.Show();
+                }
+            }
+        }
+
+        private void roundedButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (NotificationForm notificationForm = new NotificationForm())
+            {
+                if (notificationForm.ShowDialog() == DialogResult.OK)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    this.Show();
+                }
+            }
+        }
+
+        private void roundedButton5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (Form1 form1 = new Form1())
+            {
+                if (form1.ShowDialog() == DialogResult.OK)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    this.Show();
+                }
+            }
         }
     }
 }
