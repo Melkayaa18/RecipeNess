@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            roundedButton1 = new RecipeNess.controls.RoundedButton();
+            btnSearch = new RecipeNess.controls.RoundedButton();
             label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            roundedButton2 = new RecipeNess.controls.RoundedButton();
-            roundedButton3 = new RecipeNess.controls.RoundedButton();
+            flowLayoutPanelDailyRecipes = new FlowLayoutPanel();
+            btnLogin = new RecipeNess.controls.RoundedButton();
+            btnRegister = new RecipeNess.controls.RoundedButton();
             SuspendLayout();
             // 
-            // roundedButton1
+            // btnSearch
             // 
-            roundedButton1.FlatAppearance.BorderSize = 0;
-            roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            roundedButton1.Location = new Point(303, 404);
-            roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(191, 34);
-            roundedButton1.TabIndex = 0;
-            roundedButton1.Text = "ОКНО ФИЛТРАЦИИ";
-            roundedButton1.UseVisualStyleBackColor = true;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnSearch.Location = new Point(303, 404);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(191, 34);
+            btnSearch.TabIndex = 0;
+            btnSearch.Text = "ОКНО ФИЛТРАЦИИ";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // label1
             // 
@@ -57,37 +58,41 @@
             label1.TabIndex = 1;
             label1.Text = "Рецепты дня";
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanelDailyRecipes
             // 
-            flowLayoutPanel1.BackColor = Color.Transparent;
-            flowLayoutPanel1.Location = new Point(86, 219);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(628, 179);
-            flowLayoutPanel1.TabIndex = 2;
+            flowLayoutPanelDailyRecipes.BackColor = Color.Transparent;
+            flowLayoutPanelDailyRecipes.BackgroundImageLayout = ImageLayout.Zoom;
+            flowLayoutPanelDailyRecipes.Location = new Point(86, 219);
+            flowLayoutPanelDailyRecipes.Name = "flowLayoutPanelDailyRecipes";
+            flowLayoutPanelDailyRecipes.Size = new Size(628, 192);
+            flowLayoutPanelDailyRecipes.TabIndex = 2;
+            flowLayoutPanelDailyRecipes.WrapContents = false;
             // 
-            // roundedButton2
+            // btnLogin
             // 
-            roundedButton2.FlatAppearance.BorderSize = 0;
-            roundedButton2.FlatStyle = FlatStyle.Flat;
-            roundedButton2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            roundedButton2.Location = new Point(713, 12);
-            roundedButton2.Name = "roundedButton2";
-            roundedButton2.Size = new Size(75, 23);
-            roundedButton2.TabIndex = 3;
-            roundedButton2.Text = "Вход";
-            roundedButton2.UseVisualStyleBackColor = true;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            btnLogin.Location = new Point(713, 12);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(75, 23);
+            btnLogin.TabIndex = 3;
+            btnLogin.Text = "Вход";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
-            // roundedButton3
+            // btnRegister
             // 
-            roundedButton3.FlatAppearance.BorderSize = 0;
-            roundedButton3.FlatStyle = FlatStyle.Flat;
-            roundedButton3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            roundedButton3.Location = new Point(613, 12);
-            roundedButton3.Name = "roundedButton3";
-            roundedButton3.Size = new Size(94, 23);
-            roundedButton3.TabIndex = 4;
-            roundedButton3.Text = "Регистрация";
-            roundedButton3.UseVisualStyleBackColor = true;
+            btnRegister.FlatAppearance.BorderSize = 0;
+            btnRegister.FlatStyle = FlatStyle.Flat;
+            btnRegister.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            btnRegister.Location = new Point(613, 12);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(94, 23);
+            btnRegister.TabIndex = 4;
+            btnRegister.Text = "Регистрация";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
             // MainWindForm
             // 
@@ -96,11 +101,11 @@
             BackgroundImage = Properties.Resources.MainBAck;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(roundedButton3);
-            Controls.Add(roundedButton2);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(btnRegister);
+            Controls.Add(btnLogin);
+            Controls.Add(flowLayoutPanelDailyRecipes);
             Controls.Add(label1);
-            Controls.Add(roundedButton1);
+            Controls.Add(btnSearch);
             DoubleBuffered = true;
             Name = "MainWindForm";
             Text = "MainWindForm";
@@ -110,10 +115,10 @@
 
         #endregion
 
-        private controls.RoundedButton roundedButton1;
+        private controls.RoundedButton btnSearch;
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private controls.RoundedButton roundedButton2;
-        private controls.RoundedButton roundedButton3;
+        private FlowLayoutPanel flowLayoutPanelDailyRecipes;
+        private controls.RoundedButton btnLogin;
+        private controls.RoundedButton btnRegister;
     }
 }

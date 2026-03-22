@@ -351,7 +351,7 @@ namespace RecipeNess
             Controls.Add(splitContainer1);
             Controls.Add(panel1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "FilterWindow";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
