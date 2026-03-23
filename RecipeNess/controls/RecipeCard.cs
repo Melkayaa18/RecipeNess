@@ -11,9 +11,11 @@ namespace RecipeNess
 {
     public partial class RecipeCard : UserControl
     {
+        public event EventHandler ViewClick;
         public RecipeCard()
         {
             InitializeComponent();
+
 
             roundedButton1.BackColor = AppColors.AccentGreen2;
             roundedButton1.ForeColor = AppColors.MainBackground;
@@ -39,11 +41,16 @@ namespace RecipeNess
             set { lblTag.Text = value; }
         }
 
-        public event EventHandler ViewClick;
 
-        private void btnView_Click(object sender, EventArgs e)
+        private void roundedButton1_Click(object sender, EventArgs e)
         {
-            ViewClick?.Invoke(this, e);
+            ViewClick?.Invoke(this, EventArgs.Empty);
+        }
+        private void OpenRecipeView(int recipeId)
+        {
+            MessageBox.Show($"Открываем рецепт с ID {recipeId}"); // отладка
+            RecipeViewForm viewForm = new RecipeViewForm(recipeId);
+            viewForm.ShowDialog();
         }
     }
 }

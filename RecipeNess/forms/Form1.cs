@@ -190,7 +190,8 @@ namespace RecipeNess
 
         private void OpenRecipeView(int recipeId)
         {
-            // TODO: открыть форму просмотра
+            RecipeViewForm viewForm = new RecipeViewForm(recipeId);
+            viewForm.ShowDialog();
         }
 
         private void roundedButton1_Click(object sender, EventArgs e)

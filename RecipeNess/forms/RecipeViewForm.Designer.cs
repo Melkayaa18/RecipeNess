@@ -34,21 +34,21 @@
             roundedButton1 = new RecipeNess.controls.RoundedButton();
             label7 = new Label();
             panel4 = new Panel();
-            checkedListBox1 = new CheckedListBox();
+            checkedListBoxIngredients = new CheckedListBox();
             label4 = new Label();
             label1 = new Label();
             roundedButton2 = new RecipeNess.controls.RoundedButton();
-            label9 = new Label();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            lblTags = new Label();
+            txtTime = new TextBox();
+            txtComplexity = new TextBox();
             label8 = new Label();
             label5 = new Label();
             panel1 = new Panel();
-            textBox1 = new TextBox();
+            txtInstruction = new TextBox();
             panel2 = new Panel();
             label3 = new Label();
             pictureBox1 = new PictureBox();
-            label2 = new Label();
+            lblTitle = new Label();
             label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -81,15 +81,15 @@
             splitContainer1.Panel2.BackgroundImage = Properties.Resources.FrameBackgr;
             splitContainer1.Panel2.BackgroundImageLayout = ImageLayout.Stretch;
             splitContainer1.Panel2.Controls.Add(roundedButton2);
-            splitContainer1.Panel2.Controls.Add(label9);
-            splitContainer1.Panel2.Controls.Add(textBox3);
-            splitContainer1.Panel2.Controls.Add(textBox2);
+            splitContainer1.Panel2.Controls.Add(lblTags);
+            splitContainer1.Panel2.Controls.Add(txtTime);
+            splitContainer1.Panel2.Controls.Add(txtComplexity);
             splitContainer1.Panel2.Controls.Add(label8);
             splitContainer1.Panel2.Controls.Add(label5);
             splitContainer1.Panel2.Controls.Add(panel1);
             splitContainer1.Panel2.Controls.Add(label3);
             splitContainer1.Panel2.Controls.Add(pictureBox1);
-            splitContainer1.Panel2.Controls.Add(label2);
+            splitContainer1.Panel2.Controls.Add(lblTitle);
             splitContainer1.Panel2.Controls.Add(label6);
             splitContainer1.Size = new Size(800, 450);
             splitContainer1.SplitterDistance = 266;
@@ -144,22 +144,22 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ControlLight;
-            panel4.Controls.Add(checkedListBox1);
+            panel4.Controls.Add(checkedListBoxIngredients);
             panel4.Location = new Point(14, 52);
             panel4.Name = "panel4";
             panel4.Size = new Size(211, 256);
             panel4.TabIndex = 1;
             // 
-            // checkedListBox1
+            // checkedListBoxIngredients
             // 
-            checkedListBox1.BackColor = SystemColors.Window;
-            checkedListBox1.Dock = DockStyle.Fill;
-            checkedListBox1.Font = new Font("Segoe UI", 11F);
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(0, 0);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(211, 256);
-            checkedListBox1.TabIndex = 0;
+            checkedListBoxIngredients.BackColor = SystemColors.Window;
+            checkedListBoxIngredients.Dock = DockStyle.Fill;
+            checkedListBoxIngredients.Font = new Font("Segoe UI", 11F);
+            checkedListBoxIngredients.FormattingEnabled = true;
+            checkedListBoxIngredients.Location = new Point(0, 0);
+            checkedListBoxIngredients.Name = "checkedListBoxIngredients";
+            checkedListBoxIngredients.Size = new Size(211, 256);
+            checkedListBoxIngredients.TabIndex = 0;
             // 
             // label4
             // 
@@ -195,29 +195,31 @@
             roundedButton2.TabIndex = 11;
             roundedButton2.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // lblTags
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label9.Location = new Point(387, 61);
-            label9.Name = "label9";
-            label9.Size = new Size(48, 17);
-            label9.TabIndex = 10;
-            label9.Text = "#ТЕГИ";
+            lblTags.AutoSize = true;
+            lblTags.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTags.Location = new Point(387, 61);
+            lblTags.Name = "lblTags";
+            lblTags.Size = new Size(48, 17);
+            lblTags.TabIndex = 10;
+            lblTags.Text = "#ТЕГИ";
             // 
-            // textBox3
+            // txtTime
             // 
-            textBox3.Location = new Point(388, 150);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(130, 23);
-            textBox3.TabIndex = 9;
+            txtTime.Location = new Point(388, 150);
+            txtTime.Name = "txtTime";
+            txtTime.ReadOnly = true;
+            txtTime.Size = new Size(130, 23);
+            txtTime.TabIndex = 9;
             // 
-            // textBox2
+            // txtComplexity
             // 
-            textBox2.Location = new Point(388, 103);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(130, 23);
-            textBox2.TabIndex = 8;
+            txtComplexity.Location = new Point(388, 103);
+            txtComplexity.Name = "txtComplexity";
+            txtComplexity.ReadOnly = true;
+            txtComplexity.Size = new Size(130, 23);
+            txtComplexity.TabIndex = 8;
             // 
             // label8
             // 
@@ -243,22 +245,23 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = SystemColors.Control;
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtInstruction);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(15, 205);
             panel1.Name = "panel1";
             panel1.Size = new Size(503, 233);
             panel1.TabIndex = 5;
             // 
-            // textBox1
+            // txtInstruction
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Segoe UI", 13F);
-            textBox1.Location = new Point(34, 0);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(469, 233);
-            textBox1.TabIndex = 1;
+            txtInstruction.Dock = DockStyle.Fill;
+            txtInstruction.Font = new Font("Segoe UI", 13F);
+            txtInstruction.Location = new Point(34, 0);
+            txtInstruction.Multiline = true;
+            txtInstruction.Name = "txtInstruction";
+            txtInstruction.ReadOnly = true;
+            txtInstruction.Size = new Size(469, 233);
+            txtInstruction.TabIndex = 1;
             // 
             // panel2
             // 
@@ -289,16 +292,16 @@
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
-            // label2
+            // lblTitle
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(15, 30);
-            label2.Name = "label2";
-            label2.Size = new Size(254, 28);
-            label2.TabIndex = 2;
-            label2.Text = "Название данного блюда";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.ForeColor = SystemColors.ControlDarkDark;
+            lblTitle.Location = new Point(15, 30);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(254, 28);
+            lblTitle.TabIndex = 2;
+            lblTitle.Text = "Название данного блюда";
             // 
             // label6
             // 
@@ -343,8 +346,8 @@
         private Panel panel1;
         private Label label3;
         private PictureBox pictureBox1;
-        private Label label2;
-        private TextBox textBox1;
+        private Label lblTitle;
+        private TextBox txtInstruction;
         private Panel panel2;
         private Panel panel3;
         private Label label4;
@@ -352,12 +355,12 @@
         private controls.RoundedButton roundedButton1;
         private Label label7;
         private Panel panel4;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox checkedListBoxIngredients;
         private Label label8;
         private Label label5;
-        private Label label9;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private Label lblTags;
+        private TextBox txtTime;
+        private TextBox txtComplexity;
         private controls.RoundedButton roundedButton2;
     }
 }

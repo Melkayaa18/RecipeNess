@@ -1,10 +1,6 @@
-﻿using RecipeNess.classes;
+﻿using MySql.Data.MySqlClient;
+using RecipeNess.classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace RecipeNess
@@ -14,10 +10,12 @@ namespace RecipeNess
         public AdminForm()
         {
             InitializeComponent();
+            this.Load += AdminForm_Load; // <-- ВАЖНО!
+
+            // Остальные настройки цветов (оставь свои)
             panel1.BackColor = AppColors.AccentOran1;
             label1.ForeColor = AppColors.MainText;
             label2.ForeColor = AppColors.MainBackground;
-            //roundedButton1.BackColor = AppColors.AccentOrange;
             splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;
             panel3.BackColor = AppColors.AccentOrangeLight;
             splitContainer1.Panel2.BackColor = AppColors.MainBackground;
@@ -40,7 +38,6 @@ namespace RecipeNess
             roundedButton4.BackColor = AppColors.AccentGreenLight;
             roundedButton5.BackColor = AppColors.Shapka;
 
-
             splitContainer2.Panel2.BackColor = AppColors.AccentGreenLight;
             splitContainer2.Panel1.BackColor = AppColors.AccentOrangeLight;
             roundedButton6.BackColor = AppColors.Shapka;
@@ -55,16 +52,79 @@ namespace RecipeNess
             label26.ForeColor = AppColors.MainText;
         }
 
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            LoadRecipes();
+        }
+
+        private void LoadRecipes()
+        {
+            // Проверка существования элементов
+            if (listBoxRecipes == null || textBoxCount == null)
+            {
+                MessageBox.Show("Элементы listBoxRecipes или textBoxCount не найдены на форме!");
+                return;
+            }
+
+            listBoxRecipes.Items.Clear();
+
+            string query = "SELECT айди_рецепта, название_рецепта FROM рецепты ORDER BY название_рецепта";
+
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    int count = 0;
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("айди_рецепта");
+                        string title = reader.GetString("название_рецепта");
+                        listBoxRecipes.Items.Add(new RecipeItem(id, title));
+                        count++;
+                    }
+                    reader.Close();
+
+                    textBoxCount.Text = count.ToString();
+                    // Для отладки (после проверки можно убрать)
+                    MessageBox.Show($"Загружено рецептов: {count}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки рецептов: " + ex.Message);
+                }
+            }
+        }
+
+        public class RecipeItem
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+
+            public RecipeItem(int id, string name)
+            {
+                Id = id;
+                Name = name;
+            }
+
+            public override string ToString()
+            {
+                return Name;
+            }
+        }
+
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void roundedButton3_Click(object sender, EventArgs e)
         {
             foreach (TabPage page in tabControl1.TabPages)
             {
-                if (page.Text == "Управление ингредиентами") // заголовок вкладки
+                if (page.Text == "Управление ингредиентами")
                 {
                     tabControl1.SelectedTab = page;
                     break;

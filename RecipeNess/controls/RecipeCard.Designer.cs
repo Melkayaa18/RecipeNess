@@ -69,6 +69,7 @@
             roundedButton1.TabIndex = 2;
             roundedButton1.Text = "Посмотреть больше";
             roundedButton1.UseVisualStyleBackColor = true;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // panel1
             // 

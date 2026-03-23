@@ -40,9 +40,9 @@ namespace RecipeNess
             roundedButton3 = new RoundedButton();
             roundedButton2 = new RoundedButton();
             panel3 = new Panel();
-            listBox2 = new ListBox();
+            listBoxRecipes = new ListBox();
             label14 = new Label();
-            textBox1 = new TextBox();
+            textBoxCount = new TextBox();
             label15 = new Label();
             panel2 = new Panel();
             label3 = new Label();
@@ -244,25 +244,24 @@ namespace RecipeNess
             // panel3
             // 
             panel3.BackColor = Color.Silver;
-            panel3.Controls.Add(listBox2);
+            panel3.Controls.Add(listBoxRecipes);
             panel3.Controls.Add(label14);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(textBoxCount);
             panel3.Controls.Add(label15);
             panel3.Location = new Point(14, 37);
             panel3.Name = "panel3";
             panel3.Size = new Size(200, 275);
             panel3.TabIndex = 4;
             // 
-            // listBox2
+            // listBoxRecipes
             // 
-            listBox2.Font = new Font("Segoe UI", 11F);
-            listBox2.FormattingEnabled = true;
-            listBox2.Items.AddRange(new object[] { "Паста с грибами", "Луковый суп", "Творожная запеканка" });
-            listBox2.Location = new Point(11, 9);
-            listBox2.Name = "listBox2";
-            listBox2.ScrollAlwaysVisible = true;
-            listBox2.Size = new Size(176, 204);
-            listBox2.TabIndex = 2;
+            listBoxRecipes.Font = new Font("Segoe UI", 11F);
+            listBoxRecipes.FormattingEnabled = true;
+            listBoxRecipes.Location = new Point(11, 9);
+            listBoxRecipes.Name = "listBoxRecipes";
+            listBoxRecipes.ScrollAlwaysVisible = true;
+            listBoxRecipes.Size = new Size(176, 204);
+            listBoxRecipes.TabIndex = 2;
             // 
             // label14
             // 
@@ -273,15 +272,14 @@ namespace RecipeNess
             label14.TabIndex = 1;
             label14.Text = "всего рецептов";
             // 
-            // textBox1
+            // textBoxCount
             // 
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(11, 239);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(176, 29);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "57";
+            textBoxCount.Font = new Font("Segoe UI", 12F);
+            textBoxCount.Location = new Point(11, 239);
+            textBoxCount.Multiline = true;
+            textBoxCount.Name = "textBoxCount";
+            textBoxCount.Size = new Size(176, 29);
+            textBoxCount.TabIndex = 0;
             // 
             // label15
             // 
@@ -1012,8 +1010,8 @@ namespace RecipeNess
         private Label label13;
         private Panel panel3;
         private Label label14;
-        private TextBox textBox1;
-        private ListBox listBox2;
+        private TextBox textBoxCount;
+        private ListBox listBoxRecipes;
         private Label label15;
         private SplitContainer splitContainer2;
         private ListBox listBox3;
