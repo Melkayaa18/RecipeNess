@@ -7,12 +7,18 @@ namespace RecipeNess
 {
     public partial class AdminForm : Form
     {
+        private int currentRecipeId = -1; // ID текущего выбранного рецепта
+
         public AdminForm()
         {
             InitializeComponent();
-            this.Load += AdminForm_Load; // <-- ВАЖНО!
+            this.Load += AdminForm_Load;
+            listBoxRecipes.SelectedIndexChanged += listBoxRecipes_SelectedIndexChanged;
+            textBoxSearchIngredient.TextChanged += textBoxSearchIngredient_TextChanged;
+            comboBoxSortIngredient.SelectedIndexChanged += comboBoxSortIngredient_SelectedIndexChanged;
+            roundedButton2.Click += roundedButton2_Click;
 
-            // Остальные настройки цветов (оставь свои)
+            
             panel1.BackColor = AppColors.AccentOran1;
             label1.ForeColor = AppColors.MainText;
             label2.ForeColor = AppColors.MainBackground;
@@ -55,11 +61,16 @@ namespace RecipeNess
         private void AdminForm_Load(object sender, EventArgs e)
         {
             LoadRecipes();
+            LoadCategories();
+            LoadSortOptions();
+            LoadIngredientsAdmin();
+            LoadSortOptions();
+            LoadIngredientsAdmin();
+            SetupIngredientsEvents();
         }
 
         private void LoadRecipes()
         {
-            // Проверка существования элементов
             if (listBoxRecipes == null || textBoxCount == null)
             {
                 MessageBox.Show("Элементы listBoxRecipes или textBoxCount не найдены на форме!");
@@ -89,8 +100,6 @@ namespace RecipeNess
                     reader.Close();
 
                     textBoxCount.Text = count.ToString();
-                    // Для отладки (после проверки можно убрать)
-                    MessageBox.Show($"Загружено рецептов: {count}");
                 }
                 catch (Exception ex)
                 {
@@ -103,23 +112,361 @@ namespace RecipeNess
         {
             public int Id { get; set; }
             public string Name { get; set; }
-
-            public RecipeItem(int id, string name)
-            {
-                Id = id;
-                Name = name;
-            }
-
-            public override string ToString()
-            {
-                return Name;
-            }
+            public RecipeItem(int id, string name) { Id = id; Name = name; }
+            public override string ToString() => Name;
         }
 
-        private void textBox8_TextChanged(object sender, EventArgs e)
+        private void listBoxRecipes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxRecipes.SelectedItem is RecipeItem selected)
+            {
+                currentRecipeId = selected.Id;
+                LoadRecipeDetails(currentRecipeId);
+            }
+            else
+            {
+                ClearRecipeDetails();
+            }
         }
 
+        private void LoadRecipeDetails(int recipeId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Основные данные + категория
+                    string recipeQuery = @"
+                        SELECT r.название_рецепта, r.время_приготовления_рецепта, r.сложность_рецепта, r.инструкция_рецепта,
+                               кр.название_категории AS категория
+                        FROM рецепты r
+                        LEFT JOIN категории_рецептов кр ON r.айди_категории_рецепта = кр.айди_категории_рецепта
+                        WHERE r.айди_рецепта = @id";
+                    MySqlCommand cmd = new MySqlCommand(recipeQuery, conn);
+                    cmd.Parameters.AddWithValue("@id", recipeId);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lblRecipeName.Text = reader["название_рецепта"]?.ToString() ?? "";
+                            numericUpDownTime.Value = reader["время_приготовления_рецепта"] != DBNull.Value
+                                ? Convert.ToDecimal(reader["время_приготовления_рецепта"])
+                                : 0;
+                            string complexity = reader["сложность_рецепта"]?.ToString();
+                            radioButtonEasy.Checked = (complexity == "легко");
+                            radioButtonMedium.Checked = (complexity == "средне");
+                            radioButtonHard.Checked = (complexity == "сложно");
+                            textBoxInstruction.Text = reader["инструкция_рецепта"]?.ToString() ?? "";
+                            string category = reader["категория"]?.ToString() ?? "";
+                            if (comboBoxCategory.Items.Count > 0 && !string.IsNullOrEmpty(category))
+                            {
+                                int idx = comboBoxCategory.FindStringExact(category);
+                                comboBoxCategory.SelectedIndex = idx != -1 ? idx : -1;
+                            }
+                            else
+                                comboBoxCategory.SelectedIndex = -1;
+                        }
+                        else
+                        {
+                            ClearRecipeDetails();
+                            return;
+                        }
+                    }
+
+                    // Ингредиенты
+                    string ingQuery = @"
+                        SELECT и.название_ингредиента, ри.количество
+                        FROM рецепт_ингредиент ри
+                        JOIN ингредиенты и ON ри.айди_ингредиента = и.айди_ингредиента
+                        WHERE ри.айди_рецепта = @id
+                        ORDER BY и.название_ингредиента";
+                    MySqlCommand cmdIng = new MySqlCommand(ingQuery, conn);
+                    cmdIng.Parameters.AddWithValue("@id", recipeId);
+                    using (MySqlDataReader readerIng = cmdIng.ExecuteReader())
+                    {
+                        listBoxIngredients.Items.Clear();
+                        while (readerIng.Read())
+                        {
+                            string name = readerIng.GetString("название_ингредиента");
+                            string quantity = readerIng.GetString("количество");
+                            listBoxIngredients.Items.Add($"{name} — {quantity}");
+                        }
+                    }
+
+                    // Теги (один тег в ComboBox)
+                    string tagQuery = @"
+                        SELECT т.название_тега
+                        FROM рецепт_тег рт
+                        JOIN теги т ON рт.айди_тега = т.айди_тега
+                        WHERE рт.айди_рецепта = @id
+                        ORDER BY т.название_тега";
+                    MySqlCommand cmdTag = new MySqlCommand(tagQuery, conn);
+                    cmdTag.Parameters.AddWithValue("@id", recipeId);
+                    using (MySqlDataReader readerTag = cmdTag.ExecuteReader())
+                    {
+                        comboBoxTag.Items.Clear();
+                        while (readerTag.Read())
+                        {
+                            comboBoxTag.Items.Add(readerTag.GetString("название_тега"));
+                        }
+                        if (comboBoxTag.Items.Count > 0)
+                            comboBoxTag.SelectedIndex = 0;
+                        else
+                            comboBoxTag.SelectedIndex = -1;
+                    }
+
+                    pictureBoxRecipeImage.Image = null; // заглушка
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки рецепта: " + ex.Message);
+                }
+            }
+        }
+
+        private void ClearRecipeDetails()
+        {
+            currentRecipeId = -1;
+            lblRecipeName.Text = "";
+            numericUpDownTime.Value = 0;
+            radioButtonEasy.Checked = false;
+            radioButtonMedium.Checked = false;
+            radioButtonHard.Checked = false;
+            textBoxInstruction.Text = "";
+            comboBoxCategory.SelectedIndex = -1;
+            listBoxIngredients.Items.Clear();
+            comboBoxTag.Items.Clear();
+            pictureBoxRecipeImage.Image = null;
+        }
+
+        private void LoadCategories()
+        {
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT название_категории FROM категории_рецептов ORDER BY название_категории";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    comboBoxCategory.Items.Clear();
+                    while (reader.Read())
+                    {
+                        comboBoxCategory.Items.Add(reader.GetString("название_категории"));
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки категорий: " + ex.Message);
+                }
+            }
+        }
+
+        // ==================== СОХРАНЕНИЕ ====================
+        private void roundedButton2_Click(object sender, EventArgs e)
+        {
+            if (currentRecipeId == -1)
+            {
+                MessageBox.Show("Выберите рецепт для сохранения.");
+                return;
+            }
+
+            string name = lblRecipeName.Text.Trim();
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Введите название рецепта.");
+                return;
+            }
+
+            string complexity = "";
+            if (radioButtonEasy.Checked) complexity = "легко";
+            else if (radioButtonMedium.Checked) complexity = "средне";
+            else if (radioButtonHard.Checked) complexity = "сложно";
+            else
+            {
+                MessageBox.Show("Выберите сложность.");
+                return;
+            }
+
+            int time = (int)numericUpDownTime.Value;
+            string instruction = textBoxInstruction.Text;
+
+            string categoryName = comboBoxCategory.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(categoryName))
+            {
+                MessageBox.Show("Выберите категорию.");
+                return;
+            }
+            int categoryId = GetCategoryIdByName(categoryName);
+            if (categoryId == -1)
+            {
+                MessageBox.Show("Категория не найдена.");
+                return;
+            }
+
+            string tagName = comboBoxTag.SelectedItem?.ToString();
+            int? tagId = null;
+            if (!string.IsNullOrEmpty(tagName))
+            {
+                tagId = GetTagIdByName(tagName);
+                if (tagId == -1)
+                {
+                    MessageBox.Show("Тег не найден.");
+                    return;
+                }
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Обновление основной информации
+                            string updateSql = @"
+                                UPDATE рецепты
+                                SET название_рецепта = @name,
+                                    время_приготовления_рецепта = @time,
+                                    сложность_рецепта = @complexity,
+                                    инструкция_рецепта = @instruction,
+                                    айди_категории_рецепта = @categoryId
+                                WHERE айди_рецепта = @id";
+                            MySqlCommand cmdUpdate = new MySqlCommand(updateSql, conn, transaction);
+                            cmdUpdate.Parameters.AddWithValue("@name", name);
+                            cmdUpdate.Parameters.AddWithValue("@time", time);
+                            cmdUpdate.Parameters.AddWithValue("@complexity", complexity);
+                            cmdUpdate.Parameters.AddWithValue("@instruction", instruction);
+                            cmdUpdate.Parameters.AddWithValue("@categoryId", categoryId);
+                            cmdUpdate.Parameters.AddWithValue("@id", currentRecipeId);
+                            cmdUpdate.ExecuteNonQuery();
+
+                            // Обновление ингредиентов
+                            string deleteIngSql = "DELETE FROM рецепт_ингредиент WHERE айди_рецепта = @id";
+                            MySqlCommand cmdDelIng = new MySqlCommand(deleteIngSql, conn, transaction);
+                            cmdDelIng.Parameters.AddWithValue("@id", currentRecipeId);
+                            cmdDelIng.ExecuteNonQuery();
+
+                            string insertIngSql = "INSERT INTO рецепт_ингредиент (айди_рецепта, айди_ингредиента, количество) VALUES (@recipeId, @ingredientId, @quantity)";
+                            foreach (var item in listBoxIngredients.Items)
+                            {
+                                string itemText = item.ToString();
+                                string[] parts = itemText.Split(new[] { " — " }, StringSplitOptions.None);
+                                if (parts.Length != 2) continue;
+                                string ingredientName = parts[0].Trim();
+                                string quantity = parts[1].Trim();
+
+                                int ingredientId = GetIngredientIdByName(ingredientName);
+                                if (ingredientId == -1)
+                                {
+                                    MessageBox.Show($"Ингредиент '{ingredientName}' не найден. Пропускаем.");
+                                    continue;
+                                }
+
+                                MySqlCommand cmdIns = new MySqlCommand(insertIngSql, conn, transaction);
+                                cmdIns.Parameters.AddWithValue("@recipeId", currentRecipeId);
+                                cmdIns.Parameters.AddWithValue("@ingredientId", ingredientId);
+                                cmdIns.Parameters.AddWithValue("@quantity", quantity);
+                                cmdIns.ExecuteNonQuery();
+                            }
+
+                            // Обновление тегов
+                            string deleteTagSql = "DELETE FROM рецепт_тег WHERE айди_рецепта = @id";
+                            MySqlCommand cmdDelTag = new MySqlCommand(deleteTagSql, conn, transaction);
+                            cmdDelTag.Parameters.AddWithValue("@id", currentRecipeId);
+                            cmdDelTag.ExecuteNonQuery();
+
+                            if (tagId.HasValue)
+                            {
+                                string insertTagSql = "INSERT INTO рецепт_тег (айди_рецепта, айди_тега) VALUES (@recipeId, @tagId)";
+                                MySqlCommand cmdInsTag = new MySqlCommand(insertTagSql, conn, transaction);
+                                cmdInsTag.Parameters.AddWithValue("@recipeId", currentRecipeId);
+                                cmdInsTag.Parameters.AddWithValue("@tagId", tagId.Value);
+                                cmdInsTag.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                            MessageBox.Show("Рецепт успешно сохранён.");
+                            LoadRecipes();
+                            LoadRecipeDetails(currentRecipeId);
+                            foreach (var item in listBoxRecipes.Items)
+                            {
+                                if (item is RecipeItem ri && ri.Id == currentRecipeId)
+                                {
+                                    listBoxRecipes.SelectedItem = item;
+                                    break;
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Ошибка при сохранении: " + ex.Message);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка подключения: " + ex.Message);
+                }
+            }
+        }
+
+        private int GetCategoryIdByName(string name)
+        {
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT айди_категории_рецепта FROM категории_рецептов WHERE название_категории = @name";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
+                }
+                catch { return -1; }
+            }
+        }
+
+        private int GetTagIdByName(string name)
+        {
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT айди_тега FROM теги WHERE название_тега = @name";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
+                }
+                catch { return -1; }
+            }
+        }
+        private int GetIngredientIdByName(string name)
+        {
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT айди_ингредиента FROM ингредиенты WHERE название_ингредиента = @name";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
+                }
+                catch { return -1; }
+            }
+        }
+        private void textBox8_TextChanged(object sender, EventArgs e) { }
         private void roundedButton3_Click(object sender, EventArgs e)
         {
             foreach (TabPage page in tabControl1.TabPages)
@@ -128,6 +475,273 @@ namespace RecipeNess
                 {
                     tabControl1.SelectedTab = page;
                     break;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public class Ingredient
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Quantity { get; set; }
+            public override string ToString() => $"{Name} — {Quantity}";
+        }
+
+        private List<Ingredient> allIngredients = new List<Ingredient>();
+
+        private void LoadSortOptions()
+        {
+            comboBoxSortIngredient.Items.Clear();
+            comboBoxSortIngredient.Items.Add("По названию (А-Я)");
+            comboBoxSortIngredient.Items.Add("По названию (Я-А)");
+            comboBoxSortIngredient.Items.Add("По количеству (возраст.)");
+            comboBoxSortIngredient.Items.Add("По количеству (убыв.)");
+            comboBoxSortIngredient.SelectedIndex = 0;
+        }
+
+        private void LoadIngredientsAdmin()
+        {
+            string query = "SELECT айди_ингредиента, название_ингредиента, кол_во_ингредиента FROM ингредиенты";
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    allIngredients.Clear();
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("айди_ингредиента");
+                        string name = reader.GetString("название_ингредиента");
+                        string quantity = reader["кол_во_ингредиента"]?.ToString() ?? "";
+                        allIngredients.Add(new Ingredient { Id = id, Name = name, Quantity = quantity });
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки ингредиентов: " + ex.Message);
+                }
+            }
+            RefreshIngredientsDisplay();
+        }
+
+        private void RefreshIngredientsDisplay()
+        {
+            if (listBoxIngredientsAdmin == null) return;
+
+            // Фильтрация по тексту поиска
+            string search = textBoxSearchIngredient?.Text.Trim().ToLower() ?? "";
+            var filtered = allIngredients;
+            if (!string.IsNullOrEmpty(search))
+            {
+                filtered = allIngredients.Where(i => i.Name.ToLower().Contains(search)).ToList();
+            }
+
+            // Сортировка
+            string sortOption = comboBoxSortIngredient?.SelectedItem?.ToString() ?? "По названию (А-Я)";
+            switch (sortOption)
+            {
+                case "По названию (А-Я)":
+                    filtered = filtered.OrderBy(i => i.Name).ToList();
+                    break;
+                case "По названию (Я-А)":
+                    filtered = filtered.OrderByDescending(i => i.Name).ToList();
+                    break;
+                case "По количеству (возраст.)":
+                    filtered = filtered.OrderBy(i => i.Quantity).ToList();
+                    break;
+                case "По количеству (убыв.)":
+                    filtered = filtered.OrderByDescending(i => i.Quantity).ToList();
+                    break;
+                default:
+                    filtered = filtered.OrderBy(i => i.Name).ToList();
+                    break;
+            }
+
+            listBoxIngredientsAdmin.Items.Clear();
+            foreach (var ing in filtered)
+            {
+                listBoxIngredientsAdmin.Items.Add(ing);
+            }
+        }
+
+        // Обработчики событий (можно разместить после конструктора)
+        private void textBoxSearchIngredient_TextChanged(object sender, EventArgs e)
+        {
+            RefreshIngredientsDisplay();
+        }
+
+        private void comboBoxSortIngredient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshIngredientsDisplay();
+        }
+
+
+
+
+
+
+
+
+
+
+        // Добавляем поля
+        private int currentIngredientId = -1;
+        private Ingredient selectedIngredient = null;
+
+        // Подписка на события (в конструкторе или в Load)
+        private void SetupIngredientsEvents()
+        {
+            listBoxIngredientsAdmin.SelectedIndexChanged += listBoxIngredientsAdmin_SelectedIndexChanged;
+            roundedButton8.Click += buttonAddEdit_Click;
+            roundedButton5.Click += buttonDelete_Click;
+        }
+
+        // Обработчик выбора ингредиента
+        private void listBoxIngredientsAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxIngredientsAdmin.SelectedItem is Ingredient ing)
+            {
+                currentIngredientId = ing.Id;
+                selectedIngredient = ing;
+                textBoxIngredientName.Text = ing.Name;
+            }
+            else
+            {
+                currentIngredientId = -1;
+                selectedIngredient = null;
+                textBoxIngredientName.Text = "";
+            }
+        }
+
+        // Обработчик добавления/изменения
+        private void buttonAddEdit_Click(object sender, EventArgs e)
+        {
+            string newName = textBoxIngredientName.Text.Trim();
+            if (string.IsNullOrEmpty(newName))
+            {
+                MessageBox.Show("Введите название ингредиента.");
+                return;
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    if (currentIngredientId == -1) // Добавление
+                    {
+                        // Проверка, существует ли уже ингредиент с таким названием
+                        string checkQuery = "SELECT COUNT(*) FROM ингредиенты WHERE название_ингредиента = @name";
+                        MySqlCommand cmdCheck = new MySqlCommand(checkQuery, conn);
+                        cmdCheck.Parameters.AddWithValue("@name", newName);
+                        int count = Convert.ToInt32(cmdCheck.ExecuteScalar());
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Ингредиент с таким названием уже существует.");
+                            return;
+                        }
+
+                        // Добавление
+                        string insertQuery = "INSERT INTO ингредиенты (название_ингредиента) VALUES (@name)";
+                        MySqlCommand cmdInsert = new MySqlCommand(insertQuery, conn);
+                        cmdInsert.Parameters.AddWithValue("@name", newName);
+                        cmdInsert.ExecuteNonQuery();
+                        MessageBox.Show("Ингредиент добавлен.");
+                    }
+                    else // Изменение
+                    {
+                        // Проверка, что новое название не совпадает с существующим (кроме текущего)
+                        string checkQuery = "SELECT COUNT(*) FROM ингредиенты WHERE название_ингредиента = @name AND айди_ингредиента != @id";
+                        MySqlCommand cmdCheck = new MySqlCommand(checkQuery, conn);
+                        cmdCheck.Parameters.AddWithValue("@name", newName);
+                        cmdCheck.Parameters.AddWithValue("@id", currentIngredientId);
+                        int count = Convert.ToInt32(cmdCheck.ExecuteScalar());
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Ингредиент с таким названием уже существует.");
+                            return;
+                        }
+
+                        string updateQuery = "UPDATE ингредиенты SET название_ингредиента = @name WHERE айди_ингредиента = @id";
+                        MySqlCommand cmdUpdate = new MySqlCommand(updateQuery, conn);
+                        cmdUpdate.Parameters.AddWithValue("@name", newName);
+                        cmdUpdate.Parameters.AddWithValue("@id", currentIngredientId);
+                        cmdUpdate.ExecuteNonQuery();
+                        MessageBox.Show("Ингредиент изменён.");
+                    }
+
+                    // Обновляем список ингредиентов
+                    LoadIngredientsAdmin();
+                    // Сбрасываем выделение
+                    currentIngredientId = -1;
+                    selectedIngredient = null;
+                    textBoxIngredientName.Text = "";
+                    // Восстанавливаем выделение, если нужно (можно оставить как есть)
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка: " + ex.Message);
+                }
+            }
+        }
+
+        // Обработчик удаления
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (currentIngredientId == -1)
+            {
+                MessageBox.Show("Выберите ингредиент для удаления.");
+                return;
+            }
+
+            DialogResult res = MessageBox.Show("Вы уверены, что хотите удалить ингредиент?",
+                                               "Подтверждение",
+                                               MessageBoxButtons.YesNo,
+                                               MessageBoxIcon.Question);
+            if (res == DialogResult.No) return;
+
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    // Удаляем связи с рецептами
+                    string deleteRefs = "DELETE FROM рецепт_ингредиент WHERE айди_ингредиента = @id";
+                    MySqlCommand cmdRefs = new MySqlCommand(deleteRefs, conn);
+                    cmdRefs.Parameters.AddWithValue("@id", currentIngredientId);
+                    cmdRefs.ExecuteNonQuery();
+
+                    // Удаляем сам ингредиент
+                    string deleteIng = "DELETE FROM ингредиенты WHERE айди_ингредиента = @id";
+                    MySqlCommand cmdIng = new MySqlCommand(deleteIng, conn);
+                    cmdIng.Parameters.AddWithValue("@id", currentIngredientId);
+                    cmdIng.ExecuteNonQuery();
+
+                    MessageBox.Show("Ингредиент удалён.");
+                    LoadIngredientsAdmin();
+                    currentIngredientId = -1;
+                    selectedIngredient = null;
+                    textBoxIngredientName.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка удаления: " + ex.Message);
                 }
             }
         }
