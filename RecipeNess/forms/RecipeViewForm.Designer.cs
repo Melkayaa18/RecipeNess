@@ -31,7 +31,7 @@
             splitContainer1 = new SplitContainer();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
-            roundedButton1 = new RecipeNess.controls.RoundedButton();
+            btnFavorite = new RecipeNess.controls.RoundedButton();
             label7 = new Label();
             panel4 = new Panel();
             checkedListBoxIngredients = new CheckedListBox();
@@ -109,7 +109,7 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.GrayText;
-            panel3.Controls.Add(roundedButton1);
+            panel3.Controls.Add(btnFavorite);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(label4);
@@ -118,18 +118,19 @@
             panel3.Size = new Size(237, 407);
             panel3.TabIndex = 1;
             // 
-            // roundedButton1
+            // btnFavorite
             // 
-            roundedButton1.BackColor = SystemColors.ControlDarkDark;
-            roundedButton1.BackgroundImage = Properties.Resources.heartIcon;
-            roundedButton1.BackgroundImageLayout = ImageLayout.Zoom;
-            roundedButton1.FlatAppearance.BorderSize = 0;
-            roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Location = new Point(88, 344);
-            roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(49, 46);
-            roundedButton1.TabIndex = 12;
-            roundedButton1.UseVisualStyleBackColor = false;
+            btnFavorite.BackColor = SystemColors.ControlDarkDark;
+            btnFavorite.BackgroundImage = Properties.Resources.heartIcon;
+            btnFavorite.BackgroundImageLayout = ImageLayout.Zoom;
+            btnFavorite.FlatAppearance.BorderSize = 0;
+            btnFavorite.FlatStyle = FlatStyle.Flat;
+            btnFavorite.Location = new Point(88, 344);
+            btnFavorite.Name = "btnFavorite";
+            btnFavorite.Size = new Size(49, 46);
+            btnFavorite.TabIndex = 12;
+            btnFavorite.UseVisualStyleBackColor = false;
+            btnFavorite.Click += btnFavorite_Click;
             // 
             // label7
             // 
@@ -312,7 +313,7 @@
             label6.Size = new Size(185, 28);
             label6.TabIndex = 1;
             label6.Text = "Эй, @Test_account !";
-            label6.Click += label6_Click;
+            //label6.Click += label6_Click;
             // 
             // RecipeViewForm
             // 
@@ -352,7 +353,7 @@
         private Panel panel3;
         private Label label4;
         private PictureBox pictureBox2;
-        private controls.RoundedButton roundedButton1;
+        private controls.RoundedButton btnFavorite;
         private Label label7;
         private Panel panel4;
         private CheckedListBox checkedListBoxIngredients;

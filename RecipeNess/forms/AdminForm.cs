@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using RecipeNess.classes;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace RecipeNess
@@ -8,6 +9,7 @@ namespace RecipeNess
     public partial class AdminForm : Form
     {
         private int currentRecipeId = -1; // ID текущего выбранного рецепта
+        private int currentModerationRecipeId = -1;
 
         public AdminForm()
         {
@@ -17,8 +19,9 @@ namespace RecipeNess
             textBoxSearchIngredient.TextChanged += textBoxSearchIngredient_TextChanged;
             comboBoxSortIngredient.SelectedIndexChanged += comboBoxSortIngredient_SelectedIndexChanged;
             roundedButton2.Click += roundedButton2_Click;
+            listBoxModerationRecipes.SelectedIndexChanged += listBoxModerationRecipes_SelectedIndexChanged;
+            roundedButtonDelete.Click += btnDeleteRecipe_Click_1;
 
-            
             panel1.BackColor = AppColors.AccentOran1;
             label1.ForeColor = AppColors.MainText;
             label2.ForeColor = AppColors.MainBackground;
@@ -43,11 +46,12 @@ namespace RecipeNess
             label15.ForeColor = AppColors.MainBackground;
             roundedButton4.BackColor = AppColors.AccentGreenLight;
             roundedButton5.BackColor = AppColors.Shapka;
+            roundedButtonDelete.BackColor = AppColors.MainBackground;
 
             splitContainer2.Panel2.BackColor = AppColors.AccentGreenLight;
             splitContainer2.Panel1.BackColor = AppColors.AccentOrangeLight;
-            roundedButton6.BackColor = AppColors.Shapka;
-            roundedButton7.BackColor = AppColors.Shapka;
+            btnApprove.BackColor = AppColors.Shapka;
+            btnReject.BackColor = AppColors.Shapka;
             panel7.BackColor = AppColors.Shapka;
             label23.ForeColor = AppColors.MainText;
             pictureBox2.BackColor = AppColors.AccentGreen2;
@@ -56,6 +60,7 @@ namespace RecipeNess
             tabPage3.BackColor = AppColors.AccentGreenLight;
             roundedButton8.BackColor = AppColors.Shapka;
             label26.ForeColor = AppColors.MainText;
+
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -67,6 +72,7 @@ namespace RecipeNess
             LoadSortOptions();
             LoadIngredientsAdmin();
             SetupIngredientsEvents();
+            LoadModerationRecipes();
         }
 
         private void LoadRecipes()
@@ -603,7 +609,8 @@ namespace RecipeNess
         // Добавляем поля
         private int currentIngredientId = -1;
         private Ingredient selectedIngredient = null;
-
+        private int currentModerationUserId = -1;
+        private string currentModerationRecipeTitle = "";
         // Подписка на события (в конструкторе или в Load)
         private void SetupIngredientsEvents()
         {
@@ -742,6 +749,337 @@ namespace RecipeNess
                 catch (Exception ex)
                 {
                     MessageBox.Show("Ошибка удаления: " + ex.Message);
+                }
+            }
+        }
+
+        private void LoadModerationRecipes()
+        {
+            // Загрузка рецептов со статусом "на проверке"
+            string query = @"
+        SELECT r.айди_рецепта, r.название_рецепта
+        FROM рецепты r
+        JOIN модерация m ON r.айди_рецепта = m.айди_рецепта
+        WHERE m.статус = 'на проверке'
+        ORDER BY r.название_рецепта";
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    listBoxModerationRecipes.Items.Clear();
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("айди_рецепта");
+                        string name = reader.GetString("название_рецепта");
+                        listBoxModerationRecipes.Items.Add(new RecipeItem(id, name));
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки рецептов на модерацию: " + ex.Message);
+                }
+            }
+        }
+        private void listBoxModerationRecipes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Выбран элемент");
+            if (listBoxModerationRecipes.SelectedItem is RecipeItem selected)
+            {
+                currentModerationRecipeId = selected.Id;
+                LoadModerationRecipeDetails(currentModerationRecipeId);
+            }
+            else
+            {
+                ClearModerationDetails();
+            }
+        }
+
+        // 4. Загрузка деталей рецепта для модерации
+        private void LoadModerationRecipeDetails(int recipeId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    // Основные данные + категория + тег
+                    string query = @"
+    SELECT r.айди_пользователя, r.название_рецепта, r.описание_рецепта, r.инструкция_рецепта,
+           r.время_приготовления_рецепта, r.сложность_рецепта,
+           кр.название_категории AS категория,
+           GROUP_CONCAT(т.название_тега SEPARATOR ', ') AS теги
+    FROM рецепты r
+    LEFT JOIN категории_рецептов кр ON r.айди_категории_рецепта = кр.айди_категории_рецепта
+    LEFT JOIN рецепт_тег рт ON r.айди_рецепта = рт.айди_рецепта
+    LEFT JOIN теги т ON рт.айди_тега = т.айди_тега
+    WHERE r.айди_рецепта = @id
+    GROUP BY r.айди_рецепта";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", recipeId);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            currentModerationUserId = reader.IsDBNull("айди_пользователя") ? -1 : reader.GetInt32("айди_пользователя");
+                            currentModerationRecipeTitle = reader["название_рецепта"]?.ToString() ?? "";
+                            lblModerationTitle.Text = reader["название_рецепта"]?.ToString() ?? "";
+                            lblModerationCategory.Text = reader["категория"]?.ToString() ?? "";
+                            lblModerationTags.Text = reader["теги"]?.ToString() ?? "";
+                            txtModerationDescription.Text = reader["описание_рецепта"]?.ToString() ?? "";
+                            txtModerationInstruction.Text = reader["инструкция_рецепта"]?.ToString() ?? "";
+                            numericModerationTime.Value = reader["время_приготовления_рецепта"] != DBNull.Value
+                                ? Convert.ToDecimal(reader["время_приготовления_рецепта"])
+                                : 0;
+                            string complexity = reader["сложность_рецепта"]?.ToString() ?? "";
+                            if (complexity == "легко") radioModerationEasy.Checked = true;
+                            else if (complexity == "средне") radioModerationMedium.Checked = true;
+                            else if (complexity == "сложно") radioModerationHard.Checked = true;
+                            else { radioModerationEasy.Checked = false; radioModerationMedium.Checked = false; radioModerationHard.Checked = false; }
+                        }
+                        else
+                        {
+                            ClearModerationDetails();
+                            return;
+                        }
+                    }
+
+                    // Ингредиенты
+                    string ingQuery = @"
+                SELECT и.название_ингредиента, ри.количество
+                FROM рецепт_ингредиент ри
+                JOIN ингредиенты и ON ри.айди_ингредиента = и.айди_ингредиента
+                WHERE ри.айди_рецепта = @id
+                ORDER BY и.название_ингредиента";
+                    MySqlCommand cmdIng = new MySqlCommand(ingQuery, conn);
+                    cmdIng.Parameters.AddWithValue("@id", recipeId);
+                    using (MySqlDataReader readerIng = cmdIng.ExecuteReader())
+                    {
+                        listBoxModerationIngredients.Items.Clear();
+                        while (readerIng.Read())
+                        {
+                            string name = readerIng.GetString("название_ингредиента");
+                            string quantity = readerIng.GetString("количество");
+                            listBoxModerationIngredients.Items.Add($"{name} — {quantity}");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки деталей рецепта: " + ex.Message);
+                }
+            }
+        }
+        private void ClearModerationDetails()
+        {
+            lblModerationTitle.Text = "";
+            lblModerationCategory.Text = "";
+            lblModerationTags.Text = "";
+            txtModerationDescription.Text = "";
+            txtModerationInstruction.Text = "";
+            numericModerationTime.Value = 0;
+            radioModerationEasy.Checked = false;
+            radioModerationMedium.Checked = false;
+            radioModerationHard.Checked = false;
+            listBoxModerationIngredients.Items.Clear();
+        }
+
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            if (currentModerationRecipeId == -1)
+            {
+                MessageBox.Show("Выберите рецепт.");
+                return;
+            }
+            string comment = txtModerationComment.Text.Trim();
+            if (string.IsNullOrEmpty(comment))
+            {
+                MessageBox.Show("Введите комментарий.");
+                return;
+            }
+
+
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string updateSql = @"
+                UPDATE модерация
+                SET статус = 'одобрено', комментарий = @comment, дата = NOW()
+                WHERE айди_рецепта = @id";
+                    MySqlCommand cmd = new MySqlCommand(updateSql, conn);
+                    cmd.Parameters.AddWithValue("@comment", comment);
+                    cmd.Parameters.AddWithValue("@id", currentModerationRecipeId);
+                    cmd.ExecuteNonQuery();
+                    // Добавляем уведомление пользователю
+                    if (currentModerationUserId != -1)
+                    {
+                        string insertNotify = @"
+        INSERT INTO уведомления (айди_пользователя, название_рецепта, статус, комментарий)
+        VALUES (@userId, @title, 'одобрено', @comment)";
+                        MySqlCommand cmdNotify = new MySqlCommand(insertNotify, conn);
+                        cmdNotify.Parameters.AddWithValue("@userId", currentModerationUserId);
+                        cmdNotify.Parameters.AddWithValue("@title", currentModerationRecipeTitle);
+                        cmdNotify.Parameters.AddWithValue("@comment", comment);
+                        cmdNotify.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Рецепт одобрен.");
+                    LoadModerationRecipes();
+                    ClearModerationDetails();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            if (currentModerationRecipeId == -1)
+            {
+                MessageBox.Show("Выберите рецепт.");
+                return;
+            }
+            string comment = txtModerationComment.Text.Trim();
+            if (string.IsNullOrEmpty(comment))
+            {
+                MessageBox.Show("Введите комментарий.");
+                return;
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1. Добавляем уведомление
+                            if (currentModerationUserId != -1)
+                            {
+                                string insertNotify = @"
+                            INSERT INTO уведомления (айди_пользователя, название_рецепта, статус, комментарий)
+                            VALUES (@userId, @title, 'отклонено', @comment)";
+                                MySqlCommand cmdNotify = new MySqlCommand(insertNotify, conn, transaction);
+                                cmdNotify.Parameters.AddWithValue("@userId", currentModerationUserId);
+                                cmdNotify.Parameters.AddWithValue("@title", currentModerationRecipeTitle);
+                                cmdNotify.Parameters.AddWithValue("@comment", comment);
+                                cmdNotify.ExecuteNonQuery();
+                            }
+
+                            // 2. Удаляем запись из модерации
+                            string deleteMod = "DELETE FROM модерация WHERE айди_рецепта = @id";
+                            MySqlCommand cmdDelMod = new MySqlCommand(deleteMod, conn, transaction);
+                            cmdDelMod.Parameters.AddWithValue("@id", currentModerationRecipeId);
+                            cmdDelMod.ExecuteNonQuery();
+
+                            // 3. Удаляем связи рецепт_тег
+                            string deleteTag = "DELETE FROM рецепт_тег WHERE айди_рецепта = @id";
+                            MySqlCommand cmdTag = new MySqlCommand(deleteTag, conn, transaction);
+                            cmdTag.Parameters.AddWithValue("@id", currentModerationRecipeId);
+                            cmdTag.ExecuteNonQuery();
+
+                            // 4. Удаляем связи рецепт_ингредиент
+                            string deleteIng = "DELETE FROM рецепт_ингредиент WHERE айди_рецепта = @id";
+                            MySqlCommand cmdIng = new MySqlCommand(deleteIng, conn, transaction);
+                            cmdIng.Parameters.AddWithValue("@id", currentModerationRecipeId);
+                            cmdIng.ExecuteNonQuery();
+
+                            // 5. Удаляем сам рецепт
+                            string deleteRecipe = "DELETE FROM рецепты WHERE айди_рецепта = @id";
+                            MySqlCommand cmdRecipe = new MySqlCommand(deleteRecipe, conn, transaction);
+                            cmdRecipe.Parameters.AddWithValue("@id", currentModerationRecipeId);
+                            cmdRecipe.ExecuteNonQuery();
+
+                            transaction.Commit();
+                            MessageBox.Show("Рецепт отклонён и удалён.");
+                            LoadModerationRecipes();      // обновляем список модерации
+                            ClearModerationDetails();     // очищаем правую панель
+                            LoadRecipes();                // обновляем общий список рецептов (админ)
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Ошибка при отклонении рецепта: " + ex.Message);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка подключения: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnDeleteRecipe_Click_1(object sender, EventArgs e)
+        {
+            if (currentRecipeId == -1)
+            {
+                MessageBox.Show("Выберите рецепт для удаления.");
+                return;
+            }
+
+            DialogResult res = MessageBox.Show("Вы уверены, что хотите удалить рецепт? Это действие необратимо.",
+                                               "Подтверждение",
+                                               MessageBoxButtons.YesNo,
+                                               MessageBoxIcon.Warning);
+            if (res == DialogResult.No) return;
+
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1. Удаляем записи из рецепт_тег
+                            string deleteTag = "DELETE FROM рецепт_тег WHERE айди_рецепта = @id";
+                            MySqlCommand cmdTag = new MySqlCommand(deleteTag, conn, transaction);
+                            cmdTag.Parameters.AddWithValue("@id", currentRecipeId);
+                            cmdTag.ExecuteNonQuery();
+
+                            // 2. Удаляем записи из рецепт_ингредиент
+                            string deleteIng = "DELETE FROM рецепт_ингредиент WHERE айди_рецепта = @id";
+                            MySqlCommand cmdIng = new MySqlCommand(deleteIng, conn, transaction);
+                            cmdIng.Parameters.AddWithValue("@id", currentRecipeId);
+                            cmdIng.ExecuteNonQuery();
+
+                            // 3. Удаляем запись из модерации (если есть)
+                            string deleteMod = "DELETE FROM модерация WHERE айди_рецепта = @id";
+                            MySqlCommand cmdMod = new MySqlCommand(deleteMod, conn, transaction);
+                            cmdMod.Parameters.AddWithValue("@id", currentRecipeId);
+                            cmdMod.ExecuteNonQuery();
+
+                            // 4. Удаляем сам рецепт
+                            string deleteRecipe = "DELETE FROM рецепты WHERE айди_рецепта = @id";
+                            MySqlCommand cmdRecipe = new MySqlCommand(deleteRecipe, conn, transaction);
+                            cmdRecipe.Parameters.AddWithValue("@id", currentRecipeId);
+                            cmdRecipe.ExecuteNonQuery();
+
+                            transaction.Commit();
+                            MessageBox.Show("Рецепт удалён.");
+                            LoadRecipes();               // обновляем список рецептов
+                            ClearRecipeDetails();        // очищаем правую панель
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Ошибка при удалении: " + ex.Message);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка подключения: " + ex.Message);
                 }
             }
         }

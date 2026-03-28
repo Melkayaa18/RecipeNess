@@ -37,12 +37,14 @@ namespace RecipeNess
             roundedButton1 = new RoundedButton();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanelFavorite = new FlowLayoutPanel();
             tabPage2 = new TabPage();
+            flowLayoutPanelMyRecipes = new FlowLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -117,7 +119,7 @@ namespace RecipeNess
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(flowLayoutPanel1);
+            tabPage1.Controls.Add(flowLayoutPanelFavorite);
             tabPage1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
@@ -127,20 +129,21 @@ namespace RecipeNess
             tabPage1.Text = "Избранные рецепты";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanelFavorite
             // 
-            flowLayoutPanel1.BackgroundImage = Properties.Resources.FrameBackgr;
-            flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Zoom;
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(786, 371);
-            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanelFavorite.BackgroundImage = Properties.Resources.FrameBackgr;
+            flowLayoutPanelFavorite.BackgroundImageLayout = ImageLayout.Zoom;
+            flowLayoutPanelFavorite.Dock = DockStyle.Fill;
+            flowLayoutPanelFavorite.Location = new Point(3, 3);
+            flowLayoutPanelFavorite.Name = "flowLayoutPanelFavorite";
+            flowLayoutPanelFavorite.Size = new Size(786, 371);
+            flowLayoutPanelFavorite.TabIndex = 0;
             // 
             // tabPage2
             // 
             tabPage2.BackgroundImage = Properties.Resources.FrameBackgr;
             tabPage2.BackgroundImageLayout = ImageLayout.Zoom;
+            tabPage2.Controls.Add(flowLayoutPanelMyRecipes);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -148,6 +151,14 @@ namespace RecipeNess
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Мои рецепты";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelMyRecipes
+            // 
+            flowLayoutPanelMyRecipes.Dock = DockStyle.Fill;
+            flowLayoutPanelMyRecipes.Location = new Point(3, 3);
+            flowLayoutPanelMyRecipes.Name = "flowLayoutPanelMyRecipes";
+            flowLayoutPanelMyRecipes.Size = new Size(786, 371);
+            flowLayoutPanelMyRecipes.TabIndex = 0;
             // 
             // ProfileMainForm
             // 
@@ -163,6 +174,7 @@ namespace RecipeNess
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -173,9 +185,10 @@ namespace RecipeNess
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanelFavorite;
         private RoundedButton roundedButton1;
         private RoundedButton roundedButton2;
         private PictureBox pictureBox1;
+        private FlowLayoutPanel flowLayoutPanelMyRecipes;
     }
 }

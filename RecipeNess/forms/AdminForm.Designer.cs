@@ -68,28 +68,33 @@ namespace RecipeNess
             label12 = new Label();
             label13 = new Label();
             roundedButton4 = new RoundedButton();
+            roundedButtonDelete = new RoundedButton();
             lblRecipeName = new Label();
             tabPage2 = new TabPage();
             splitContainer2 = new SplitContainer();
-            roundedButton7 = new RoundedButton();
-            roundedButton6 = new RoundedButton();
-            listBox3 = new ListBox();
+            btnReject = new RoundedButton();
+            btnApprove = new RoundedButton();
+            listBoxModerationRecipes = new ListBox();
             panel7 = new Panel();
-            textBox2 = new TextBox();
+            txtModerationComment = new TextBox();
             label23 = new Label();
-            listBox6 = new ListBox();
+            numericModerationTime = new NumericUpDown();
+            radioModerationHard = new RadioButton();
+            radioModerationMedium = new RadioButton();
+            radioModerationEasy = new RadioButton();
+            label4 = new Label();
+            lblModerationCategory = new TextBox();
+            lblModerationTags = new TextBox();
             label22 = new Label();
             label19 = new Label();
             label18 = new Label();
             pictureBox2 = new PictureBox();
-            textBox8 = new TextBox();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
-            listBox4 = new ListBox();
+            txtModerationInstruction = new TextBox();
+            listBoxModerationIngredients = new ListBox();
             label17 = new Label();
             label16 = new Label();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
+            txtModerationDescription = new TextBox();
+            lblModerationTitle = new TextBox();
             label20 = new Label();
             label21 = new Label();
             label28 = new Label();
@@ -124,6 +129,7 @@ namespace RecipeNess
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericModerationTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabPage3.SuspendLayout();
             panel8.SuspendLayout();
@@ -323,6 +329,7 @@ namespace RecipeNess
             panel4.Controls.Add(listBoxIngredients);
             panel4.Controls.Add(panel6);
             panel4.Controls.Add(roundedButton4);
+            panel4.Controls.Add(roundedButtonDelete);
             panel4.Location = new Point(12, 24);
             panel4.Name = "panel4";
             panel4.Size = new Size(531, 361);
@@ -543,6 +550,18 @@ namespace RecipeNess
             roundedButton4.Text = "+";
             roundedButton4.UseVisualStyleBackColor = true;
             // 
+            // roundedButtonDelete
+            // 
+            roundedButtonDelete.FlatAppearance.BorderSize = 0;
+            roundedButtonDelete.FlatStyle = FlatStyle.Flat;
+            roundedButtonDelete.Location = new Point(273, 328);
+            roundedButtonDelete.Name = "roundedButtonDelete";
+            roundedButtonDelete.Size = new Size(118, 24);
+            roundedButtonDelete.TabIndex = 12;
+            roundedButtonDelete.Text = "Удалить рецепт";
+            roundedButtonDelete.UseVisualStyleBackColor = true;
+            roundedButtonDelete.Click += btnDeleteRecipe_Click_1;
+            // 
             // lblRecipeName
             // 
             lblRecipeName.AutoSize = true;
@@ -573,11 +592,11 @@ namespace RecipeNess
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.Silver;
-            splitContainer2.Panel1.Controls.Add(roundedButton7);
-            splitContainer2.Panel1.Controls.Add(roundedButton6);
-            splitContainer2.Panel1.Controls.Add(listBox3);
+            splitContainer2.Panel1.Controls.Add(btnReject);
+            splitContainer2.Panel1.Controls.Add(btnApprove);
+            splitContainer2.Panel1.Controls.Add(listBoxModerationRecipes);
             splitContainer2.Panel1.Controls.Add(panel7);
-            splitContainer2.Panel1.Controls.Add(textBox2);
+            splitContainer2.Panel1.Controls.Add(txtModerationComment);
             splitContainer2.Panel1.Controls.Add(label23);
             // 
             // splitContainer2.Panel2
@@ -585,19 +604,23 @@ namespace RecipeNess
             splitContainer2.Panel2.BackColor = Color.Gainsboro;
             splitContainer2.Panel2.BackgroundImage = Properties.Resources.FrameBackgr;
             splitContainer2.Panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            splitContainer2.Panel2.Controls.Add(listBox6);
+            splitContainer2.Panel2.Controls.Add(numericModerationTime);
+            splitContainer2.Panel2.Controls.Add(radioModerationHard);
+            splitContainer2.Panel2.Controls.Add(radioModerationMedium);
+            splitContainer2.Panel2.Controls.Add(radioModerationEasy);
+            splitContainer2.Panel2.Controls.Add(label4);
+            splitContainer2.Panel2.Controls.Add(lblModerationCategory);
+            splitContainer2.Panel2.Controls.Add(lblModerationTags);
             splitContainer2.Panel2.Controls.Add(label22);
             splitContainer2.Panel2.Controls.Add(label19);
             splitContainer2.Panel2.Controls.Add(label18);
             splitContainer2.Panel2.Controls.Add(pictureBox2);
-            splitContainer2.Panel2.Controls.Add(textBox8);
-            splitContainer2.Panel2.Controls.Add(textBox7);
-            splitContainer2.Panel2.Controls.Add(textBox6);
-            splitContainer2.Panel2.Controls.Add(listBox4);
+            splitContainer2.Panel2.Controls.Add(txtModerationInstruction);
+            splitContainer2.Panel2.Controls.Add(listBoxModerationIngredients);
             splitContainer2.Panel2.Controls.Add(label17);
             splitContainer2.Panel2.Controls.Add(label16);
-            splitContainer2.Panel2.Controls.Add(textBox5);
-            splitContainer2.Panel2.Controls.Add(textBox4);
+            splitContainer2.Panel2.Controls.Add(txtModerationDescription);
+            splitContainer2.Panel2.Controls.Add(lblModerationTitle);
             splitContainer2.Panel2.Controls.Add(label20);
             splitContainer2.Panel2.Controls.Add(label21);
             splitContainer2.Panel2.Controls.Add(label28);
@@ -605,36 +628,38 @@ namespace RecipeNess
             splitContainer2.SplitterDistance = 262;
             splitContainer2.TabIndex = 0;
             // 
-            // roundedButton7
+            // btnReject
             // 
-            roundedButton7.FlatAppearance.BorderSize = 0;
-            roundedButton7.FlatStyle = FlatStyle.Flat;
-            roundedButton7.Location = new Point(70, 340);
-            roundedButton7.Name = "roundedButton7";
-            roundedButton7.Size = new Size(115, 26);
-            roundedButton7.TabIndex = 15;
-            roundedButton7.Text = "Отклонить";
-            roundedButton7.UseVisualStyleBackColor = true;
+            btnReject.FlatAppearance.BorderSize = 0;
+            btnReject.FlatStyle = FlatStyle.Flat;
+            btnReject.Location = new Point(70, 340);
+            btnReject.Name = "btnReject";
+            btnReject.Size = new Size(115, 26);
+            btnReject.TabIndex = 15;
+            btnReject.Text = "Отклонить";
+            btnReject.UseVisualStyleBackColor = true;
+            btnReject.Click += btnReject_Click;
             // 
-            // roundedButton6
+            // btnApprove
             // 
-            roundedButton6.FlatAppearance.BorderSize = 0;
-            roundedButton6.FlatStyle = FlatStyle.Flat;
-            roundedButton6.Location = new Point(30, 306);
-            roundedButton6.Name = "roundedButton6";
-            roundedButton6.Size = new Size(193, 28);
-            roundedButton6.TabIndex = 14;
-            roundedButton6.Text = "Одобрить и выложить";
-            roundedButton6.UseVisualStyleBackColor = true;
+            btnApprove.FlatAppearance.BorderSize = 0;
+            btnApprove.FlatStyle = FlatStyle.Flat;
+            btnApprove.Location = new Point(30, 306);
+            btnApprove.Name = "btnApprove";
+            btnApprove.Size = new Size(193, 28);
+            btnApprove.TabIndex = 14;
+            btnApprove.Text = "Одобрить и выложить";
+            btnApprove.UseVisualStyleBackColor = true;
+            btnApprove.Click += btnApprove_Click;
             // 
-            // listBox3
+            // listBoxModerationRecipes
             // 
-            listBox3.Font = new Font("Segoe UI", 12F);
-            listBox3.FormattingEnabled = true;
-            listBox3.Location = new Point(30, 13);
-            listBox3.Name = "listBox3";
-            listBox3.Size = new Size(218, 172);
-            listBox3.TabIndex = 4;
+            listBoxModerationRecipes.Font = new Font("Segoe UI", 12F);
+            listBoxModerationRecipes.FormattingEnabled = true;
+            listBoxModerationRecipes.Location = new Point(30, 13);
+            listBoxModerationRecipes.Name = "listBoxModerationRecipes";
+            listBoxModerationRecipes.Size = new Size(218, 172);
+            listBoxModerationRecipes.TabIndex = 4;
             // 
             // panel7
             // 
@@ -644,13 +669,13 @@ namespace RecipeNess
             panel7.Size = new Size(17, 172);
             panel7.TabIndex = 3;
             // 
-            // textBox2
+            // txtModerationComment
             // 
-            textBox2.Location = new Point(15, 200);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(233, 102);
-            textBox2.TabIndex = 2;
+            txtModerationComment.Location = new Point(15, 200);
+            txtModerationComment.Multiline = true;
+            txtModerationComment.Name = "txtModerationComment";
+            txtModerationComment.Size = new Size(233, 102);
+            txtModerationComment.TabIndex = 2;
             // 
             // label23
             // 
@@ -662,13 +687,69 @@ namespace RecipeNess
             label23.TabIndex = 14;
             label23.Text = "Комментарий к модерации";
             // 
-            // listBox6
+            // numericModerationTime
             // 
-            listBox6.FormattingEnabled = true;
-            listBox6.Location = new Point(157, 70);
-            listBox6.Name = "listBox6";
-            listBox6.Size = new Size(95, 94);
-            listBox6.TabIndex = 14;
+            numericModerationTime.Location = new Point(16, 186);
+            numericModerationTime.Name = "numericModerationTime";
+            numericModerationTime.Size = new Size(161, 23);
+            numericModerationTime.TabIndex = 22;
+            // 
+            // radioModerationHard
+            // 
+            radioModerationHard.AutoSize = true;
+            radioModerationHard.Location = new Point(172, 244);
+            radioModerationHard.Name = "radioModerationHard";
+            radioModerationHard.Size = new Size(68, 19);
+            radioModerationHard.TabIndex = 21;
+            radioModerationHard.TabStop = true;
+            radioModerationHard.Text = "сложно";
+            radioModerationHard.UseVisualStyleBackColor = true;
+            // 
+            // radioModerationMedium
+            // 
+            radioModerationMedium.AutoSize = true;
+            radioModerationMedium.Location = new Point(78, 244);
+            radioModerationMedium.Name = "radioModerationMedium";
+            radioModerationMedium.Size = new Size(88, 19);
+            radioModerationMedium.TabIndex = 20;
+            radioModerationMedium.TabStop = true;
+            radioModerationMedium.Text = "нормально";
+            radioModerationMedium.UseVisualStyleBackColor = true;
+            // 
+            // radioModerationEasy
+            // 
+            radioModerationEasy.AutoSize = true;
+            radioModerationEasy.Location = new Point(16, 244);
+            radioModerationEasy.Name = "radioModerationEasy";
+            radioModerationEasy.Size = new Size(56, 19);
+            radioModerationEasy.TabIndex = 19;
+            radioModerationEasy.TabStop = true;
+            radioModerationEasy.Text = "легко";
+            radioModerationEasy.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label4.Location = new Point(183, 122);
+            label4.Name = "label4";
+            label4.Size = new Size(71, 15);
+            label4.TabIndex = 18;
+            label4.Text = "Категория";
+            // 
+            // lblModerationCategory
+            // 
+            lblModerationCategory.Location = new Point(183, 140);
+            lblModerationCategory.Name = "lblModerationCategory";
+            lblModerationCategory.Size = new Size(95, 23);
+            lblModerationCategory.TabIndex = 17;
+            // 
+            // lblModerationTags
+            // 
+            lblModerationTags.Location = new Point(183, 89);
+            lblModerationTags.Name = "lblModerationTags";
+            lblModerationTags.Size = new Size(95, 23);
+            lblModerationTags.TabIndex = 16;
             // 
             // label22
             // 
@@ -702,51 +783,35 @@ namespace RecipeNess
             // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(258, 70);
+            pictureBox2.Location = new Point(293, 97);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(253, 200);
+            pictureBox2.Size = new Size(218, 173);
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
-            // textBox8
+            // txtModerationInstruction
             // 
-            textBox8.Font = new Font("Segoe UI", 11F);
-            textBox8.Location = new Point(16, 288);
-            textBox8.Multiline = true;
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(495, 90);
-            textBox8.TabIndex = 7;
-            textBox8.TextChanged += textBox8_TextChanged;
+            txtModerationInstruction.Font = new Font("Segoe UI", 11F);
+            txtModerationInstruction.Location = new Point(16, 288);
+            txtModerationInstruction.Multiline = true;
+            txtModerationInstruction.Name = "txtModerationInstruction";
+            txtModerationInstruction.Size = new Size(495, 90);
+            txtModerationInstruction.TabIndex = 7;
+            txtModerationInstruction.TextChanged += textBox8_TextChanged;
             // 
-            // textBox7
+            // listBoxModerationIngredients
             // 
-            textBox7.Location = new Point(16, 235);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(236, 35);
-            textBox7.TabIndex = 6;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(16, 185);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(236, 35);
-            textBox6.TabIndex = 5;
-            // 
-            // listBox4
-            // 
-            listBox4.FormattingEnabled = true;
-            listBox4.Location = new Point(16, 70);
-            listBox4.Name = "listBox4";
-            listBox4.Size = new Size(135, 94);
-            listBox4.TabIndex = 4;
+            listBoxModerationIngredients.FormattingEnabled = true;
+            listBoxModerationIngredients.Location = new Point(16, 70);
+            listBoxModerationIngredients.Name = "listBoxModerationIngredients";
+            listBoxModerationIngredients.Size = new Size(161, 94);
+            listBoxModerationIngredients.TabIndex = 4;
             // 
             // label17
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label17.Location = new Point(200, 7);
+            label17.Location = new Point(293, 7);
             label17.Name = "label17";
             label17.Size = new Size(122, 15);
             label17.TabIndex = 3;
@@ -762,29 +827,29 @@ namespace RecipeNess
             label16.TabIndex = 2;
             label16.Text = "Название рецепта";
             // 
-            // textBox5
+            // txtModerationDescription
             // 
-            textBox5.Font = new Font("Segoe UI", 11F);
-            textBox5.Location = new Point(200, 25);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(311, 29);
-            textBox5.TabIndex = 1;
+            txtModerationDescription.Font = new Font("Segoe UI", 11F);
+            txtModerationDescription.Location = new Point(293, 25);
+            txtModerationDescription.Multiline = true;
+            txtModerationDescription.Name = "txtModerationDescription";
+            txtModerationDescription.Size = new Size(218, 51);
+            txtModerationDescription.TabIndex = 1;
             // 
-            // textBox4
+            // lblModerationTitle
             // 
-            textBox4.Font = new Font("Segoe UI", 11F);
-            textBox4.Location = new Point(16, 25);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(161, 29);
-            textBox4.TabIndex = 0;
+            lblModerationTitle.Font = new Font("Segoe UI", 11F);
+            lblModerationTitle.Location = new Point(16, 25);
+            lblModerationTitle.Multiline = true;
+            lblModerationTitle.Name = "lblModerationTitle";
+            lblModerationTitle.Size = new Size(262, 29);
+            lblModerationTitle.TabIndex = 0;
             // 
             // label20
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label20.Location = new Point(258, 55);
+            label20.Location = new Point(293, 79);
             label20.Name = "label20";
             label20.Size = new Size(42, 15);
             label20.TabIndex = 11;
@@ -794,7 +859,7 @@ namespace RecipeNess
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label21.Location = new Point(16, 219);
+            label21.Location = new Point(14, 223);
             label21.Name = "label21";
             label21.Size = new Size(167, 15);
             label21.TabIndex = 12;
@@ -804,7 +869,7 @@ namespace RecipeNess
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label28.Location = new Point(157, 54);
+            label28.Location = new Point(183, 70);
             label28.Name = "label28";
             label28.Size = new Size(25, 15);
             label28.TabIndex = 15;
@@ -967,6 +1032,7 @@ namespace RecipeNess
             splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericModerationTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
@@ -1014,16 +1080,14 @@ namespace RecipeNess
         private ListBox listBoxRecipes;
         private Label label15;
         private SplitContainer splitContainer2;
-        private ListBox listBox3;
+        private ListBox listBoxModerationRecipes;
         private Panel panel7;
-        private TextBox textBox2;
-        private TextBox textBox5;
-        private TextBox textBox4;
+        private TextBox txtModerationComment;
+        private TextBox txtModerationDescription;
+        private TextBox lblModerationTitle;
         private Label label17;
         private Label label16;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private TextBox textBox6;
+        private TextBox txtModerationInstruction;
         private Label label20;
         private Label label19;
         private Label label18;
@@ -1041,15 +1105,22 @@ namespace RecipeNess
         private RoundedButton roundedButton3;
         private RoundedButton roundedButton2;
         private RoundedButton roundedButton4;
-        private RoundedButton roundedButton7;
-        private RoundedButton roundedButton6;
+        private RoundedButton btnReject;
+        private RoundedButton btnApprove;
         private RoundedButton roundedButton8;
         private PictureBox pictureBox3;
         private ComboBox comboBoxTag;
-        private ListBox listBox6;
-        private ListBox listBox4;
+        private ListBox listBoxModerationIngredients;
         private Label label28;
         private TextBox textBoxSearchIngredient;
         private RoundedButton roundedButton5;
+        private Label label4;
+        private TextBox lblModerationCategory;
+        private TextBox lblModerationTags;
+        private RadioButton radioModerationHard;
+        private RadioButton radioModerationMedium;
+        private RadioButton radioModerationEasy;
+        private NumericUpDown numericModerationTime;
+        private RoundedButton roundedButtonDelete;
     }
 }

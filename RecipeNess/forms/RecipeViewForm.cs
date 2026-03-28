@@ -1,11 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using RecipeNess.classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace RecipeNess
@@ -13,36 +8,24 @@ namespace RecipeNess
     public partial class RecipeViewForm : Form
     {
         private int recipeId;
+        private bool isFavorite = false;
+
         public RecipeViewForm(int id)
         {
             InitializeComponent();
-            splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;//акцценторанжлайт
-            panel3.BackColor = AppColors.Shapka;//шапка
+            splitContainer1.Panel1.BackColor = AppColors.AccentOrangeLight;
+            panel3.BackColor = AppColors.Shapka;
             splitContainer1.Panel2.BackColor = AppColors.PanelBackground;
-            roundedButton1.BackColor = AppColors.AccentOrange;
+            btnFavorite.BackColor = AppColors.AccentOrange; // по умолчанию, но переопределится после проверки
             panel2.BackColor = AppColors.AccentGreen2;
-
             recipeId = id;
             LoadRecipeData();
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
 
         }
 
         private void LoadRecipeData()
         {
+            //MessageBox.Show($"CurrentUser.Id = {CurrentUser.Id}");
             using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
             {
                 try
@@ -57,8 +40,7 @@ namespace RecipeNess
                         LEFT JOIN рецепт_тег rt ON r.айди_рецепта = rt.айди_рецепта
                         LEFT JOIN теги t ON rt.айди_тега = t.айди_тега
                         WHERE r.айди_рецепта = @id
-                        GROUP BY r.айди_рецепта
-                    ";
+                        GROUP BY r.айди_рецепта";
                     MySqlCommand cmdRecipe = new MySqlCommand(recipeQuery, conn);
                     cmdRecipe.Parameters.AddWithValue("@id", recipeId);
                     using (MySqlDataReader reader = cmdRecipe.ExecuteReader())
@@ -76,17 +58,17 @@ namespace RecipeNess
                         {
                             MessageBox.Show("Рецепт не найден.");
                             this.Close();
+                            return;
                         }
                     }
 
-                    // Ингредиенты с количеством
+                    // Ингредиенты
                     string ingredientsQuery = @"
                         SELECT и.название_ингредиента, ри.количество
                         FROM рецепт_ингредиент ри
                         JOIN ингредиенты и ON ри.айди_ингредиента = и.айди_ингредиента
                         WHERE ри.айди_рецепта = @id
-                        ORDER BY и.название_ингредиента
-                    ";
+                        ORDER BY и.название_ингредиента";
                     MySqlCommand cmdIngredients = new MySqlCommand(ingredientsQuery, conn);
                     cmdIngredients.Parameters.AddWithValue("@id", recipeId);
                     using (MySqlDataReader readerIng = cmdIngredients.ExecuteReader())
@@ -99,10 +81,60 @@ namespace RecipeNess
                             checkedListBoxIngredients.Items.Add($"{name} — {quantity}");
                         }
                     }
+
+                    // Проверка, добавлен ли рецепт в избранное
+                    string checkFav = "SELECT COUNT(*) FROM избранное WHERE айди_пользователя = @userId AND айди_рецепта = @recipeId";
+                    MySqlCommand cmdFav = new MySqlCommand(checkFav, conn);
+                    cmdFav.Parameters.AddWithValue("@userId", CurrentUser.Id);
+                    cmdFav.Parameters.AddWithValue("@recipeId", recipeId);
+                    int count = Convert.ToInt32(cmdFav.ExecuteScalar());
+                    isFavorite = (count > 0);
+                    if (isFavorite)
+                        btnFavorite.BackColor = AppColors.AccentOrange; // активный цвет
+                    else
+                        btnFavorite.BackColor = Color.Transparent; // прозрачный или другой цвет по умолчанию
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Ошибка загрузки рецепта: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnFavorite_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("btnFavorite_Click вызван");
+            using (MySqlConnection conn = new MySqlConnection(DatabaseHelper.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    if (isFavorite)
+                    {
+                        // Удаляем из избранного
+                        string deleteSql = "DELETE FROM избранное WHERE айди_пользователя = @userId AND айди_рецепта = @recipeId";
+                        MySqlCommand cmd = new MySqlCommand(deleteSql, conn);
+                        cmd.Parameters.AddWithValue("@userId", CurrentUser.Id);
+                        cmd.Parameters.AddWithValue("@recipeId", recipeId);
+                        cmd.ExecuteNonQuery();
+                        btnFavorite.BackColor = Color.Transparent;
+                        isFavorite = false;
+                    }
+                    else
+                    {
+                        // Добавляем в избранное
+                        string insertSql = "INSERT INTO избранное (айди_пользователя, айди_рецепта) VALUES (@userId, @recipeId)";
+                        MySqlCommand cmd = new MySqlCommand(insertSql, conn);
+                        cmd.Parameters.AddWithValue("@userId", CurrentUser.Id);
+                        cmd.Parameters.AddWithValue("@recipeId", recipeId);
+                        cmd.ExecuteNonQuery();
+                        btnFavorite.BackColor = AppColors.AccentOrange;
+                        isFavorite = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка при изменении избранного: " + ex.Message);
                 }
             }
         }

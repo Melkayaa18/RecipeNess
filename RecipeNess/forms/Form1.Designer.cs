@@ -125,7 +125,6 @@ namespace RecipeNess
             label6.Size = new Size(185, 28);
             label6.TabIndex = 0;
             label6.Text = "Окно фильтрации";
-            //label6.Click += label6_Click;
             // 
             // label7
             // 
@@ -158,7 +157,6 @@ namespace RecipeNess
             splitContainer1.Panel1.BackColor = SystemColors.ControlDark;
             splitContainer1.Panel1.Controls.Add(label1);
             splitContainer1.Panel1.Controls.Add(panel2);
-            //splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
             // 
             // splitContainer1.Panel2
             // 
@@ -246,7 +244,6 @@ namespace RecipeNess
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(232, 23);
             textBox1.TabIndex = 1;
-            textBox1.Text = "🔍︎";
             // 
             // panel3
             // 

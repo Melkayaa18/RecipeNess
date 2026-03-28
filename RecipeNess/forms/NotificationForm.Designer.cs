@@ -28,19 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             roundedButton2 = new RecipeNess.controls.RoundedButton();
             pictureBox3 = new PictureBox();
             label2 = new Label();
-            dgvNotifications = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
+            dataGridViewNotifications = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvNotifications).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewNotifications).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -89,48 +84,21 @@
             label2.TabIndex = 2;
             label2.Text = "Уведомления";
             // 
-            // dgvNotifications
+            // dataGridViewNotifications
             // 
-            dgvNotifications.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNotifications.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            dgvNotifications.Dock = DockStyle.Fill;
-            dgvNotifications.Location = new Point(0, 44);
-            dgvNotifications.Name = "dgvNotifications";
-            dgvNotifications.Size = new Size(684, 317);
-            dgvNotifications.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            Column1.DefaultCellStyle = dataGridViewCellStyle1;
-            Column1.HeaderText = "Название рецепта";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Дата ответа";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Принят/Отклонен";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Комментарий к работе";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
+            dataGridViewNotifications.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewNotifications.Dock = DockStyle.Fill;
+            dataGridViewNotifications.Location = new Point(0, 44);
+            dataGridViewNotifications.Name = "dataGridViewNotifications";
+            dataGridViewNotifications.Size = new Size(684, 317);
+            dataGridViewNotifications.TabIndex = 2;
             // 
             // NotificationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(684, 361);
-            Controls.Add(dgvNotifications);
+            Controls.Add(dataGridViewNotifications);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -141,7 +109,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvNotifications).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewNotifications).EndInit();
             ResumeLayout(false);
         }
 
@@ -149,11 +117,7 @@
         private Panel panel1;
         private PictureBox pictureBox3;
         private Label label2;
-        private DataGridView dgvNotifications;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
+        private DataGridView dataGridViewNotifications;
         private controls.RoundedButton roundedButton2;
     }
 }
